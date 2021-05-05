@@ -3,6 +3,10 @@ package Models;
 
 
 public class VagaEstacionamento {
+	public VagaEstacionamento() {
+		setStatus("Vazia");
+	}
+	
 	private String local;
 		public String getLocal() {
 			return local;
@@ -41,6 +45,12 @@ public class VagaEstacionamento {
 		}
 		public void setVeiculoVaga(Veiculo veiculoVaga) {
 			this.veiculoVaga = veiculoVaga;
+		}
+		
+	
+		@Override
+		public String toString() {
+			return "VAGA | Local: " + getLocal() + "; Status: " + getStatus() + "; Ocupante: " + getVeiculoVaga();
 		}
 	
 }
