@@ -2,6 +2,7 @@ package Views;
 
 import java.util.Scanner;
 
+
 public class Principal {
 
 	public static void main(String[] args) {
@@ -26,6 +27,12 @@ public class Principal {
 				break;
 			case 2:
 				MarcaCadastrar.cadastroMarca();
+				break;
+			case 3:
+				ModeloCadastro.cadastroModelo();
+				break;
+			case 5:
+				ModeloCadastro.cadastroModelo();
 				break;
 			case 0:
 				System.out.println("\nSaindo...");
