@@ -10,7 +10,7 @@ public class Principal {
 		Scanner sc = new Scanner(System.in);
 		
 		do {
-			System.out.println("\n-- PROJETO DE VENDAS --\n");
+			System.out.println("\n-- EstacionaAki --\n");
 			System.out.println("1 - Cadastrar vaga");
 			System.out.println("2 - Cadastrar motorista");
 			System.out.println("0 - Sair\n");
