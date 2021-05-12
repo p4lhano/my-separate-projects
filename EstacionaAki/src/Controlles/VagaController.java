@@ -1,6 +1,7 @@
 package Controlles;
 //import
 import Models.VagaEstacionamento;
+import Models.Motorista;
 import java.util.ArrayList;
 
 public class VagaController {
@@ -17,5 +18,11 @@ public class VagaController {
 		}
 		estacionamento.add(vagaNova);
 		return true;
+	}
+	
+	public static boolean darEntrada(Motorista motorista, VagaController vaga) {
+		
+		
+		return false;
 	}
 }
