@@ -21,5 +21,14 @@ private static ArrayList<Marca> marcas = new ArrayList<Marca>();
 		return true;
 	}
 	
+	public static Marca buscar(String nome) {
+		for (Marca essaMarca : marcas) {
+			if(essaMarca.getNome().equals(nome)) {
+				return essaMarca;
+			}
+		}
+		return null;
+	}
+	
 	
 }

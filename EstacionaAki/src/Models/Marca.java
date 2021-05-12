@@ -11,12 +11,18 @@ public class Marca {
 		public void setNome(String nome) {
 			this.nome = nome;
 		}
-	private ArrayList<ModeloVeiculo> modelos;
-		public ArrayList<ModeloVeiculo> getmodelos() {
+	
+		//private ModeloVeiculo modelos;
+		private ArrayList<ModeloVeiculo> modelos;
+		public ArrayList<ModeloVeiculo> getModelos() {
 			return modelos;
 		}
 	
 		public void setModeloveiculo(ArrayList<ModeloVeiculo> modelos) {
 			this.modelos = modelos;
+		}
+		
+		public void addModeloVeiculo(ModeloVeiculo veiculo) {
+			modelos.add(veiculo);
 		}
 }
