@@ -24,7 +24,7 @@ public class ModeloCadastro {
 		if(ModeVeiculoContr.cadastrar(modVeiculo, nomeMarca)) {
 			System.out.println("Concluido!");
 		} else {
-			System.out.println("Erro!");
+			System.out.println("Erro! Vaga já existente ou marca não encontrada");
 		}
 		
 	}

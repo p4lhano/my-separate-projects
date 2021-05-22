@@ -20,5 +20,16 @@ public class Veiculo {
 		public void setCor(String cor) {
 			this.cor = cor;
 		}
+		
+		
+		
+	private ModeloVeiculo modelo;
+	public ModeloVeiculo getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(ModeloVeiculo modelo) {
+		this.modelo = modelo;
+	}
 
 }

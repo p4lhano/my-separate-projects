@@ -3,6 +3,7 @@ package Controlles;
 import java.util.ArrayList;
 
 import Models.Marca;
+import Models.ModeloVeiculo;
 
 public class MarcaController {
 	
@@ -30,5 +31,15 @@ private static ArrayList<Marca> marcas = new ArrayList<Marca>();
 		return null;
 	}
 	
+	public static ModeloVeiculo buscarModelo(String nome) {
+		for (Marca essaMarca : marcas) {
+			for (ModeloVeiculo modelo : essaMarca.getModelos()) {
+				if (modelo.getNome().equals(nome)) {
+					return modelo;
+				}
+			}
+		}
+		return null;
+	}
 	
 }
