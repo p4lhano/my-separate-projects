@@ -13,7 +13,7 @@ public class Marca {
 		}
 	
 		//private ModeloVeiculo modelos;
-		private ArrayList<ModeloVeiculo> modelos;
+		private ArrayList<ModeloVeiculo> modelos = new ArrayList<ModeloVeiculo>();
 		public ArrayList<ModeloVeiculo> getModelos() {
 			return modelos;
 		}
@@ -25,4 +25,11 @@ public class Marca {
 		public void addModeloVeiculo(ModeloVeiculo veiculo) {
 			modelos.add(veiculo);
 		}
+
+		@Override
+		public String toString() {
+			return "Marca [nome=" + nome + ", modelos=" + modelos + "]";
+		}
+		
+		
 }

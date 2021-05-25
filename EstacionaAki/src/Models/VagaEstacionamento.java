@@ -1,6 +1,6 @@
 package Models;
 
-
+import java.util.Date;
 
 public class VagaEstacionamento {
 	public VagaEstacionamento() {
@@ -23,19 +23,19 @@ public class VagaEstacionamento {
 			this.status = status;
 		}
 		
-	private String entrada;
-		public String getEntrada() {
+	private Date entrada;
+		public Date getEntrada() {
 			return entrada;
 		}
-		public void setEntrada(String entrada) {
+		public void setEntrada(Date entrada) {
 			this.entrada = entrada;
 		}
 		
-	private String saida;
-		public String getSaida() {
+	private Date saida;
+		public Date getSaida() {
 			return saida;
 		}
-		public void setSaida(String saida) {
+		public void setSaida(Date saida) {
 		this.saida = saida;
 	}
 	
@@ -46,8 +46,15 @@ public class VagaEstacionamento {
 		public void setVeiculoVaga(Veiculo veiculoVaga) {
 			this.veiculoVaga = veiculoVaga;
 		}
+	private Motorista motorista;
 		
 	
+		public Motorista getMotorista() {
+		return motorista;
+	}
+	public void setMotorista(Motorista motorista) {
+		this.motorista = motorista;
+	}
 		@Override
 		public String toString() {
 			return "VAGA | Local: " + getLocal() + "; Status: " + getStatus() + "; Ocupante: " + getVeiculoVaga();

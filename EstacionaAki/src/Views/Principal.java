@@ -1,12 +1,18 @@
 package Views;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 
 public class Principal {
 
 	public static void main(String[] args) {
-		System.out.print("Hellow word");
+		/*System.out.print("Hellow word");
+		Date data = new Date();
+		DateFormat dfm = DateFormat.getDateInstance(DateFormat.LONG);
+		System.out.print(data);
+		System.out.print(dfm.format(data));*/
 		int opcao;
 		Scanner sc = new Scanner(System.in);
 		
@@ -14,7 +20,8 @@ public class Principal {
 			System.out.println("\n-- EstacionaAki --\n");
 			System.out.println("1 - Cadastros");
 			System.out.println("2 - Visualizar cadastrados");
-			System.out.println("3 - Dar entrada em veiculo");
+			System.out.println("3 - Entrada veiculo");
+			System.out.println("4 - Saida veiculo");
 			System.out.println("0 - Encerrar\n");
 			System.out.println("Digite a opção desejada: ");
 			opcao = sc.nextInt();

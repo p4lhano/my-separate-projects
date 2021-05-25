@@ -1,8 +1,11 @@
 package Controlles;
-//import
-import Models.VagaEstacionamento;
-import Models.Motorista;
 import java.util.ArrayList;
+import java.util.Date;
+
+//import
+import Models.Motorista;
+import Models.VagaEstacionamento;
+import Models.Veiculo;
 
 public class VagaController {
 	
@@ -18,12 +21,31 @@ public class VagaController {
 		return true;
 	}
 	
-	public static boolean darEntrada(Motorista motorista, VagaController vaga) {
+	public static VagaEstacionamento buscar(String local) {
+		for(VagaEstacionamento isVaga : estacionamento) {
+			if(isVaga.getLocal().equals(local)) {
+				return isVaga;
+			}
+		}
 		
 		
 		
 		
-		return false;
+		
+		
+		
+		return null;
+	}
+	
+	public static void darEntrada(Motorista motorista, Veiculo veiculo, VagaEstacionamento vaga) {
+		vaga.setVeiculoVaga(veiculo);
+		vaga.setMotorista(motorista);
+		vaga.setStatus("Ocupada");
+		Date data = new Date(); 
+		vaga.setEntrada(data);
+		
+		
+		//return /*Verificar um possivel retorno de uma informação como hash, id, ticket para retirada...*/;
 	}
 	
 	

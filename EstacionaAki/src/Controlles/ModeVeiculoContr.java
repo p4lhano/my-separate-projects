@@ -9,30 +9,21 @@ public class ModeVeiculoContr {
 	public static boolean cadastrar(ModeloVeiculo modeloNovo, String marca) {
 		
 		//O identificador unico será o nome
+		System.out.println(marca);
 		Marca marcaModelo = MarcaController.buscar(marca);
-		
+		System.out.println(marcaModelo);
 		if (marcaModelo != null) {
-			//Verificar se deveria ser instaciado um novo ArraysList de modelos nos controllers
+			System.out.println(marcaModelo.getModelos().size());
 			for (ModeloVeiculo modeloExiste : marcaModelo.getModelos()) {
 				if (modeloExiste.getNome().equals(modeloNovo.getNome())) {
 					return false;
 				}
 			}
-			marcaModelo.addModeloVeiculo(modeloNovo);;
 		}
+			
+			marcaModelo.addModeloVeiculo(modeloNovo);
 		
-		
-/*
-		for(ModeloVeiculo marcaExiste : marcas) {
-			if(marcaExiste.getNome().equals(modeloNovo.getNome())) {
-				return false;
-			}
-		}
-		marcas.add(marcaNova);
 		return true;
-*/		
-		
-		return false;
 	}
 	
 	
