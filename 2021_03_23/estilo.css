@@ -1,0 +1,23 @@
+body {
+    text-align: center;
+    font-family: FreeMono, monospace;
+    background-color: #3951EB;
+    color: #000000;
+}
+h1{
+    font-family: Apple Chancery, cursive;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    margin: 0 auto;
+    background-color: #EBE52D;
+    margin-left:500px;
+    margin-right:500px;
+}
+img{
+    max-width:300px;
+    max-height:300px;
+    width: auto;
+    height: auto;
+}
