@@ -20,30 +20,40 @@ public class Entrada {
 		Motorista motorista;
 		VagaEstacionamento vaga;
 		
-		System.out.println("Informe o CPF do Motorista:");
-		motorista = MotoristaController.buscarCpf(sc.nextLine());
-		if (motorista != null) {
-			System.out.println("Encontrado: " + motorista.getNome());
-			System.out.println("Informe o Placa do Veículo que chegou:");
-			carro = VeiculoController.buscar(sc.nextLine());
-			if (carro != null) {
-				System.out.println("Informe onde irá estacionar o veiculo:");
-				vaga = VagaController.buscar(sc.nextLine());
-				if (vaga == null) {
-					System.out.println("\nVaga não encontrada\nDeseja realizar o cadastro?");
-				} else if(vaga.getStatus()=="Ocupada") {
-					System.out.println("\nVaga vaga ocupada");
+		
+			System.out.println("Informe o CPF do Motorista:");
+			motorista = MotoristaController.buscarCpf(sc.nextLine());
+			if (motorista != null) {
+				System.out.println("Encontrado: " + motorista.getNome());
+				System.out.println("Informe o Placa do Veículo que chegou:");
+				carro = VeiculoController.buscar(sc.nextLine());
+				if (carro != null) {
+					do {
+						System.out.println("Informe onde irá estacionar o veiculo:");
+						vaga = VagaController.buscar(sc.nextLine());
+					
+						if (vaga == null) {
+							repita = true;
+							System.out.println("\nVaga não encontrada\nProcesso cancelado..............");
+						} else if(vaga.getStatus()=="Ocupada") {
+							System.out.println("\nVaga vaga ocupada");
+							repita = true;
+						} else {
+							System.out.println(vaga);
+							repita = false;
+							System.out.println("\n\n\tDando Entrada...........\n\n");
+							VagaController.darEntrada(motorista, carro, vaga);
+							System.out.println(vaga);
+						}
+					} while (repita);
 				} else {
-					System.out.println("\n\n\tDando Entrada...........\n\n");
-					VagaController.darEntrada(motorista, carro, vaga);
+					repita = true;
+					System.out.println("\nCarro não encontrado\nProcesso cancelado..............");
 				}
-				
 			} else {
-				System.out.println("\nCarro não encontrado\nDeseja realizar o cadastro?");
+				repita = true;
+				System.out.println("\nMotorista não encontrado\nProcesso cancelado..............");
 			}
-		} else {
-			System.out.println("\nMotorista não encontrado\nDeseja realizar o cadastro?");
-		}
 		
 	}
 	

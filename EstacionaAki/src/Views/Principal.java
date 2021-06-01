@@ -4,15 +4,15 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
+import Controlles.FaturamentoController;
+import Controlles.Utilidades;
+
 
 public class Principal {
 
 	public static void main(String[] args) {
-		/*System.out.print("Hellow word");
-		Date data = new Date();
-		DateFormat dfm = DateFormat.getDateInstance(DateFormat.LONG);
-		System.out.print(data);
-		System.out.print(dfm.format(data));*/
+		System.out.println("Informe a taxa que deverá ser cobrada por Hora Estacionada:");
+		FaturamentoController.definirTaxa(Utilidades.lerDouble());
 		int opcao;
 		Scanner sc = new Scanner(System.in);
 		
@@ -24,8 +24,7 @@ public class Principal {
 			System.out.println("4 - Saida veiculo");
 			System.out.println("0 - Encerrar\n");
 			System.out.println("Digite a opção desejada: ");
-			opcao = sc.nextInt();
-			sc.nextLine();
+			opcao = Utilidades.lerInteiro();
 			switch (opcao) {
 				case 1:
 					System.out.println("\n-- EstacionaAki | Cadastro --\n");
@@ -56,13 +55,13 @@ public class Principal {
 					}
 					break;
 				case 2:
-					MarcaCadastrar.cadastroMarca();
+					/*Colocar as visualizações*/
 					break;
 				case 3:
-					ModeloCadastro.cadastroModelo();
+					Entrada.darEntrada();
 					break;
 				case 4:
-					MotoristaCadastrar.cadastroMotorista();
+					Saida.sair();
 					break;
 				case 5:
 					

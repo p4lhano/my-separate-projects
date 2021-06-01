@@ -1,32 +1,43 @@
 package Models;
 
+import java.util.Date;
+
 public class ItemFaturamento {
-	private String entrada;
-	private String saida;
-	private String periodo;
-	private String valor;
-	public String getEntrada() {
+	private Date entrada;
+	private Date saida;
+	private Double periodo;
+	private Double valor;
+	private Motorista motorista;
+	public Motorista getMotorista() {
+		return motorista;
+	}
+	public void setMotorista(Motorista motorista) {
+		this.motorista = motorista;
+	}
+	public Date getEntrada() {
 		return entrada;
 	}
-	public void setEntrada(String entrada) {
+	public void setEntrada(Date entrada) {
 		this.entrada = entrada;
 	}
-	public String getSaida() {
+	public Date getSaida() {
 		return saida;
 	}
-	public void setSaida(String saida) {
+	public void setSaida(Date saida) {
 		this.saida = saida;
 	}
-	public String getPeriodo() {
+	public Double getPeriodo() {
 		return periodo;
 	}
-	public void setPeriodo(String periodo) {
+	public void setPeriodo(Double periodo) {
 		this.periodo = periodo;
 	}
-	public String getValor() {
+	public Double getValor() {
 		return valor;
 	}
-	public void setValor(String valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
+	
+	
 }

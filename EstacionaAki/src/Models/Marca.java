@@ -3,6 +3,10 @@ package Models;
 import java.util.ArrayList;
 
 public class Marca {
+	public Marca() {
+		setModeloveiculo(new ArrayList<ModeloVeiculo>());
+	}
+	
 	private String nome;
 		public String getNome(){
 			return nome;
@@ -13,7 +17,7 @@ public class Marca {
 		}
 	
 		//private ModeloVeiculo modelos;
-		private ArrayList<ModeloVeiculo> modelos = new ArrayList<ModeloVeiculo>();
+		private ArrayList<ModeloVeiculo> modelos ;
 		public ArrayList<ModeloVeiculo> getModelos() {
 			return modelos;
 		}

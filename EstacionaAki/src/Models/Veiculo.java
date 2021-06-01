@@ -12,6 +12,8 @@ public class Veiculo {
 		}
 	
 	
+	
+
 	private String cor;
 		public String getCor() {
 			return cor;
@@ -32,4 +34,10 @@ public class Veiculo {
 		this.modelo = modelo;
 	}
 
+	@Override
+	public String toString() {
+		return placa + " | " + cor + "/nmodelo:" + modelo;
+	}
+
+	
 }
