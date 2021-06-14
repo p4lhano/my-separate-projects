@@ -23,7 +23,9 @@ public class FaturamentoController {
 		return item;
 	}
 	
-	
+	public static void definirTaxa(Double taxa) {
+		taxaHr = taxa;
+	}
 	
 	
 	
