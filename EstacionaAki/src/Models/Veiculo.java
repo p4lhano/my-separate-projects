@@ -36,7 +36,7 @@ public class Veiculo {
 
 	@Override
 	public String toString() {
-		return placa + " | " + cor + "/nmodelo:" + modelo;
+		return placa + " | " + cor + "\nmodelo:" + modelo;
 	}
 
 	

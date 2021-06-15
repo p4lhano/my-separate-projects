@@ -78,8 +78,6 @@ public class VagaController {
 				return fatura;
 			}
 		}
-		
-		
 		return null;
 		}
 	
