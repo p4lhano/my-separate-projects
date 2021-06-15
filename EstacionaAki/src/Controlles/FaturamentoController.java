@@ -18,6 +18,9 @@ public class FaturamentoController {
 		item.setEntrada(vaga.getEntrada());
 		item.setSaida(vaga.getSaida());
 		item.setPeriodo(periodo);
+		item.setLocal(vaga.getLocal());
+		item.setMotorista(vaga.getMotorista());
+		item.setVeiculo(vaga.getVeiculo());;
 		item.setValor(periodo * taxaHr);
 		faturas.add(item);
 		return item;

@@ -1,31 +1,9 @@
 package Models;
 
-import java.util.Date;
-
-public class ItemFaturamento {
-	private Date entrada;
-	private Date saida;
+public class ItemFaturamento extends AcaoVeiculo {
 	private Double periodo;
 	private Double valor;
-	private Motorista motorista;
-	public Motorista getMotorista() {
-		return motorista;
-	}
-	public void setMotorista(Motorista motorista) {
-		this.motorista = motorista;
-	}
-	public Date getEntrada() {
-		return entrada;
-	}
-	public void setEntrada(Date entrada) {
-		this.entrada = entrada;
-	}
-	public Date getSaida() {
-		return saida;
-	}
-	public void setSaida(Date saida) {
-		this.saida = saida;
-	}
+	
 	public Double getPeriodo() {
 		return periodo;
 	}

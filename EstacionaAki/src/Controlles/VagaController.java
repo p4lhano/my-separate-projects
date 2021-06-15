@@ -31,8 +31,17 @@ public class VagaController {
 		return null;
 	}
 	
+	public static VagaEstacionamento buscar(Veiculo veiculo) {
+		for(VagaEstacionamento isVaga : estacionamento) {
+			if(isVaga.getVeiculo().getPlaca().equals(veiculo.getPlaca())) {
+				return isVaga;
+			}
+		}
+		return null;
+	}
+	
 	public static void darEntrada(Motorista motorista, Veiculo veiculo, VagaEstacionamento vaga) {
-		vaga.setVeiculoVaga(veiculo);
+		vaga.setVeiculo(veiculo);
 		vaga.setMotorista(motorista);
 		vaga.setStatus("Ocupada"); 
 		vaga.setEntrada(new Date());
@@ -43,13 +52,13 @@ public class VagaController {
 	
 	public static ItemFaturamento saida(Veiculo veiculo) {
 		for(VagaEstacionamento vagaExiste : estacionamento) {
-			if(vagaExiste.getVeiculoVaga().getPlaca().equals(veiculo.getPlaca())) {
+			if(vagaExiste.getVeiculo().getPlaca().equals(veiculo.getPlaca())) {
 				vagaExiste.setSaida(new Date());
 				ItemFaturamento fatura = FaturamentoController.calcular(vagaExiste);
 				vagaExiste.setEntrada(null);
 				vagaExiste.setSaida(null);
 				vagaExiste.setMotorista(null);
-				vagaExiste.setVeiculoVaga(null);
+				vagaExiste.setVeiculo(null);
 				vagaExiste.setStatus("Vazia");
 				return fatura;
 			}
@@ -64,7 +73,7 @@ public class VagaController {
 				vagaExiste.setEntrada(null);
 				vagaExiste.setSaida(null);
 				vagaExiste.setMotorista(null);
-				vagaExiste.setVeiculoVaga(null);
+				vagaExiste.setVeiculo(null);
 				vagaExiste.setStatus("Vazia");
 				return fatura;
 			}

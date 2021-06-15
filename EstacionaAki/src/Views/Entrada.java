@@ -28,24 +28,31 @@ public class Entrada {
 				System.out.println("Informe o Placa do Veículo que chegou:");
 				carro = VeiculoController.buscar(sc.nextLine());
 				if (carro != null) {
-					do {
-						System.out.println("Informe onde irá estacionar o veiculo:");
-						vaga = VagaController.buscar(sc.nextLine());
+					vaga = VagaController.buscar(carro);
+					if (vaga == null) {
+						
 					
-						if (vaga == null) {
-							repita = true;
-							System.out.println("\nVaga não encontrada\nProcesso cancelado..............");
-						} else if(vaga.getStatus()=="Ocupada") {
-							System.out.println("\nVaga vaga ocupada");
-							repita = true;
-						} else {
-							System.out.println(vaga);
-							repita = false;
-							System.out.println("\n\n\tDando Entrada...........\n\n");
-							VagaController.darEntrada(motorista, carro, vaga);
-							System.out.println(vaga);
-						}
-					} while (repita);
+						do {
+							System.out.println("Informe onde irá estacionar o veiculo:");
+							vaga = VagaController.buscar(sc.nextLine());
+						
+							if (vaga == null) {
+								repita = true;
+								System.out.println("\nVaga não encontrada\nProcesso cancelado..............");
+							} else if(vaga.getStatus()=="Ocupada") {
+								System.out.println("\nVaga vaga ocupada");
+								repita = true;
+							} else {
+								System.out.println(vaga);
+								repita = false;
+								System.out.println("\n\n\tDando Entrada...........\n\n");
+								VagaController.darEntrada(motorista, carro, vaga);
+								System.out.println(vaga);
+							}
+						} while (repita);// ta cagadinho esse repita aqui, corrigir depois
+					} else {
+						System.out.println("Veiculo estacionado já em:\n" + vaga + "\n");
+					}
 				} else {
 					repita = true;
 					System.out.println("\nCarro não encontrado\nProcesso cancelado..............");
