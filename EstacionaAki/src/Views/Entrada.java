@@ -28,8 +28,8 @@ public class Entrada {
 				System.out.println("Informe o Placa do Veículo que chegou:");
 				carro = VeiculoController.buscar(sc.nextLine());
 				if (carro != null) {
-					vaga = VagaController.buscar(carro);
-					if (vaga == null) {
+					//vaga = VagaController.buscar(carro);
+					//if (vaga == null) {
 						
 					
 						do {
@@ -50,9 +50,9 @@ public class Entrada {
 								System.out.println(vaga);
 							}
 						} while (repita);// ta cagadinho esse repita aqui, corrigir depois
-					} else {
-						System.out.println("Veiculo estacionado já em:\n" + vaga + "\n");
-					}
+					//} else {
+					//	System.out.println("Veiculo estacionado já em:\n" + vaga + "\n");
+					//}
 				} else {
 					repita = true;
 					System.out.println("\nCarro não encontrado\nProcesso cancelado..............");
