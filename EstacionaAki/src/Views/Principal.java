@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import Controlles.FaturamentoController;
 import Controlles.Utilidades;
+import Controlles.VagaController;
 
 
 public class Principal {
@@ -17,8 +18,9 @@ public class Principal {
 		Scanner sc = new Scanner(System.in);
 		
 		do {
-			System.out.println("\n-- EstacionaAki --\n");
-			System.out.println("1 - Cadastros");
+			System.out.println("\n\t##################\n\t## EstacionaAki ##\n\t##################");
+			System.out.println("Vagas disponiveis: "+ VagaController.vagasDisponiveis() + "\t\tVagas cadastradas: " + VagaController.getEstacionamento().size());
+			System.out.println("\n1 - Cadastros");
 			System.out.println("2 - Visualizar cadastrados");
 			System.out.println("3 - Entrada veiculo");
 			System.out.println("4 - Saida veiculo");

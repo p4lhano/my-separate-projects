@@ -12,6 +12,10 @@ public class VagaController {
 	
 	private static ArrayList<VagaEstacionamento> estacionamento = new ArrayList<VagaEstacionamento>();
 	
+	public static ArrayList<VagaEstacionamento> getEstacionamento() {
+		return estacionamento;
+	}
+
 	public static boolean cadastrar(VagaEstacionamento vagaNova) {
 		for(VagaEstacionamento vagaExiste : estacionamento) {
 			if(vagaExiste.getLocal().equals(vagaNova.getLocal())) {
@@ -81,4 +85,16 @@ public class VagaController {
 		return null;
 		}
 	
+	public static int vagasDisponiveis() {
+		if (estacionamento.size() > 0) {
+			int disponiveis = 0;
+			for(VagaEstacionamento vaga : estacionamento) {
+				if (vaga.getStatus() == "Vazia") {
+					disponiveis ++;
+				}
+			}
+			return disponiveis;
+		}
+		return 0;
+	}
 }
