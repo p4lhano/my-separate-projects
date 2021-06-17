@@ -20,6 +20,10 @@ public class Utilidades {
 				System.out.println("ATENÇÃO ENCERRAMENTO BRUSCO DO SISTEMA:"+ encer);
 				erro = false;
 				return 0;
+			} catch(Exception e) {
+				erro = true;
+				System.out.println("\nErro:");
+				System.out.println(e);
 			}
 		} while (erro);
 		return num;
@@ -41,6 +45,10 @@ public class Utilidades {
 				System.out.println("ATENÇÃO ENCERRAMENTO BRUSCO DO SISTEMA:"+ encer);
 				erro = false;
 				return 0.0;
+			}catch(Exception e) {
+				erro = true;
+				System.out.println("\nErro:");
+				System.out.println(e);
 			}
 		} while (erro);
 		return num;
