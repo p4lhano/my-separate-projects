@@ -88,7 +88,7 @@ public class Principal {
 					Saida.sair();
 					break;
 				case 5:
-					
+					Utilidades.cadastroPadrao();
 					break;
 				case 0:
 					System.out.println("\nSaindo...");

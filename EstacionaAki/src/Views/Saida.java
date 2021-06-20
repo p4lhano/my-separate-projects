@@ -15,7 +15,7 @@ public class Saida {
 		op = Utilidades.lerInteiro();
 		switch (op) {
 		case 1:
-			System.out.println("\nSair por Placa:");
+			System.out.println("\nSair por Placa\tInforme a placa:");
 			Veiculo veiculo = VeiculoController.buscar(sc.nextLine());
 			if (veiculo != null) {
 				System.out.println("Cobrar: R$ " + VagaController.saida(veiculo).getValor());
@@ -24,7 +24,7 @@ public class Saida {
 			}
 			break;
 		case 2:
-			System.out.println("\nSair por Local:");
+			System.out.println("\nSair por Local\tInforme o local:");
 			System.out.println("Cobrar: R$ " + VagaController.saida(sc.nextLine()).getValor());
 			break;
 		}

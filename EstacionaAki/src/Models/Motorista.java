@@ -13,6 +13,7 @@ public class Motorista {
 	public String getCpf() {
 		return cpf;
 	}
+	
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
@@ -21,5 +22,12 @@ public class Motorista {
 	}
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+	
+	
+	
+	@Override
+	public String toString() {
+		return "Nome" + nome + " | CPF: " + cpf + " | Telefone" + telefone;
 	}
 }

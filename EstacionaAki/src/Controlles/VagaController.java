@@ -49,9 +49,6 @@ public class VagaController {
 		vaga.setMotorista(motorista);
 		vaga.setStatus("Ocupada"); 
 		vaga.setEntrada(new Date());
-		
-		
-		//return /*Verificar um possivel retorno de uma informação como hash, id, ticket para retirada...*/;
 	}
 	
 	public static ItemFaturamento saida(Veiculo veiculo) {
