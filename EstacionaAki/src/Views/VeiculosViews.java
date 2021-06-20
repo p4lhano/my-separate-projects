@@ -9,7 +9,7 @@ import Controlles.VeiculoController;
 import Models.VagaEstacionamento;
 import Models.Veiculo;
 
-public class VeiculosCadastro {
+public class VeiculosViews {
 	private static Scanner sc = new Scanner(System.in);
 	private static Veiculo veiculo;
 	public static void cadastrar() {

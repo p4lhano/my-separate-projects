@@ -40,19 +40,19 @@ public class Principal {
 					sc.nextLine();
 					switch (opcao) {
 					case 1:
-						VagaCadastrar.cadastroVaga();
+						VagaViews.cadastroVaga();
 						break;
 					case 2:
-						MarcaCadastrar.cadastroMarca();
+						MarcaViews.cadastroMarca();
 						break;
 					case 3:
-						ModeloCadastro.cadastroModelo();
+						ModeloViews.cadastroModelo();
 						break;
 					case 4:
-						MotoristaCadastrar.cadastroMotorista();
+						MotoristaViews.cadastroMotorista();
 						break;
 					case 5:
-						VeiculosCadastro.cadastrar();
+						VeiculosViews.cadastrar();
 						break;
 					}
 					break;

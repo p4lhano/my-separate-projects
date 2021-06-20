@@ -5,7 +5,7 @@ import java.util.Scanner;
 import Controlles.MotoristaController;
 import Models.Motorista;
 
-public class MotoristaCadastrar {
+public class MotoristaViews {
 	private static Scanner sc = new Scanner(System.in);
 	private static Motorista motorista;
 	

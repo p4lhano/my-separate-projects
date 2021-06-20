@@ -5,7 +5,7 @@ import java.util.Scanner;
 import Controlles.ModeVeiculoContr;
 import Models.ModeloVeiculo;
 
-public class ModeloCadastro {
+public class ModeloViews {
 	private static Scanner sc = new Scanner(System.in);
 	private static ModeloVeiculo modVeiculo;
 	

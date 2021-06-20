@@ -5,7 +5,7 @@ import java.util.Scanner;
 import Controlles.VagaController;
 import Models.VagaEstacionamento;
 
-public class VagaCadastrar {
+public class VagaViews {
 	private static Scanner sc = new Scanner(System.in);
 	private static VagaEstacionamento vaga;
 	

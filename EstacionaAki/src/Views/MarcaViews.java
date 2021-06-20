@@ -5,7 +5,7 @@ import java.util.Scanner;
 import Controlles.MarcaController;
 import Models.Marca;
 
-public class MarcaCadastrar {
+public class MarcaViews {
 	private static Scanner sc = new Scanner(System.in);
 	private static Marca marca;
 	
