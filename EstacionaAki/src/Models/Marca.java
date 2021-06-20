@@ -32,7 +32,7 @@ public class Marca {
 
 		@Override
 		public String toString() {
-			return "Marca [nome=" + nome + ", modelos=" + modelos + "]";
+			return "Marca:" + nome + "\nModelos:" + modelos + "\n------";
 		}
 		
 		

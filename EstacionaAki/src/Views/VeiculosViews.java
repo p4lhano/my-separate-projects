@@ -1,11 +1,14 @@
 package Views;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import Controlles.MarcaController;
 import Controlles.ModeVeiculoContr;
+import Controlles.MotoristaController;
 import Controlles.VagaController;
 import Controlles.VeiculoController;
+import Models.Motorista;
 import Models.VagaEstacionamento;
 import Models.Veiculo;
 
@@ -25,6 +28,16 @@ public class VeiculosViews {
 			System.out.println("Veiculo ok!");
 		} else {
 			System.out.println("Veiculo existente");
+		}
+	}
+	public static void renderizar() {
+		ArrayList<Veiculo> veiculos = VeiculoController.getVeiculos();
+		if(veiculos.size()>0) {
+			for(Veiculo veiculo : veiculos) {
+				System.out.println(veiculo);
+			}
+		} else {
+			System.out.println("Nenhum veiculo cadastrado!");
 		}
 	}
 }

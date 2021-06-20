@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 import Controlles.FaturamentoController;
+import Controlles.MarcaController;
 import Controlles.Utilidades;
 import Controlles.VagaController;
 
@@ -57,7 +58,28 @@ public class Principal {
 					}
 					break;
 				case 2:
-					/*Colocar as visualizações*/
+					System.out.println("\n-- EstacionaAki | Visualizar Cadastros --\n");
+					System.out.println("1 - Vagas");
+					System.out.println("2 - Marcas");
+					System.out.println("3 - Motoristas");
+					System.out.println("4 - Veiculos");
+					System.out.println("Digite a opção desejada: ");
+					opcao = sc.nextInt();
+					sc.nextLine();
+					switch (opcao) {
+					case 1:
+						VagaViews.renderizar();
+						break;
+					case 2:
+						MarcaViews.viewCadastradas();
+						break;
+					case 3:
+						MotoristaViews.renderizar();
+						break;
+					case 4:
+						VeiculosViews.renderizar();
+						break;
+					}
 					break;
 				case 3:
 					Entrada.darEntrada();

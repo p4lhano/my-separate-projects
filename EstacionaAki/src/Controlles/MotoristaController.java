@@ -10,6 +10,10 @@ public class MotoristaController {
 
 	private static ArrayList<Motorista> motoristas = new ArrayList<Motorista>();
 
+	public static ArrayList<Motorista> getMotoristas() {
+		return motoristas;
+	}
+
 	public static boolean cadastrar(Motorista novoMotorista) {
 		for(Motorista motorista : motoristas) {
 			if(motorista.getCpf().equals(novoMotorista.getCpf())) {

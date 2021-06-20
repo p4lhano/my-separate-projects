@@ -1,5 +1,6 @@
 package Views;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import Controlles.VagaController;
@@ -24,6 +25,15 @@ public class VagaViews {
 		
 	}
 	
-	
+	public static void renderizar() {
+		ArrayList<VagaEstacionamento> estacionamento = VagaController.getEstacionamento();
+		if(estacionamento.size()>0) {
+			for(VagaEstacionamento vaga : estacionamento) {
+				System.out.println(vaga);
+			}
+		} else {
+			System.out.println("Nenhuma vaga cadastrada!");
+		}
+	}
 	
 }

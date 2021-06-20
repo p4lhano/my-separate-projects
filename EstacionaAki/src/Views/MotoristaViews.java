@@ -1,8 +1,11 @@
 package Views;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import Controlles.MarcaController;
 import Controlles.MotoristaController;
+import Models.Marca;
 import Models.Motorista;
 
 public class MotoristaViews {
@@ -28,6 +31,15 @@ public class MotoristaViews {
 		}
 		
 	}
-	
-	
+
+	public static void renderizar() {
+		ArrayList<Motorista> motoristas = MotoristaController.getMotoristas();
+		if(motoristas.size()>0) {
+			for(Motorista motorista : motoristas) {
+				System.out.println(motorista);
+			}
+		} else {
+			System.out.println("Nenhum motorista cadastrado!");
+		}
+	}
 }

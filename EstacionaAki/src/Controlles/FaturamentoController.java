@@ -10,6 +10,10 @@ public class FaturamentoController {
 	public static Double taxaHr= 1.0;
 	private static ArrayList<ItemFaturamento> faturas = new ArrayList<ItemFaturamento>();
 	
+	public static ArrayList<ItemFaturamento> getFaturas() {
+		return faturas;
+	}
+
 	public static ItemFaturamento calcular(VagaEstacionamento vaga) {
 		ItemFaturamento item = new ItemFaturamento();
 		long tempo = vaga.getSaida().getTime() - vaga.getEntrada().getTime();
@@ -29,13 +33,4 @@ public class FaturamentoController {
 	public static void definirTaxa(Double taxa) {
 		taxaHr = taxa;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

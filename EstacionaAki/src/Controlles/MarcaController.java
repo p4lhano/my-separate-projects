@@ -11,6 +11,10 @@ private static ArrayList<Marca> marcas = new ArrayList<Marca>();
 	
 	
 	
+	public static ArrayList<Marca> getMarcas() {
+	return marcas;
+}
+
 	public static boolean cadastrar(Marca marcaNova) {
 		//O identificador unico será o nome
 		for(Marca marcaExiste : marcas) {

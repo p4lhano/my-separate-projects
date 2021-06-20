@@ -7,6 +7,10 @@ public class VeiculoController {
 	private static ArrayList<Veiculo> veiculos = new ArrayList<Veiculo>();
 	
 	
+	public static ArrayList<Veiculo> getVeiculos() {
+		return veiculos;
+	}
+
 	public static boolean cadastrar(Veiculo novoVeiulo) {
 		for(Veiculo isVeiculo : veiculos) {
 			if(isVeiculo.getPlaca().equals(novoVeiulo.getPlaca())) {

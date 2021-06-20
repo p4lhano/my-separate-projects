@@ -2,6 +2,7 @@ package Views;
 
 import java.util.Scanner;
 
+import Controlles.MarcaController;
 import Controlles.ModeVeiculoContr;
 import Models.ModeloVeiculo;
 
@@ -24,7 +25,8 @@ public class ModeloViews {
 		if(ModeVeiculoContr.cadastrar(modVeiculo, nomeMarca)) {
 			System.out.println("Concluido!");
 		} else {
-			System.out.println("Erro! Vaga já existente ou marca não encontrada");
+			System.out.println("Erro! Modelo já existente");
+			System.out.println(MarcaController.buscar(nomeMarca));
 		}
 		
 	}

@@ -1,5 +1,6 @@
 package Views;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import Controlles.MarcaController;
@@ -22,5 +23,16 @@ public class MarcaViews {
 			System.out.println("Marca já existe!");
 		}
 		
+	}
+	
+	public static void viewCadastradas() {
+		ArrayList<Marca> marcas = MarcaController.getMarcas();
+		if(marcas.size()>0) {
+			for(Marca marca : marcas) {
+				System.out.println(marca);
+			}
+		} else {
+			System.out.println("Nenhuma marca cadastrada!");
+		}
 	}
 }
