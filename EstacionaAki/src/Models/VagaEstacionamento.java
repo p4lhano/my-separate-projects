@@ -3,14 +3,14 @@ package Models;
 
 public class VagaEstacionamento extends AcaoVeiculo {
 	public VagaEstacionamento() {
-		setStatus("Vazia");
+		setStatus(false);
 	}
 	
-	private String status;
-		public String getStatus() {
+	private boolean status;
+		public boolean getStatus() {
 			return status;
 		}
-		public void setStatus(String status) {
+		public void setStatus(boolean status) {
 			this.status = status;
 		}
 		

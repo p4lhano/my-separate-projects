@@ -22,7 +22,7 @@ public class Principal {
 			System.out.println("\n\t##################\n\t## EstacionaAki ##\n\t##################");
 			System.out.println("Vagas disponiveis: "+ VagaController.vagasDisponiveis() + "\t\tVagas cadastradas: " + VagaController.getEstacionamento().size());
 			System.out.println("\n1 - Cadastros");
-			System.out.println("2 - Visualizar cadastrados");
+			System.out.println("2 - Visualizar...");
 			System.out.println("3 - Entrada veiculo");
 			System.out.println("4 - Saida veiculo");
 			System.out.println("0 - Encerrar\n");
@@ -63,6 +63,7 @@ public class Principal {
 					System.out.println("2 - Marcas");
 					System.out.println("3 - Motoristas");
 					System.out.println("4 - Veiculos");
+					System.out.println("5 - Todos os faturamentos");
 					System.out.println("Digite a opção desejada: ");
 					opcao = sc.nextInt();
 					sc.nextLine();

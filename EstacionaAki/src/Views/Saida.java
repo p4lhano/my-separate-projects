@@ -5,6 +5,7 @@ import java.util.Scanner;
 import Controlles.Utilidades;
 import Controlles.VagaController;
 import Controlles.VeiculoController;
+import Models.ItemFaturamento;
 import Models.Veiculo;
 
 public class Saida {
@@ -25,7 +26,12 @@ public class Saida {
 			break;
 		case 2:
 			System.out.println("\nSair por Local\tInforme o local:");
-			System.out.println("Cobrar: R$ " + VagaController.saida(sc.nextLine()).getValor());
+			ItemFaturamento item = VagaController.saida(sc.nextLine());
+			if (item != null) {
+				System.out.println("Cobrar: R$ " + item.getValor());
+			} else {
+				System.out.println("Erro ao buscar");
+			}
 			break;
 		}
 	}

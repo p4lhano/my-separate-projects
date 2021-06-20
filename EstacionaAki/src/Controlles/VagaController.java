@@ -47,7 +47,7 @@ public class VagaController {
 	public static void darEntrada(Motorista motorista, Veiculo veiculo, VagaEstacionamento vaga) {
 		vaga.setVeiculo(veiculo);
 		vaga.setMotorista(motorista);
-		vaga.setStatus("Ocupada"); 
+		vaga.setStatus(true); 
 		vaga.setEntrada(new Date());
 	}
 	
@@ -60,7 +60,7 @@ public class VagaController {
 				vagaExiste.setSaida(null);
 				vagaExiste.setMotorista(null);
 				vagaExiste.setVeiculo(null);
-				vagaExiste.setStatus("Vazia");
+				vagaExiste.setStatus(false);
 				return fatura;
 			}
 		}
@@ -68,14 +68,17 @@ public class VagaController {
 	}
 	
 	public static ItemFaturamento saida(String local) {
-		for(VagaEstacionamento vagaExiste : estacionamento) {
-			if(vagaExiste.getLocal().equals(local) && vagaExiste.getStatus() == "Ocupado") {
-				ItemFaturamento fatura = FaturamentoController.calcular(vagaExiste);
-				vagaExiste.setEntrada(null);
-				vagaExiste.setSaida(null);
-				vagaExiste.setMotorista(null);
-				vagaExiste.setVeiculo(null);
-				vagaExiste.setStatus("Vazia");
+		VagaEstacionamento vaga = VagaController.buscar(local);
+		System.out.println(local + "\n####\n" + vaga);
+		if (vaga != null) {
+			if (vaga.getStatus()) {
+				vaga.setSaida(new Date());
+				ItemFaturamento fatura = FaturamentoController.calcular(vaga);
+				vaga.setEntrada(null);
+				vaga.setSaida(null);
+				vaga.setMotorista(null);
+				vaga.setVeiculo(null);
+				vaga.setStatus(false);
 				return fatura;
 			}
 		}
@@ -86,7 +89,7 @@ public class VagaController {
 		if (estacionamento.size() > 0) {
 			int disponiveis = 0;
 			for(VagaEstacionamento vaga : estacionamento) {
-				if (vaga.getStatus() == "Vazia") {
+				if (!vaga.getStatus()) {
 					disponiveis ++;
 				}
 			}

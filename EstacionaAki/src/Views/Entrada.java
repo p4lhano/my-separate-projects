@@ -39,7 +39,7 @@ public class Entrada {
 							if (vaga == null) {
 								repita = true;
 								System.out.println("\nVaga não encontrada\nProcesso cancelado..............");
-							} else if(vaga.getStatus()=="Ocupada") {
+							} else if(vaga.getStatus()) {
 								System.out.println("\nVaga vaga ocupada");
 								repita = true;
 							} else {
