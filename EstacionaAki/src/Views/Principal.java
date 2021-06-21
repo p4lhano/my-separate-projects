@@ -1,11 +1,8 @@
 package Views;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Scanner;
 
 import Controlles.FaturamentoController;
-import Controlles.MarcaController;
 import Controlles.Utilidades;
 import Controlles.VagaController;
 
@@ -79,6 +76,9 @@ public class Principal {
 						break;
 					case 4:
 						VeiculosViews.renderizar();
+						break;
+					case 5:
+						FaturamentoViews.renderizar();
 						break;
 					}
 					break;

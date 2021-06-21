@@ -1,8 +1,12 @@
 package Models;
+import java.text.DateFormat;
+import java.util.Locale;
 
 public class ItemFaturamento extends AcaoVeiculo {
+	
 	private Double periodo;
 	private Double valor;
+	private DateFormat sdf;
 	
 	public Double getPeriodo() {
 		return periodo;
@@ -18,11 +22,13 @@ public class ItemFaturamento extends AcaoVeiculo {
 	}
 	@Override
 	public String toString() {
+		Locale.setDefault(new Locale("pt","Brazil"));
 		return "Item | Estacionou em:" + getLocal()+
 				"\nPlaca:"+ getVeiculo().getPlaca()+
 				"\nValor cobrado:"+getValor()+
 				"\nMotorista:"+getMotorista().getNome()+
-				"\nTempo:"+getPeriodo()+"\tEntrada:"+ getEntrada()+"\tSaida:"+getSaida();
+				"\nTempo:"+getPeriodo()+"\tEntrada:"+ DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM).format(getEntrada())
+										+"\tSaida:"+  DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM).format(getSaida());
 	}
 	
 }
