@@ -1,0 +1,26 @@
+###
+POST http://localhost:1234/medico/cadastrar
+Content-Type: application/json
+
+{
+        "nome": "vitor",
+        "crm": "3515",
+        "especialidade": "ASSISTENTE"
+}
+
+### Buscar CRM
+GET http://localhost:1234/medico/buscar/3356
+
+### Listar
+GET http://localhost:1234/medico/listar
+
+### Alterar
+POST http://localhost:1234/medico/alterar
+Content-Type: application/json
+
+{
+  "_id": "608b4504903a9a2f80354ad5",
+  "nome": "vitor1",
+  "crm": "1111",
+  "especialidade": "ASSISTENTE"
+}
