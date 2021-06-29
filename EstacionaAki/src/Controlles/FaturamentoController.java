@@ -7,7 +7,7 @@ import Models.ItemFaturamento;
 import Models.VagaEstacionamento;
 
 public class FaturamentoController {
-	public static Double taxaHr= 1.0;
+	public static double taxaHr= 1.0;
 	private static ArrayList<ItemFaturamento> faturas = new ArrayList<ItemFaturamento>();
 	
 	public static ArrayList<ItemFaturamento> getFaturas() {
@@ -17,8 +17,10 @@ public class FaturamentoController {
 	public static ItemFaturamento calcular(VagaEstacionamento vaga) {
 		ItemFaturamento item = new ItemFaturamento();
 		long tempo = vaga.getSaida().getTime() - vaga.getEntrada().getTime();
+		System.out.println("Tempo long: "+tempo);
 		tempo = TimeUnit.HOURS.convert(tempo, TimeUnit.MILLISECONDS);
-		Double periodo = (double) tempo;
+		double periodo = (double) tempo;
+		System.out.println("periodo Double: "+ periodo);
 		item.setEntrada(vaga.getEntrada());
 		item.setSaida(vaga.getSaida());
 		item.setPeriodo(periodo);
@@ -30,7 +32,7 @@ public class FaturamentoController {
 		return item;
 	}
 	
-	public static void definirTaxa(Double taxa) {
+	public static void definirTaxa(double taxa) {
 		taxaHr = taxa;
 	}
 }

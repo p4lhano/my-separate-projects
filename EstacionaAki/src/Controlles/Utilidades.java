@@ -36,9 +36,9 @@ public class Utilidades {
 		return num;
 	}
 	
-	public static Double lerDouble() {
+	public static double lerDouble() {
 		boolean erro;
-		Double num=0.0;
+		double num=0.0;
 		do{
 			try{
 				num = Double.parseDouble(sc.next());

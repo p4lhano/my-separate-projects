@@ -4,20 +4,20 @@ import java.util.Locale;
 
 public class ItemFaturamento extends AcaoVeiculo {
 	
-	private Double periodo;
-	private Double valor;
+	private double periodo;
+	private double valor;
 	private DateFormat sdf;
 	
-	public Double getPeriodo() {
+	public double getPeriodo() {
 		return periodo;
 	}
-	public void setPeriodo(Double periodo) {
+	public void setPeriodo(double periodo) {
 		this.periodo = periodo;
 	}
-	public Double getValor() {
+	public double getValor() {
 		return valor;
 	}
-	public void setValor(Double valor) {
+	public void setValor(double valor) {
 		this.valor = valor;
 	}
 	@Override
