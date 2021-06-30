@@ -13,26 +13,66 @@ public class Utilidades {
 	private static Scanner sc = new Scanner(System.in);
 	
 	public static int lerInteiro() {
-		boolean erro = false;
+		boolean erro = false,erro2;
 		int num=0;
 		do{
-			try{
-				num = Integer.parseInt(sc.next());
-				erro = false;
-			}catch(NumberFormatException eNum){
-				erro = true;
-				System.out.println("Apenas numeros\nErro:");
-				System.out.println(eNum);
-			}catch(NoSuchElementException encer) {
-				System.out.println("ATENÇÃO ENCERRAMENTO BRUSCO DO SISTEMA:"+ encer);
-				erro = false;
-				return 0;
-			} catch(Exception e) {
-				erro = true;
-				System.out.println("\nErro:");
-				System.out.println(e);
+			erro2= false;
+			do{
+				try{
+					num = Integer.parseInt(sc.next());
+					erro = false;
+				}catch(NumberFormatException eNum){
+					erro = true;
+					System.out.println("Apenas numeros\nErro:");
+					System.out.println(eNum);
+				}catch(NoSuchElementException encer) {
+					System.out.println("ATENÇÃO ENCERRAMENTO BRUSCO DO SISTEMA:"+ encer);
+					erro = false;
+					return 0;
+				} catch(Exception e) {
+					erro = true;
+					System.out.println("\nErro: ");
+					System.out.println(e);
+				} 
+			} while (erro);
+			if (num<1 ) {
+				System.out.println("\nMenor numero permitido é o 1");
+				System.out.println("Tente novamente");
+				erro2= true;
 			}
-		} while (erro);
+		} while (erro2);
+		return num;
+	}
+	
+	public static int lerInteiro(int max) {
+		boolean erro = false,erro2;
+		int num=0;
+		do{
+			erro2= false;
+			do{
+				try{
+					num = Integer.parseInt(sc.next());
+					erro = false;
+				}catch(NumberFormatException eNum){
+					erro = true;
+					System.out.println("Apenas numeros\nErro:");
+					System.out.println(eNum);
+				}catch(NoSuchElementException encer) {
+					System.out.println("ATENÇÃO ENCERRAMENTO BRUSCO DO SISTEMA:"+ encer);
+					erro = false;
+					return 0;
+				} catch(Exception e) {
+					erro = true;
+					System.out.println("\nErro: ");
+					System.out.println(e);
+				} 
+			} while (erro);
+			if (num<1 || num > max) {
+				System.out.println("\nMenor numero permitido é o 1 e o maior é "+ max);
+				System.out.println("Tente novamente");
+				erro2= true;
+			}
+		} while (erro2);
 		return num;
 	}
 	

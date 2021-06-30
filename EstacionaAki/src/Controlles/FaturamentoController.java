@@ -1,6 +1,7 @@
 package Controlles;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.concurrent.TimeUnit;
 
 import Models.ItemFaturamento;
@@ -13,7 +14,19 @@ public class FaturamentoController {
 	public static ArrayList<ItemFaturamento> getFaturas() {
 		return faturas;
 	}
-
+	
+	@SuppressWarnings("deprecation")
+	public static ArrayList<ItemFaturamento> verFatMes(int mes, int ano){
+		ArrayList<ItemFaturamento> faturasMes = new ArrayList<ItemFaturamento>(), faturasAtual = getFaturas();
+			for(ItemFaturamento fat: faturasAtual) {
+				if(ano == fat.getEntrada().getYear() && mes == fat.getEntrada().getMonth()) {
+					faturasMes.add(fat);
+				}
+			}
+		return faturasMes;
+	}
+	
+	
 	public static ItemFaturamento calcular(VagaEstacionamento vaga) {
 		ItemFaturamento item = new ItemFaturamento();
 		long tempo = vaga.getSaida().getTime() - vaga.getEntrada().getTime();

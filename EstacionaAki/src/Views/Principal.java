@@ -1,5 +1,6 @@
 package Views;
 
+
 import java.util.Scanner;
 
 import Controlles.FaturamentoController;
@@ -10,7 +11,7 @@ import Controlles.VagaController;
 public class Principal {
 
 	public static void main(String[] args) {
-		System.out.println("Informe a taxa que deverá ser cobrada por Hora Estacionada:");
+		System.out.println( "Informe a taxa que deverá ser cobrada por Hora Estacionada:");
 		FaturamentoController.definirTaxa(Utilidades.lerDouble());
 		int opcao;
 		Scanner sc = new Scanner(System.in);
@@ -61,6 +62,7 @@ public class Principal {
 					System.out.println("3 - Motoristas");
 					System.out.println("4 - Veiculos");
 					System.out.println("5 - Todos os faturamentos");
+					System.out.println("5 - Faturamentos por competencia");
 					System.out.println("Digite a opção desejada: ");
 					opcao = sc.nextInt();
 					sc.nextLine();
@@ -78,7 +80,10 @@ public class Principal {
 						VeiculosViews.renderizar();
 						break;
 					case 5:
-						FaturamentoViews.renderizar();
+						FaturamentoViews.renderizar(FaturamentoController.getFaturas());
+						break;
+					case 6:
+						FaturamentoViews.renderizarPorCompetencia();
 						break;
 					}
 					break;
