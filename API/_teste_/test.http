@@ -1,0 +1,16 @@
+### Cadastro
+POST http://localhost:3000/computador/cadastrar
+Content-Type: application/json
+
+{
+        "dono": "vitor 2",
+        "placamae": "intel",
+        "processador": "intel dual core",
+        "memoria":135,
+        "armazenamento":"123GB",
+        "fonte":"Ultrasonic"
+
+}
+
+### Listar
+GET http://localhost:3000/computador/listar
