@@ -1,0 +1,43 @@
+
+
+<table mat-table [dataSource]="computadores" class="mat-elevation-z8">
+  
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> # </th>
+      <td mat-cell *matCellDef="let computador"> {{computador._id}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="dono">
+      <th mat-header-cell *matHeaderCellDef> Dano </th>
+      <td mat-cell *matCellDef="let computador"> {{ computador.dono }} </td>
+    </ng-container>
+    <ng-container matColumnDef="placamae">
+      <th mat-header-cell *matHeaderCellDef>Placa mae </th>
+      <td mat-cell *matCellDef="let computador"> {{ computador.placamae }} </td>
+    </ng-container>
+    <ng-container matColumnDef="processador">
+      <th mat-header-cell *matHeaderCellDef> Proce </th>
+      <td mat-cell *matCellDef="let computador"> {{ computador.processador }} </td>
+    </ng-container>
+    <ng-container matColumnDef="memoria">
+      <th mat-header-cell *matHeaderCellDef> memoria </th>
+      <td mat-cell *matCellDef="let computador"> {{ computador.memoria }} </td>
+    </ng-container>
+    <ng-container matColumnDef="armazenamento">
+      <th mat-header-cell *matHeaderCellDef> armazenamento </th>
+      <td mat-cell *matCellDef="let computador"> {{ computador.armazenamento }} </td>
+    </ng-container>
+    <ng-container matColumnDef="fonte">
+      <th mat-header-cell *matHeaderCellDef> fonte </th>
+      <td mat-cell *matCellDef="let computador"> {{ computador.fonte }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="criadoEm">
+      <th mat-header-cell *matHeaderCellDef> Criado em </th>
+      <td mat-cell *matCellDef="let computador"> {{ computador.createdAt | date: "dd/MM/yyyy HH:mm" }} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

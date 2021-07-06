@@ -13,11 +13,14 @@ class ComputadorController{
     async listar(request: Request, response: Response) {
         try {
           const computers = await ComputadorSchema.find();
+          /*
           response.status(200).json({
             data: computers,
             error: false,
             msg: "Lista de medicos",
           });
+          */
+          response.status(200).json(computers);
         } catch (error) {
           response.status(400).json({
             data: error,
