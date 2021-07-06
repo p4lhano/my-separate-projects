@@ -4,7 +4,9 @@
   
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> # </th>
+      <a href="computador/remover">
       <td mat-cell *matCellDef="let computador"> {{computador._id}} </td>
+    </a>
     </ng-container>
     
     <ng-container matColumnDef="dono">

@@ -18,5 +18,8 @@ export class ComputadorService {
     return this.http.post<Computador>(`${this.baseURL}computador/cadastrar`,computador);
   }
 
+  remover(id:string):Observable<string>{
+    return this.http.get<string>(`${this.baseURL}computador/remover/${id}`);
+  };
 
 }

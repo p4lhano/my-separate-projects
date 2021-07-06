@@ -18,13 +18,15 @@ import { FormsModule } from '@angular/forms';
 
 
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { RemoverComponent } from './components/remover/remover.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ListarComponent,
-    CadastrarComponent
+    CadastrarComponent,
+    RemoverComponent
   ],
   imports: [
     BrowserModule,

@@ -2,13 +2,6 @@ import {Request, Response} from "express";
 import ComputadorSchema from "../models/ComputadorSchema";
 
 class ComputadorController{
-/*
-    async alterar(request: Request, response: Response){
-        console.log(request.body)
-        const {objeto} = request.body._id;
-        ComputadorSchema.findOneAndUpdate({_id: objeto},request.body);
-        
-    }*/
 
     async listar(request: Request, response: Response) {
         try {
@@ -29,7 +22,8 @@ class ComputadorController{
           });
         }
     }
-
+    
+    
 
     async cadastrar(request: Request, response: Response) {
         try {
@@ -52,6 +46,24 @@ class ComputadorController{
             });
         }
     }
+
+    async remover(request: Request, response: Response){
+      try {
+          //console.log(request.params);
+          const removeIs = request.params.id;
+          //console.log({_id: removeIs});
+          //console.log(removeIs);
+          const RESPONSE_DB = await ComputadorSchema.deleteOne({_id: removeIs});
+          //console.log(RESPONSE_DB);
+          response.json(RESPONSE_DB.deletedCount);//Retorna o JSON somente dos registro deletados
+      } catch (error) {
+          response.status(400).json({
+              data: error,
+              error: true,
+              msg: "Não foi possível completar a ação"
+          });
+      }
+  }
 }
 
 export {ComputadorController};
