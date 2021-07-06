@@ -14,3 +14,6 @@ Content-Type: application/json
 
 ### Listar
 GET http://localhost:3000/computador/listar
+
+###remover
+GET http://localhost:3000/computador/remover/60e3afbd5457372b18bef4f8

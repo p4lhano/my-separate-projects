@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ComputadorService } from 'src/app/services/computador.service';
 
 @Component({
   selector: 'app-remover',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RemoverComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: ComputadorService, private router: Router) { }
 
   ngOnInit(): void {
+
+  }
+
+  remover(id:string){
+    
   }
 
 }
