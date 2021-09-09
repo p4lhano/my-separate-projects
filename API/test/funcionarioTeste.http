@@ -6,3 +6,6 @@ Content-Type: application/json
   "nome": "Vitor",
   "cpf": "12345678900"
 }
+
+### Listar
+GET https://localhost:5001/funcionario/list
