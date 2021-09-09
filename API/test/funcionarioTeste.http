@@ -1,0 +1,8 @@
+###
+POST https://localhost:5001/funcionario/create
+Content-Type: application/json
+
+{
+  "nome": "Vitor",
+  "cpf": "12345678900"
+}
