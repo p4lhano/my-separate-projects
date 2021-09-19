@@ -56,7 +56,7 @@ namespace API.Controllers
         public async Task<IActionResult> DeleteByIdAsync([FromRoute] int id){
             Funcionario funcionario = await _context.Funcionarios.FindAsync(id).ConfigureAwait(true);
             if (funcionario == null) return NotFound();
-            await _context.Funcionarios.Remove(funcionario);
+            _context.Funcionarios.Remove(funcionario);
             await _context.SaveChanges();
             return Ok();
         }
