@@ -1,9 +1,11 @@
 using API.Data;
 using API.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace API.Controllers
 {
@@ -19,17 +21,45 @@ namespace API.Controllers
         //" POST: /funcionario/create"
         [HttpPost]
         [Route("create")]
-        public Funcionario CadastrarFuncionario(Funcionario funcionario){
-            _context.Funcionarios.Add(funcionario);
+        public async Task<IActionResult> CadastrarFuncionarioAsync([FromBody] Funcionario funcionario){
+            await _context.Funcionarios.AddAsync(funcionario).ConfigureAwait(false);
             _context.SaveChanges();
-            return funcionario;
+            return Created("",funcionario);
         }
 
         // GET /funcionario/list
         [HttpGet]
         [Route("list")]
-        public List<Funcionario> Listar(){
-            return _context.Funcionarios.ToList();
+        public async Task<IActionResult> ListarAsync() => Ok(await _context.Funcionarios.ToListAsync().ConfigureAwait(false));
+
+        // GET /funcionario/findbyid/id
+        [HttpGet]
+        [Route("findbyid/{id}")]
+        public async Task<IActionResult> FindByIdAsync([FromRoute] int id){
+            Funcionario funcionario = await _context.Funcionarios.FindAsync(id).ConfigureAwait(false);
+            if(funcionario != null) return Ok(funcionario);
+            return NotFound();
         }
+/*
+        //GET /funcionario/findbynome/id
+        [HttpGet]
+        [Route("findbynome/{nome}")]
+        public async Task<IActionResult> FindByNomeAsync([FromRoute] int nome){
+            Funcionario funcionario = await _context.Funcionarios.Where<>;
+            return NotFound();
+        }
+*/
+/*
+        // DELETE /funcionario/delete/id
+        [HttpDelete]
+        [Route("deleteid/{id}")]
+        public async Task<IActionResult> DeleteByIdAsync([FromRoute] int id){
+            Funcionario funcionario = await _context.Funcionarios.FindAsync(id).ConfigureAwait(true);
+            if (funcionario == null) return NotFound();
+            await _context.Funcionarios.Remove(funcionario);
+            await _context.SaveChanges();
+            return Ok();
+        }
+*/
     }
 }

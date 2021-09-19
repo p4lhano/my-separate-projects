@@ -9,3 +9,9 @@ Content-Type: application/json
 
 ### Listar
 GET https://localhost:5001/funcionario/list
+
+### Buscar funcionario ID
+GET https://localhost:5001/funcionario/findbyid/2
+
+### Buscar funcionario ID
+GET https://localhost:5001/funcionario/deleteid/1
