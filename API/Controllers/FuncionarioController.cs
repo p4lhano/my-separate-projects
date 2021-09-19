@@ -40,7 +40,7 @@ namespace API.Controllers
             if(funcionario != null) return Ok(funcionario);
             return NotFound();
         }
-/*
+        /*
         //GET /funcionario/findbynome/id
         [HttpGet]
         [Route("findbynome/{nome}")]
@@ -48,18 +48,28 @@ namespace API.Controllers
             Funcionario funcionario = await _context.Funcionarios.Where<>;
             return NotFound();
         }
-*/
-/*
-        // DELETE /funcionario/delete/id
+        */
+        // DELETE /funcionario/deleteid/id
         [HttpDelete]
         [Route("deleteid/{id}")]
         public async Task<IActionResult> DeleteByIdAsync([FromRoute] int id){
             Funcionario funcionario = await _context.Funcionarios.FindAsync(id).ConfigureAwait(true);
             if (funcionario == null) return NotFound();
             _context.Funcionarios.Remove(funcionario);
-            await _context.SaveChanges();
+            _context.SaveChanges();
             return Ok();
         }
-*/
+
+        // DELETE /funcionario/deletename/id
+        [HttpDelete]
+        [Route("deletename/{name}")]
+        public async Task<IActionResult> DeleteByNameAsync([FromRoute] string name){
+            Funcionario funcionario =  await _context.Funcionarios.FirstOrDefaultAsync(
+                x => x.Nome == name
+                ).ConfigureAwait(false);
+            _context.Funcionarios.Remove(funcionario);
+            _context.SaveChanges();
+            return Ok();
+        }
     }
 }
