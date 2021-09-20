@@ -7,6 +7,16 @@ Content-Type: application/json
   "cpf": "12345678900"
 }
 
+### Alterar
+PUT https://localhost:5001/funcionario/update
+Content-Type: application/json
+
+{
+   "id": 1,
+  "nome": "Vitor Rafael Palhano",
+  "cpf": "12345678900",
+  "criadoEm": "2021-09-19T20:18:08.5219391-03:00"
+}
 ### Listar
 GET https://localhost:5001/funcionario/list
 

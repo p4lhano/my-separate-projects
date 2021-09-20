@@ -26,7 +26,14 @@ namespace API.Controllers
             _context.SaveChanges();
             return Created("",funcionario);
         }
-
+        //" POST: /funcionario/update"
+        [HttpPut]
+        [Route("update")]
+        public async Task<IActionResult> AlterarFuncionario([FromBody] Funcionario funcionario){
+            _context.Funcionarios.Update(funcionario);
+            await _context.SaveChangesAsync().ConfigureAwait(false);
+            return Ok();
+        }
         // GET /funcionario/list
         [HttpGet]
         [Route("list")]
@@ -56,7 +63,7 @@ namespace API.Controllers
             Funcionario funcionario = await _context.Funcionarios.FindAsync(id).ConfigureAwait(true);
             if (funcionario == null) return NotFound();
             _context.Funcionarios.Remove(funcionario);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync().ConfigureAwait(false);
             return Ok();
         }
 
@@ -68,7 +75,7 @@ namespace API.Controllers
                 x => x.Nome == name
                 ).ConfigureAwait(false);
             _context.Funcionarios.Remove(funcionario);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync().ConfigureAwait(false);
             return Ok();
         }
     }
