@@ -32,8 +32,11 @@ namespace API
             services.AddCors(
                 options =>
                 {
-                    options.AddPolicy("CorsPolicy", builder => builder
-                        .AllowAnyOrigin()
+                    options.AddPolicy("CorsPolicy",
+                    builder => builder.
+                        AllowAnyOrigin().
+                        AllowAnyHeader().
+                        AllowAnyMethod()
                     );
                 }
             );

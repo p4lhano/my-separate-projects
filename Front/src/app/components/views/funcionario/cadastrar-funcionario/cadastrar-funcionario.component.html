@@ -1,0 +1,13 @@
+<p>cadastrar-funcionario works!</p>
+
+<div id="nome">
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" [(ngModel)]="nome" >
+</div>
+<div id="cpf">
+    <label for="cpf">CPF:</label>
+    <input type="text" name="cpf" [(ngModel)]="cpf">
+</div>
+<div id="botaoCadastrar">
+    <button (click)="create()">Salvar</button>
+</div>

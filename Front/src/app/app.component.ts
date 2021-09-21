@@ -7,13 +7,6 @@ import { FuncionarioService } from './services/funcionario.service';
   templateUrl: `./app.component.html`,
   styles: []
 })
-export class AppComponent implements OnInit {
-    public funcionarios : Funcionario[] = [];
-    constructor(private service : FuncionarioService) {};
-    ngOnInit(): void {
-        this.service.listar().subscribe(funcionarios => {
-            this.funcionarios = funcionarios;
-            //console.log(funcionarios);
-        });
-    }
+
+export class AppComponent {
 }

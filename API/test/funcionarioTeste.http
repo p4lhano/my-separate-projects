@@ -3,7 +3,7 @@ POST https://localhost:5001/funcionario/create
 Content-Type: application/json
 
 {
-  "nome": "vitor",
+  "nome": "Matheus Fernandes",
   "cpf": "12345678900"
 }
 
