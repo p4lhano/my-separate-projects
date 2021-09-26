@@ -1,12 +1,12 @@
 ###
-POST https://localhost:5001/funcionario/create
+POST https://localhost:5001/setor/create
 Content-Type: application/json
 
 {
-  "nome": "Matheus2",
-  "cpf": "12345678900",
-  "SetorId": 1
+  "nomesetor": "Financeiro"
 }
+### Listar
+GET https://localhost:5001/setor/list
 
 ### Alterar
 PUT https://localhost:5001/funcionario/update
@@ -18,8 +18,7 @@ Content-Type: application/json
   "cpf": "12345678900",
   "criadoEm": "2021-09-19T20:18:08.5219391-03:00"
 }
-### Listar
-GET https://localhost:5001/funcionario/list
+
 
 ### Buscar funcionario ID
 GET https://localhost:5001/funcionario/findbyid/2
