@@ -41,7 +41,7 @@ namespace API.Controllers
         {
             var response = await _context.Setores
                 /*.Include(u => u.Funcionarios)*/
-                .ToArrayAsync()
+                .ToListAsync()
                 .ConfigureAwait(false);
             return Ok(response);
         }

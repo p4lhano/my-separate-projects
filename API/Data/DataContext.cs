@@ -13,12 +13,30 @@ namespace API.Data
         public DbSet<Setor> Setores { get; set; }
         public DbSet<Funcionario> Funcionarios { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) {
+       protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.Entity<Funcionario>()
                 .HasOne(p => p.Setor)
                 .WithMany(b => b.Funcionarios)
                 .HasForeignKey(x => x.SetorId)
                 .IsRequired();
         }
+
+/*         protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+        modelBuilder.Entity<Setor>()
+            .HasMany(b => b.Funcionarios)
+            .WithOne();
+        }
+*/
+/*protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Setor>()
+        .HasMany(b => b.Funcionarios)
+        .WithOne();
+
+    modelBuilder.Entity<Setor>()
+        .Navigation(b => b.Funcionarios)
+        .UsePropertyAccessMode(PropertyAccessMode.Property);
+}*/
     }
 }
