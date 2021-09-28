@@ -1,0 +1,32 @@
+<h1>Filmes</h1>
+
+<p>
+<span routerLink="/filme/all">Listar         </span><span routerLink="/filme/new">       Cadastrar</span>
+</p>
+
+<h3>Cadastro</h3>
+
+
+<div id="nome">
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" [(ngModel)]="nome">
+</div>
+
+<div id="descricao">
+    <label for="descricao">Descricao:</label>
+    <input type="text" name="descricao" [(ngModel)]="descricao">
+</div>
+
+<div id="nota">
+    <label for="nota">Nota:</label>
+    <input type="text" name="nota" [(ngModel)]="nota">
+</div>
+
+<div id="diretor">
+    <label for="diretor">Diretor:</label>
+    <input type="text" name="diretor" [(ngModel)]="diretor">
+</div>
+
+<div id="botaoCadastrar">
+    <button (click)="create()">Salvar</button>
+</div>

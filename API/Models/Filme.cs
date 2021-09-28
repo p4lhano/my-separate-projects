@@ -8,7 +8,6 @@ namespace API.Models
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public int Nota { get; set; }
-        public DateTime CriadoEm { get; set; }
-            public Filme() => CriadoEm = DateTime.Now;
+        public string Diretor { get; set; }
     }
 }
