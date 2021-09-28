@@ -40,7 +40,7 @@ namespace API.Controllers
         public async Task<IActionResult> ListarAsync()
         {
             var response = await _context.Setores
-                /*.Include(u => u.Funcionarios)*/
+                .Include(u => u.Funcionarios)
                 .ToListAsync()
                 .ConfigureAwait(false);
             return Ok(response);
