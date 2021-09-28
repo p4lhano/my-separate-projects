@@ -15,6 +15,13 @@ import {ToolbarComponent} from './components/templete/toolbar/toolbar.component'
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCommonModule} from '@angular/material/core';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTableModule} from '@angular/material/table';
+
+
 
 @NgModule({
   declarations: [
@@ -33,7 +40,12 @@ import {MatCommonModule} from '@angular/material/core';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
-    MatCommonModule
+    MatCommonModule,
+    MatButtonModule,
+    MatCardModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { ToolbarComponent } from 'src/app/components/templete/toolbar/toolbar.component';
 import { Funcionario } from 'src/app/models/funcionario';
 import { FuncionarioService } from 'src/app/services/funcionario.service';
 
@@ -10,12 +12,16 @@ import { FuncionarioService } from 'src/app/services/funcionario.service';
 export class ListarFuncionarioComponent implements OnInit {
 
     public funcionarios : Funcionario[] = [];
+    public funcionarios2! : MatTableDataSource<Funcionario>;
+    displayedColumns: string[] = ['id','nome','cpf','criadoEm'];
     constructor(private service : FuncionarioService) {};
 
   ngOnInit(): void {
+
     this.service.listar().subscribe(funcionarios => {
-        this.funcionarios = funcionarios;
-        //console.log(funcionarios);
+    console.log(funcionarios);
+    this.funcionarios = funcionarios;
+    this.funcionarios2 = new MatTableDataSource<Funcionario>(funcionarios);
     });
   }
 

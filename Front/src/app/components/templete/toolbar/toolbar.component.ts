@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
+    public NomePagina!: String;
+
   constructor() { }
 
   ngOnInit(): void {
