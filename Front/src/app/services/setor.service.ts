@@ -18,4 +18,8 @@ export class SetorService {
     cadastrar(setor: Setor): Observable<Setor>{
         return this.http.post<Setor>(`${this.URL_BASE}/setor/create`, setor);
     }
+
+    deletar(id: number): Observable<Setor>{
+        return this.http.delete<Setor>(`${this.URL_BASE}/setor/deleteid/${id}`);
+    }
 }

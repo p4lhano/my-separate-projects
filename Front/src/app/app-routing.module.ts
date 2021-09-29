@@ -1,3 +1,5 @@
+import { DeletarSetorComponent } from './components/views/setor/deletar-setor/deletar-setor.component';
+import { DeletarFuncionarioComponent } from './components/views/funcionario/deletar-funcionario/deletar-funcionario.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastrarFuncionarioComponent } from './components/views/funcionario/cadastrar-funcionario/cadastrar-funcionario.component';
@@ -16,11 +18,17 @@ const routes: Routes = [
         path: "funcionario/new",
         component: CadastrarFuncionarioComponent
     },{
+        path: "funcionario/deletar",
+        component: DeletarFuncionarioComponent
+    },{
         path: "setor/new",
         component: CadastrarSetorComponent
     },{
         path: "setor/all",
         component: ListarSetorComponent
+    },{
+        path: "setor/deletar",
+        component: DeletarSetorComponent
     }
 ];
 

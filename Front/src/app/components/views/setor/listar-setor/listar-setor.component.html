@@ -19,6 +19,11 @@
         <th mat-header-cell *matHeaderCellDef> Funcionarios </th>
         <td mat-cell *matCellDef="let s"><p *ngFor="let funcionario of s.funcionarios">{{funcionario.nome}}</p></td>
     </ng-container>
+
+    <ng-container matColumnDef="deletar">
+        <th mat-header-cell *matHeaderCellDef> DELETAR </th>
+        <td mat-cell *matCellDef="let s">  <button (click)="deletar(s.setorId)">Deletar</button></td>
+    </ng-container>
 <!--
 Adicionar a coluna de ação para update e delete
 -->

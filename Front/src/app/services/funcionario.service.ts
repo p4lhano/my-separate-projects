@@ -12,9 +12,13 @@ export class FuncionarioService {
     constructor(private http: HttpClient) { }
 
     listar(): Observable<Funcionario[]> {
-        return this.http.get<Funcionario[]>(`${this.URL_BASE}/funcionario/list`);;
+        return this.http.get<Funcionario[]>(`${this.URL_BASE}/funcionario/list`);
     }
     cadastrar(funcionario: Funcionario): Observable<Funcionario>{
         return this.http.post<Funcionario>(`${this.URL_BASE}/funcionario/create`, funcionario);
+    }
+
+    deletar(id: number): Observable<Funcionario>{
+        return this.http.delete<Funcionario>(`${this.URL_BASE}/funcionario/deleteid/${id}`);
     }
 }
