@@ -23,8 +23,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTableModule} from '@angular/material/table';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { DeletarFuncionarioComponent } from './components/views/funcionario/deletar-funcionario/deletar-funcionario.component';
-import { DeletarSetorComponent } from './components/views/setor/deletar-setor/deletar-setor.component';
 
 
 @NgModule({
@@ -36,10 +34,7 @@ import { DeletarSetorComponent } from './components/views/setor/deletar-setor/de
     CadastrarSetorComponent,
     ToolbarComponent,
     DeleteFuncionarioComponent,
-    DeleteSetorComponent
-    ToolbarComponent,
-    DeletarFuncionarioComponent,
-    DeletarSetorComponent
+    DeleteSetorComponent,
   ],
   imports: [
     BrowserModule,

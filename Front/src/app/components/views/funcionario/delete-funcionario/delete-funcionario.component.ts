@@ -3,23 +3,20 @@ import {  Router, ActivatedRoute } from '@angular/router';
 import { FuncionarioService } from 'src/app/services/funcionario.service';
 
 @Component({
-  selector: 'app-delete-funcionario',
-  templateUrl: './delete-funcionario.component.html',
-  styleUrls: ['./delete-funcionario.component.css']
+    selector: 'app-delete-funcionario',
+    templateUrl: './delete-funcionario.component.html',
+    styleUrls: ['./delete-funcionario.component.css']
 })
 export class DeleteFuncionarioComponent implements OnInit {
 
-    id!:number;
-  constructor(private service: FuncionarioService, private router: Router, private rota: ActivatedRoute) { }
+        id!:number;
+    constructor(private service: FuncionarioService, private rota: ActivatedRoute, private router: Router) { }
 
-  ngOnInit(): void {
-    console.log(`O id: ainda não determinado chegou no componente`);
-    this.rota.params.subscribe((params) => {
-        console.log(`O id:${params.id} ainda não determinado chegou no componente para deletar`);
-        this.id = params.id;
-        this.service.delete(this.id);
-        this.router.navigate([""]);
-    });
-  }
+    ngOnInit(): void {
+        this.rota.params.subscribe((params) => {
+            this.service.delete(params.id).subscribe();
+            this.router.navigate(["funcionario/all"]);
+        });
+    }
 
 }

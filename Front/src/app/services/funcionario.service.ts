@@ -23,11 +23,12 @@ export class FuncionarioService {
         return this.http.get<Funcionario>(`${this.URL_BASE}/funcionario/findbyid/${ id }`);
     }
 
-        return this.http.put<Funcionario>(`${this.URL_BASE}/funcionario/update`, funcionario);
+
     update(funcionario: Funcionario): Observable<Funcionario> {
+        return this.http.put<Funcionario>(`${this.URL_BASE}/funcionario/update`, funcionario);
     }
 
-    deletar(id: number): Observable<Funcionario>{
+    delete(id: number): Observable<Funcionario>{
         return this.http.delete<Funcionario>(`${this.URL_BASE}/funcionario/deleteid/${id}`);
     }
 }
