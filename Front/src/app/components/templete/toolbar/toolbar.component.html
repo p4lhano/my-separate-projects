@@ -6,9 +6,51 @@
             </mat-icon>
             Solução RH
         </span>
-      <span class="example-spacer"></span>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
+        <span class="example-spacer"></span>
+        <div class="listatoolbar">
+            Funcionario:
+            <span routerLink="/funcionario/all">
+                Listar
+            </span>
+            <span routerLink="/funcionario/new">
+                Cadastrar
+            </span>
+        </div>
+        <div class="listatoolbar" style=" padding-left: 5%;">
+            Setor:
+            <span routerLink="/setor/all">
+                Listar
+            </span>
+            <span routerLink="/setor/new">
+                Cadastrar
+            </span>
+        </div>
     </mat-toolbar-row>
   </mat-toolbar>
+
+<!--
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span routerLink="/">
+            <mat-icon>
+                emoji_people
+            </mat-icon>
+            Solução RH
+        </span>
+      <span class="example-spacer"></span>
+
+      <mat-drawer-container  autosize>
+      <button mat-icon-button class="example-icon" aria-label="button">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+
+      <mat-drawer #drawer class="example-sidenav" mode="side">
+        <p>Menu listando</p>
+      </mat-drawer>
+
+
+     </mat-drawer-container>
+    </mat-toolbar-row>
+  </mat-toolbar>
+-->

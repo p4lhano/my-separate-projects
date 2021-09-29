@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { Setor } from 'src/app/models/setor';
+import { SetorService } from 'src/app/services/setor.service';
 
 @Component({
   selector: 'app-listar-setor',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarSetorComponent implements OnInit {
 
-  constructor() { }
+    public setores! : MatTableDataSource<Setor>;
+    displayedColumns: string[] = ['setorId','nomeSetor','funcionarios'];
+    constructor(private service : SetorService) { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+        this.service.listar().subscribe(setores => {
+            console.log(setores);
+            this.setores = new MatTableDataSource<Setor>(setores);
+            });
+    }
 
 }

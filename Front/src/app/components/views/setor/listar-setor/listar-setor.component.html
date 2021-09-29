@@ -1,1 +1,27 @@
-<p>listar-setor works!</p>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span style="font-size: 90%;">Listar Setor</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<table mat-table [dataSource]="setores" >
+
+    <ng-container matColumnDef="setorId">
+        <th mat-header-cell *matHeaderCellDef > # </th>
+        <td mat-cell *matCellDef="let s" >{{ s.setorId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nomeSetor">
+        <th mat-header-cell *matHeaderCellDef> NOME SETOR </th>
+        <td mat-cell *matCellDef="let s">{{ s.nomeSetor }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="funcionarios">
+        <th mat-header-cell *matHeaderCellDef> Funcionarios </th>
+        <td mat-cell *matCellDef="let s"><p *ngFor="let funcionario of s.funcionarios">{{funcionario.nome}}</p></td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
