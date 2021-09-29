@@ -14,8 +14,17 @@ export class FuncionarioService {
     listar(): Observable<Funcionario[]> {
         return this.http.get<Funcionario[]>(`${this.URL_BASE}/funcionario/list`);
     }
+
     cadastrar(funcionario: Funcionario): Observable<Funcionario>{
         return this.http.post<Funcionario>(`${this.URL_BASE}/funcionario/create`, funcionario);
+    }
+
+    buscarId(id:number): Observable<Funcionario> {
+        return this.http.get<Funcionario>(`${this.URL_BASE}/funcionario/findbyid/${ id }`);
+    }
+
+        return this.http.put<Funcionario>(`${this.URL_BASE}/funcionario/update`, funcionario);
+    update(funcionario: Funcionario): Observable<Funcionario> {
     }
 
     deletar(id: number): Observable<Funcionario>{

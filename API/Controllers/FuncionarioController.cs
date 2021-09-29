@@ -60,6 +60,7 @@ namespace API.Controllers
         [HttpDelete]
         [Route("deleteid/{id}")]
         public async Task<IActionResult> DeleteByIdAsync([FromRoute] int id){
+            Console.WriteLine(id);
             Funcionario funcionario = await _context.Funcionarios.FindAsync(id).ConfigureAwait(true);
             if (funcionario == null) return NotFound();
             _context.Funcionarios.Remove(funcionario);

@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { ListarFuncionarioComponent } from './components/views/funcionario/listar-funcionario/listar-funcionario.component';
 import { CadastrarFuncionarioComponent } from './components/views/funcionario/cadastrar-funcionario/cadastrar-funcionario.component';
-import { FormsModule } from '@angular/forms';
 import { ListarSetorComponent } from './components/views/setor/listar-setor/listar-setor.component';
 import { CadastrarSetorComponent } from './components/views/setor/cadastrar-setor/cadastrar-setor.component';
+import { DeleteFuncionarioComponent } from './components/views/funcionario/delete-funcionario/delete-funcionario.component';
+import { DeleteSetorComponent } from './components/views/setor/delete-setor/delete-setor.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ToolbarComponent} from './components/templete/toolbar/toolbar.component';
-
+import { FormsModule } from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCommonModule} from '@angular/material/core';
@@ -25,8 +27,6 @@ import { DeletarFuncionarioComponent } from './components/views/funcionario/dele
 import { DeletarSetorComponent } from './components/views/setor/deletar-setor/deletar-setor.component';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +34,9 @@ import { DeletarSetorComponent } from './components/views/setor/deletar-setor/de
     CadastrarFuncionarioComponent,
     ListarSetorComponent,
     CadastrarSetorComponent,
+    ToolbarComponent,
+    DeleteFuncionarioComponent,
+    DeleteSetorComponent
     ToolbarComponent,
     DeletarFuncionarioComponent,
     DeletarSetorComponent

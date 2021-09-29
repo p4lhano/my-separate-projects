@@ -3,9 +3,9 @@ POST https://localhost:5001/funcionario/create
 Content-Type: application/json
 
 {
-  "nome": "Rafael",
+  "nome": "Bianca",
   "cpf": "12345678900",
-  "SetorId": 1
+  "SetorId": 2
 }
 
 ### Alterar
@@ -25,7 +25,7 @@ GET https://localhost:5001/funcionario/list
 GET https://localhost:5001/funcionario/findbyid/2
 
 ### Delete funcionario ID
-DELETE  https://localhost:5001/funcionario/deleteid/1
+DELETE  https://localhost:5001/funcionario/deleteid/2
 
 ### Delete funcionario ID
 DELETE  https://localhost:5001/funcionario/deletename/Vitor

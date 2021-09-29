@@ -14,8 +14,9 @@ export class ListarFuncionarioComponent implements OnInit {
 
     public funcionarios : Funcionario[] = [];
     public funcionarios2! : MatTableDataSource<Funcionario>;
-    displayedColumns: string[] = ['id','nome','cpf','criadoEm', 'deletar'];
+    displayedColumns: string[] = ['id','nome','cpf','criadoEm', 'runs'];
     constructor(private service : FuncionarioService, private router: Router) {};
+    displayedColumns: string[] = ['id','nome','cpf','criadoEm', 'deletar'];
 
     ngOnInit(): void {
 
