@@ -1,6 +1,6 @@
 <mat-toolbar color="warn">
     <mat-toolbar-row>
-        <span style="font-size: 90%;">Cadastrar Novo Funcionario</span>
+        <span style="font-size: 90%;">Funcionario</span>
     </mat-toolbar-row>
 </mat-toolbar>
 
@@ -22,4 +22,7 @@
 
 <div id="botaoCadastrar">
     <button (click)="create()">Salvar</button>
+</div>
+<div id="botaoAlterar">
+    <button *ngIf="id" (click)="alterar()">Alterar</button>
 </div>
