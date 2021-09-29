@@ -3,7 +3,7 @@ POST https://localhost:5001/setor/create
 Content-Type: application/json
 
 {
-  "nomesetor": "Financeiro"
+  "nomesetor": "Operações"
 }
 ### Listar
 GET https://localhost:5001/setor/list

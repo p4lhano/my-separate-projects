@@ -4,5 +4,4 @@ export interface Setor {
     setorId?:number;
     nomeSetor:string;
     funcionarios?: Funcionario[];
-
 }

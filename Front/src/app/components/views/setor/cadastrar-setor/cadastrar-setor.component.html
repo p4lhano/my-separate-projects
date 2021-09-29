@@ -1,1 +1,15 @@
 <p>cadastrar-setor works!</p>
+
+<mat-toolbar color="warn">
+    <mat-toolbar-row>
+        <span style="font-size: 90%;">Cadastrar Novo Setor</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div id="nomeSetor">
+    <label for="nomeSetor">Nome do Setor:</label>
+    <input type="text" name="nomeSetor" [(ngModel)]="nomeSetor" >
+</div>
+<div id="botaoCadastrar">
+    <button (click)="create()">Salvar</button>
+</div>

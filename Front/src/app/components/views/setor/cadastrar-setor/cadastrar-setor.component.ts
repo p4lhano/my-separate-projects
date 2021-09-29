@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Setor } from 'src/app/models/setor';
+import { SetorService } from 'src/app/services/setor.service';
 
 @Component({
   selector: 'app-cadastrar-setor',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastrarSetorComponent implements OnInit {
 
-  constructor() { }
+    nomeSetor!: string ;
+  constructor(private service : SetorService,private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  create(): void {
+    let setor: Setor = {
+        nomeSetor : this.nomeSetor
+    };
+    this.service.cadastrar(setor).subscribe(setor => {
+        console.log(setor);
+        this.router.navigate(["setor/all"]);
+    });
   }
 
 }

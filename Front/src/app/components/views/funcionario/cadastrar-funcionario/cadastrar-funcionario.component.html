@@ -12,6 +12,14 @@
     <label for="cpf">CPF:</label>
     <input type="text" name="cpf" [(ngModel)]="cpf">
 </div>
+
+<div id="setorId">
+    <label for="setorId">Setor</label>
+    <select name="setorId" [(ngModel)]="setorId">
+        <option value="{{s.setorId}}" *ngFor="let s of isSetores">{{s.nomeSetor}}</option>
+    </select>
+</div>
+
 <div id="botaoCadastrar">
     <button (click)="create()">Salvar</button>
 </div>
