@@ -33,7 +33,7 @@ const routes: Routes = [
         path: "setor/delete/:id",
         component: DeleteSetorComponent
     },{
-        path: "setor/update/:id",
+        path: "setor/update/:setorId",
         component: CadastrarSetorComponent
     }
 ];

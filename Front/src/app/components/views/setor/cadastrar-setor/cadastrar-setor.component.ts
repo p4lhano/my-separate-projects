@@ -23,8 +23,12 @@ export class CadastrarSetorComponent implements OnInit {
         this.route.params.subscribe((params) => {
             this.action = "Editar";
             this.setorId = params.setorId;
+            //console.log("Buscando o setor com o ID::");
+            //console.log(this.setorId);
             this.service.buscarId(this.setorId).subscribe((setor) => {
                 this.nomeSetor = setor.nomeSetor;
+                //console.log("Achou o seguinte setor:");
+                //console.log(setor);
             });
         });
   }
@@ -36,7 +40,7 @@ export class CadastrarSetorComponent implements OnInit {
         nomeSetor : this.nomeSetor
     };
     this.service.cadastrar(setor).subscribe(setor => {
-        console.log(setor);
+        //console.log(setor);
         this.router.navigate(["setor/all"]);
     });
   }
@@ -49,8 +53,8 @@ export class CadastrarSetorComponent implements OnInit {
     };
 
     this.service.update(setor).subscribe((setor) => {
-        console.log(setor);
-        this.router.navigate([""]);
+        //console.log(setor);
+        this.router.navigate(["setor/all"]);
     });
   }
 }
