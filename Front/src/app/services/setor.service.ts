@@ -19,6 +19,14 @@ export class SetorService {
         return this.http.post<Setor>(`${this.URL_BASE}/setor/create`, setor);
     }
 
+    buscarId(id:number): Observable<Setor> {
+        return this.http.get<Setor>(`${this.URL_BASE}/setor/findbyid/${ id }`);
+    }
+
+    update(setor: Setor): Observable<Setor> {
+        return this.http.put<Setor>(`${this.URL_BASE}/setor/update`, setor);
+    }
+
     delete(id: number): Observable<Setor>{
         return this.http.delete<Setor>(`${this.URL_BASE}/setor/deleteid/${id}`);
     }

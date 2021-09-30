@@ -21,7 +21,7 @@
 </div>
 
 <div id="botaoCadastrar">
-    <button (click)="create()">Salvar</button>
+    <button *ngIf="!id" (click)="create()">Salvar</button>
 </div>
 <div id="botaoAlterar">
     <button *ngIf="id" (click)="alterar()">Alterar</button>

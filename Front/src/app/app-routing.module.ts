@@ -32,6 +32,9 @@ const routes: Routes = [
     },{
         path: "setor/delete/:id",
         component: DeleteSetorComponent
+    },{
+        path: "setor/update/:id",
+        component: CadastrarSetorComponent
     }
 ];
 
