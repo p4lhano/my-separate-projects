@@ -8,6 +8,21 @@
     <label for="nome">Nome:</label>
     <input type="text" name="nome" [(ngModel)]="nome" >
 </div>
+
+
+<!--
+<mat-form-field appearance="fill">
+    <mat-label for="data">Nome</mat-label>
+    <input matInput placeholder="Nome" name="data" [(ngModel)]="nome">
+  </mat-form-field>
+
+
+  <mat-form-field appearance="fill">
+    <mat-label>Input</mat-label>
+    <input matInput>
+  </mat-form-field>
+-->
+
 <div id="cpf">
     <label for="cpf">CPF:</label>
     <input type="text" name="cpf" [(ngModel)]="cpf">
@@ -21,7 +36,7 @@
 </div>
 
 <div id="botaoCadastrar">
-    <button (click)="create()">Salvar</button>
+    <button *ngIf="!id" (click)="create()">Salvar</button>
 </div>
 <div id="botaoAlterar">
     <button *ngIf="id" (click)="alterar()">Alterar</button>
