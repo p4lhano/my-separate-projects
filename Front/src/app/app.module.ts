@@ -25,7 +25,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
-
+import { MatInputModule } from "@angular/material/input";
 
 
 
@@ -57,7 +57,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatFormFieldModule,
     MatTableModule,
     MatSidenavModule,
-    MatMenuModule
+    MatMenuModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
