@@ -1,29 +1,41 @@
+<!--
 <mat-toolbar color="warn">
     <mat-toolbar-row>
         <span style="font-size: 90%;">Funcionario</span>
     </mat-toolbar-row>
 </mat-toolbar>
+<mat-card><mat-card-content>
+    <div id="nome">
+        <label for="nome" >Nome:</label>
+        <input type="text" name="nome" [(ngModel)]="nome" >
+    </div>
 
-<div id="nome">
-    <label for="nome">Nome:</label>
-    <input type="text" name="nome" [(ngModel)]="nome" >
-</div>
+    <div id="cpf">
+        <label for="cpf">CPF:</label>
+        <input type="text" name="cpf" [(ngModel)]="cpf">
+    </div>
 
-<div id="cpf">
-    <label for="cpf">CPF:</label>
-    <input type="text" name="cpf" [(ngModel)]="cpf">
-</div>
+    <div id="setorId">
+        <label for="setorId">Setor</label>
+        <select name="setorId" [(ngModel)]="setorId">
+            <option value="{{s.setorId}}" *ngFor="let s of isSetores">{{s.nomeSetor}}</option>
+        </select>
+    </div>
 
-<div id="setorId">
-    <label for="setorId">Setor</label>
-    <select name="setorId" [(ngModel)]="setorId">
-        <option value="{{s.setorId}}" *ngFor="let s of isSetores">{{s.nomeSetor}}</option>
-    </select>
-</div>
+    <div id="botaoCadastrar">
+        <button *ngIf="!id" (click)="create()">Salvar</button>
+    </div>
+    <div id="botaoAlterar">
+        <button *ngIf="id" (click)="alterar()">Alterar</button>
+    </div>
+</mat-card-content></mat-card> -->
 
-<div id="botaoCadastrar">
-    <button *ngIf="!id" (click)="create()">Salvar</button>
-</div>
-<div id="botaoAlterar">
-    <button *ngIf="id" (click)="alterar()">Alterar</button>
-</div>
+<mat-form-field appearance="fill">
+    <mat-label>Input</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Textarea</mat-label>
+    <textarea matInput></textarea>
+  </mat-form-field>

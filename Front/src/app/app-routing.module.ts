@@ -6,6 +6,7 @@ import { DeleteFuncionarioComponent } from './components/views/funcionario/delet
 import { ListarFuncionarioComponent } from './components/views/funcionario/listar-funcionario/listar-funcionario.component';
 import { CadastrarSetorComponent } from './components/views/setor/cadastrar-setor/cadastrar-setor.component';
 import { ListarSetorComponent } from './components/views/setor/listar-setor/listar-setor.component';
+import { TesteFormularioComponent } from './components/views/funcionario/teste-formulario/teste-formulario.component';
 
 const routes: Routes = [
     {
@@ -35,6 +36,9 @@ const routes: Routes = [
     },{
         path: "setor/update/:setorId",
         component: CadastrarSetorComponent
+    },{
+        path: "teste",
+        component: TesteFormularioComponent
     }
 ];
 
