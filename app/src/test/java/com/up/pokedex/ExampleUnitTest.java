@@ -1,4 +1,4 @@
-package com.up.appaula1;
+package com.up.pokedex;
 
 import org.junit.Test;
 

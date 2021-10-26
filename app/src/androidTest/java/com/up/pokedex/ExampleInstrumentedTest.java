@@ -1,4 +1,4 @@
-package com.up.appaula1;
+package com.up.pokedex;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.up.appaula1", appContext.getPackageName());
+        assertEquals("com.up.pokedex", appContext.getPackageName());
     }
 }

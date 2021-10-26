@@ -3,11 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Samsung/Documents/UP/4 Aplicativos Moveis/aula1teste/app/src/main/res/layout/activity_main.xml" value="0.18385416666666668" />
-        <entry key="..\:/Users/Samsung/Documents/UP/4 Aplicativos Moveis/aula1teste/app/src/main/res/layout/activity_register.xml" value="0.25" />
-        <entry key="..\:/Users/Samsung/Documents/UP/4 Aplicativos Moveis/aula1teste/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.37135416666666665" />
-        <entry key="app/src/main/res/layout/activity_register.xml" value="0.33" />
+        <entry key="..\:/Users/Samsung/Documents/UP/4 Aplicativos Moveis/Pokedex/app/src/main/res/layout/activity_poke_list.xml" value="0.18" />
+        <entry key="..\:/Users/Samsung/Documents/UP/4 Aplicativos Moveis/Pokedex/app/src/main/res/layout/activity_pokemon_detail.xml" value="0.25" />
+        <entry key="..\:/Users/Samsung/Documents/UP/4 Aplicativos Moveis/Pokedex/app/src/main/res/layout/view_item_pokemon.xml" value="0.25" />
       </map>
     </option>
   </component>
