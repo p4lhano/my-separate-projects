@@ -3,9 +3,9 @@ POST https://localhost:5001/funcionario/create
 Content-Type: application/json
 
 {
-  "nome": "Bianca",
+  "nome": "Giovana",
   "cpf": "12345678900",
-  "SetorId": 2
+  "SetorId": 1
 }
 
 ### Alterar

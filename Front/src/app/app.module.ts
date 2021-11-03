@@ -26,7 +26,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from "@angular/material/input";
-
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -58,7 +58,8 @@ import { MatInputModule } from "@angular/material/input";
     MatTableModule,
     MatSidenavModule,
     MatMenuModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

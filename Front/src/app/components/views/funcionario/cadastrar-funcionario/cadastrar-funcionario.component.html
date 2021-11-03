@@ -1,41 +1,33 @@
-<!--
+
 <mat-toolbar color="warn">
     <mat-toolbar-row>
         <span style="font-size: 90%;">Funcionario</span>
     </mat-toolbar-row>
-</mat-toolbar>
-<mat-card><mat-card-content>
-    <div id="nome">
-        <label for="nome" >Nome:</label>
-        <input type="text" name="nome" [(ngModel)]="nome" >
-    </div>
+</mat-toolbar> <br>
+<mat-card>
 
-    <div id="cpf">
-        <label for="cpf">CPF:</label>
-        <input type="text" name="cpf" [(ngModel)]="cpf">
-    </div>
+    <mat-form-field appearance="fill">
+        <mat-label for="nome">Nome</mat-label>
+        <input matInput name="nome" [(ngModel)]="nome">
+    </mat-form-field> <br>
 
-    <div id="setorId">
-        <label for="setorId">Setor</label>
-        <select name="setorId" [(ngModel)]="setorId">
-            <option value="{{s.setorId}}" *ngFor="let s of isSetores">{{s.nomeSetor}}</option>
-        </select>
-    </div>
+    <mat-form-field appearance="fill">
+        <mat-label for="cpf">CPF</mat-label>
+        <input matInput name="cpf" [(ngModel)]="cpf">
+    </mat-form-field> <br>
+    <mat-form-field appearance="fill">
+        <mat-label for="setorId">Setor</mat-label>
+        <mat-select name="setorId" [(ngModel)]="setorId">
+          <mat-option *ngFor="let s of isSetores" [value]="s.setorId">
+            {{s.nomeSetor}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
 
     <div id="botaoCadastrar">
-        <button *ngIf="!id" (click)="create()">Salvar</button>
+        <button mat-raised-button *ngIf="!id" (click)="create()">Salvar</button>
     </div>
     <div id="botaoAlterar">
-        <button *ngIf="id" (click)="alterar()">Alterar</button>
+        <button mat-raised-button *ngIf="id" (click)="alterar()">Alterar</button>
     </div>
-</mat-card-content></mat-card> -->
-
-<mat-form-field appearance="fill">
-    <mat-label>Input</mat-label>
-    <input matInput>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Textarea</mat-label>
-    <textarea matInput></textarea>
-  </mat-form-field>
+</mat-card>

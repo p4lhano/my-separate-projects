@@ -3,25 +3,23 @@ POST https://localhost:5001/setor/create
 Content-Type: application/json
 
 {
-  "nomesetor": "Industrial"
+  "nomesetor": "Contabil"
 }
 ### Listar
 GET https://localhost:5001/setor/list
 
 ### Alterar
-PUT https://localhost:5001/funcionario/update
+PUT https://localhost:5001/setor/update
 Content-Type: application/json
 
 {
-   "id": 1,
-  "nome": "Vitor Rafael Palhano",
-  "cpf": "12345678900",
-  "criadoEm": "2021-09-19T20:18:08.5219391-03:00"
+    "setorId": 1,
+    "nomeSetor": "Contabil"
 }
 
 
 ### Buscar funcionario ID
-GET https://localhost:5001/funcionario/findbyid/2
+GET https://localhost:5001/setor/findbyid/1
 
 ### Delete funcionario ID
 DELETE  https://localhost:5001/funcionario/deleteid/1
