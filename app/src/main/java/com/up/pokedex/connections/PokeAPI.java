@@ -22,11 +22,15 @@ public class PokeAPI {
                     //PokeListActivity.this.pokemons.addAll(pokemons);
                     //recycleViewPokeList.getAdapter().notifyDataSetChanged();
                     try {
-
-                        Log.v("APP_POKEDEX", String.valueOf(jsonObject));
                         JSONArray results = jsonObject.getJSONArray("pokemon_species");
-                        for (int i = 0,idPokemon =1; i < results.length() ; i++, idPokemon++){
+                        for (int i = 0; i < results.length() ; i++){
+
                             JSONObject pokeObject = results.getJSONObject(i);
+
+                            String pokeUrl = pokeObject.getString("url");
+                            String stringId = pokeUrl.substring(42,pokeUrl.length()-1);
+                            int idPokemon = Integer.parseInt(stringId);
+
                             pokemons.add( new Pokemon(
                                     idPokemon,
                                     pokeObject.getString("name"),
