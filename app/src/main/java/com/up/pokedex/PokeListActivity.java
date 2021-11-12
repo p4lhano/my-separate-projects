@@ -36,7 +36,7 @@ public class PokeListActivity extends AppCompatActivity {
             public void OnPokemonClickListener(Pokemon pokemon) {
                 Log.v("POKEDEX","Pokemon selecionado: " + pokemon.getNome());
                 Intent intentPokemon = new Intent(PokeListActivity.this , PokemonDetailActivity.class);
-                intentPokemon.putExtra("pokemon",pokemon.getNome());
+                intentPokemon.putExtra("pokemon", Integer.toString( pokemon.getId() ) );
                 startActivity(intentPokemon);
             }
         }) );

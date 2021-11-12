@@ -6,10 +6,32 @@ import java.util.ArrayList;
 
 public class Pokemon implements Serializable {
 
+    public Pokemon() { }
     public Pokemon(int id, String nome, String image) {
         this.id = id;
         this.name = nome;
         this.image = image;
+    }
+
+    @Override
+    public String toString() {
+        return "Pokemon{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", image='" + image + '\'' +
+                ", types=" + types +
+                ", abilities=" + abilities +
+                ", moves=" + moves +
+                '}';
+    }
+
+    public Pokemon(int id, String name, String image, ArrayList<String> types, ArrayList<String> abilities, ArrayList<String> moves) {
+        this.id = id;
+        this.name = name;
+        this.image = image;
+        this.types = types;
+        this.abilities = abilities;
+        this.moves = moves;
     }
 
     public String getNome() {

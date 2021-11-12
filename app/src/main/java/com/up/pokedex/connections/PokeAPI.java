@@ -52,14 +52,53 @@ public class PokeAPI {
         asyncTask.execute("https://pokeapi.co/api/v2/generation/1");
     }
 
-    public void getPokemon(String nome, OnPokeDatailAPIListener listener){
-        Pokemon pokemon;
+    public void getPokemon(String idPokemon, OnPokeDatailAPIListener listener){
+
+
         PokeConnectionTaks asyncTask = new PokeConnectionTaks(new PokeConnectionTaks.onRequestListener() {
             @Override
             public void onRequestFinish(JSONObject resultObject) {
+                Pokemon pokemonReturned;
                 try {
-                    Log.v("APP_POKEDEX", String.valueOf(resultObject));
+                    Log.v("APP_POKEDEX","Retorno pokemon trouxe: " + String.valueOf(resultObject));
 
+                    JSONObject species = resultObject.getJSONObject("species");
+                    String name = species.getString("name");
+                    String image = species.getString("url");
+                    image = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + image.substring(42,image.length()-1)  +".png";
+                    ArrayList<String> types = new ArrayList<String>();
+                    ArrayList<String> abilities = new ArrayList<String>();
+                    ArrayList<String> moves = new ArrayList<String>();
+
+
+                    JSONArray typesJSON = resultObject.getJSONArray("types");
+                    for (int i = 0; i < typesJSON.length(); i++) {
+                        JSONObject pokeObject = typesJSON.getJSONObject(i);
+                        types.add(pokeObject.getJSONObject("type").getString("name"));
+                    }
+
+                    JSONArray abilitiesJSON = resultObject.getJSONArray("abilities");
+                    for (int i = 0; i < abilitiesJSON.length(); i++) {
+                        JSONObject pokeObject = abilitiesJSON.getJSONObject(i);
+                        abilities.add(pokeObject.getJSONObject("ability").getString("name"));
+                    }
+
+                    JSONArray movesJSON = resultObject.getJSONArray("moves");
+                    for (int i = 0; i < movesJSON.length(); i++) {
+                        JSONObject pokeObject = movesJSON.getJSONObject(i);
+                        moves.add( pokeObject.getJSONObject("move").getString("name") );
+                    }
+
+
+                    pokemonReturned = new Pokemon(
+                            Integer.parseInt(idPokemon),
+                            name,
+                            image,
+                            types,
+                            abilities,
+                            moves);
+
+                    listener.onFisinh( pokemonReturned );
 
                 } catch (Exception e) {
                     Log.v("APP_POKEDEX","Não possivel iniciar. Erro: ",e);
@@ -68,6 +107,9 @@ public class PokeAPI {
 
             }
         });
+        Log.v("POKEDEX","Requisitando: https://pokeapi.co/api/v2/pokemon/" + idPokemon);
+        asyncTask.execute("https://pokeapi.co/api/v2/pokemon/" + idPokemon,
+                "GET");
     }
 
     public interface OnPokeAPIListener {
