@@ -25,7 +25,7 @@ public class PokeListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_poke_list);
 
         recycleViewPokeList = findViewById(R.id.recycle_poke_list);
-        recycleViewPokeList.setLayoutManager(new GridLayoutManager(this,2));
+        recycleViewPokeList.setLayoutManager(new GridLayoutManager(this,3));
 
         // falta configuração aqui para o PokeAdapter conseguir renderizar
 
