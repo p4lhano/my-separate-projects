@@ -68,8 +68,9 @@ public class PokemonDetailActivity extends AppCompatActivity {
                     @Override
                     public void onFisinh(Pokemon pokemon) {
                         pokemonLocal = pokemon;
+                        setTitle(pokemonLocal.getNome().toUpperCase());
                         Log.v("POKEDEX","Finalizado requisição, com o resultado: " + pokemon);
-                        textViewTitle.setText(pokemonLocal.getNome());
+                        textViewTitle.setText(pokemonLocal.getNome().substring(0,1).toUpperCase().concat(pokemonLocal.getNome().substring(1)));
                         Picasso.get().load(pokemonLocal.getImage()).into(imageView);
                         //listViewPokeTypes.getAdapter().notifyDataSetChanged();
 

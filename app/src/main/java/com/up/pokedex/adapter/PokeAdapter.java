@@ -37,7 +37,7 @@ public class PokeAdapter extends RecyclerView.Adapter<PokeAdapter.PokeViewHoulde
     public void onBindViewHolder(@NonNull PokeViewHoulder holder, int position) {
         Pokemon pokemon = pokemons.get(position);
         TextView textView = holder.itemView.findViewById(R.id.text_view_poke_nome);
-        textView.setText(pokemon.getNome());
+        textView.setText(pokemon.getNome().substring(0,1).toUpperCase().concat(pokemon.getNome().substring(1)));
         ImageView imageView = holder.itemView.findViewById(R.id.image_view_pokemon);
 
         Picasso.get().load(pokemon.getImage()).into(imageView);

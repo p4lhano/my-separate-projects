@@ -1,0 +1,2 @@
+$ stat /dev/kvm 
+$ sudo chmod 777 /dev/kvm
