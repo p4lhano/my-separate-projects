@@ -41,7 +41,7 @@ namespace API
                 }
             );
 
-            services.AddDbContext<DataContext>( options => options.UseInMemoryDatabase("database"));
+            services.AddDbContext<DataContext>( options => options.UseSqlServer(Configuration.GetConnectionString("Azure")));
             services.AddControllers();
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" }));
             //https://localhost:5001/swagger/index.html
