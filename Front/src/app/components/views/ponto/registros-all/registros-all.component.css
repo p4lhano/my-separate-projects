@@ -1,0 +1,26 @@
+mat-grid-tile {
+    background: lightblue;
+  }
+
+  .cima{
+    width: 93%;
+    text-align: center;
+  }
+
+  mat-grid-tile {
+    width: 93%;
+    text-align: center;
+
+}
+
+.mat-grid-tile-table{
+
+}
+
+.mat-card-table{
+    width: 96%;
+}
+
+table{
+
+}

@@ -23,7 +23,7 @@ Content-Type: application/json
 }
 
 ### Buscar funcionario ID
-GET https://localhost:5001/funcionario/findbyid/5
+GET https://localhost:5001/funcionario/findbyid/6
 
 ### Delete funcionario ID
 DELETE  https://localhost:5001/funcionario/deleteid/2
@@ -43,3 +43,6 @@ GET https://localhost:5001/registro/list
 
 ###busque por funcionario
 GET  https://localhost:5001/registro/list/3
+
+###busque por funcionario
+GET  https://localhost:5001/registro/teste/6

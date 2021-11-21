@@ -56,7 +56,15 @@ namespace API.Controllers
         [Route("findbyid/{id}")]
         public async Task<IActionResult> FindByIdAsync([FromRoute] int id){
             Funcionario funcionario = await _context.Funcionarios.FindAsync(id).ConfigureAwait(true);
-            if(funcionario != null) return Ok(funcionario);
+            if(funcionario != null)
+            {
+                funcionario.Pontos = await _context
+                    .PontosFuncionarios
+                    .Where(pontosPercorre => pontosPercorre.FuncionarioId == id)
+                    .ToListAsync();
+                return Ok(funcionario);
+            }
+
             return NotFound();
         }
         /*
