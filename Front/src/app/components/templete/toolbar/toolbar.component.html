@@ -1,11 +1,11 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-        <span mat-button routerLink="/">
+        <button mat-button routerLink="/" id="button-home">
             <mat-icon>
                 emoji_people
             </mat-icon>
             Solução RH
-        </span>
+        </button>
         <span class="example-spacer"></span>
         <button mat-button [matMenuTriggerFor]="menuF">Funcionario</button>
             <mat-menu #menuF="matMenu">
@@ -21,7 +21,7 @@
         <button mat-button [matMenuTriggerFor]="menuS">Setor</button>
             <mat-menu #menuS="matMenu">
                 <button mat-menu-item routerLink="/setor/new">
-                    <mat-icon>group_add</mat-icon>
+                    <mat-icon>groups</mat-icon>
                     Cadastrar
                 </button>
                 <button mat-menu-item routerLink="/setor/all">

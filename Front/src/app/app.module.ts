@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { ListarFuncionarioComponent } from './components/views/funcionario/listar-funcionario/listar-funcionario.component';
+import { ListarFuncionarioHomeComponent } from './components/views/funcionario/listar-funcionario-home/listar-funcionario-home.component';
 import { CadastrarFuncionarioComponent } from './components/views/funcionario/cadastrar-funcionario/cadastrar-funcionario.component';
 import { ListarSetorComponent } from './components/views/setor/listar-setor/listar-setor.component';
 import { CadastrarSetorComponent } from './components/views/setor/cadastrar-setor/cadastrar-setor.component';
@@ -41,6 +42,7 @@ import { MatSelectModule } from '@angular/material/select';
     DeleteFuncionarioComponent,
     DeleteSetorComponent,
     TesteFormularioComponent,
+    ListarFuncionarioHomeComponent,
   ],
   imports: [
     BrowserModule,

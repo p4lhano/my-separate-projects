@@ -10,3 +10,11 @@
   .example-sidenav {
     padding: 1px;
   }
+
+  #button-home{
+      font-size: 100%;
+  }
+
+  button{
+      font-size: medium;
+  }

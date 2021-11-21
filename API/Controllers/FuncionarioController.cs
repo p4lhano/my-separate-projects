@@ -22,6 +22,8 @@ namespace API.Controllers
         [HttpPost]
         [Route("create")]
         public async Task<IActionResult> CadastrarFuncionarioAsync([FromBody] Funcionario funcionario){
+            funcionario.CriadoEm = DateTime.Now;
+            funcionario.AtualizadoEm = funcionario.CriadoEm;
             await _context.Funcionarios.AddAsync(funcionario).ConfigureAwait(false);
             _context.SaveChanges();
             return Created("",funcionario);
@@ -30,6 +32,11 @@ namespace API.Controllers
         [HttpPut]
         [Route("update")]
         public async Task<IActionResult> AlterarFuncionario([FromBody] Funcionario funcionario){
+            Funcionario funcionarioOld = await _context.Funcionarios.FindAsync(funcionario.Id).ConfigureAwait(true);
+            funcionario.AtualizadoEm = DateTime.Now;
+            funcionario.CriadoEm = funcionarioOld.CriadoEm;
+            Console.WriteLine("Funcionario antigo "+funcionarioOld);
+            Console.WriteLine("Funcionario new "+funcionario);
             _context.Funcionarios.Update(funcionario);
             await _context.SaveChangesAsync().ConfigureAwait(false);
             return Ok();
@@ -37,13 +44,13 @@ namespace API.Controllers
         // GET /funcionario/list
         [HttpGet]
         [Route("list")]
-        public async Task<IActionResult> ListarAsync() => Ok(await _context.Funcionarios.ToListAsync().ConfigureAwait(false));
+        public async Task<IActionResult> ListarAsync() => Ok(await _context.Funcionarios.Include(f => f.Pontos).ToListAsync().ConfigureAwait(false));
 
         // GET /funcionario/findbyid/id
         [HttpGet]
         [Route("findbyid/{id}")]
         public async Task<IActionResult> FindByIdAsync([FromRoute] int id){
-            Funcionario funcionario = await _context.Funcionarios.FindAsync(id).ConfigureAwait(false);
+            Funcionario funcionario = await _context.Funcionarios.FindAsync(id).ConfigureAwait(true);
             if(funcionario != null) return Ok(funcionario);
             return NotFound();
         }

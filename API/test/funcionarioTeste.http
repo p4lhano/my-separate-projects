@@ -8,24 +8,38 @@ Content-Type: application/json
   "SetorId": 1
 }
 
+### Listar
+GET https://localhost:5001/funcionario/list
+
 ### Alterar
 PUT https://localhost:5001/funcionario/update
 Content-Type: application/json
 
 {
-   "id": 1,
-  "nome": "Vitor Rafael Palhano",
-  "cpf": "12345678900",
-  "criadoEm": "2021-09-19T20:18:08.5219391-03:00"
+  "id": 5,
+  "nome": "Pablo Escobar da cruz",
+  "cpf": "151515151",
+  "setorId": 2
 }
-### Listar
-GET https://localhost:5001/funcionario/list
 
 ### Buscar funcionario ID
-GET https://localhost:5001/funcionario/findbyid/2
+GET https://localhost:5001/funcionario/findbyid/5
 
 ### Delete funcionario ID
 DELETE  https://localhost:5001/funcionario/deleteid/2
 
 ### Delete funcionario ID
 DELETE  https://localhost:5001/funcionario/deletename/Vitor
+
+###############PONTO
+###Criar
+GET  https://localhost:5001/registro/now/2
+
+### Listar
+GET https://localhost:5001/funcionario/list
+
+### Listar
+GET https://localhost:5001/registro/list
+
+###busque por funcionario
+GET  https://localhost:5001/registro/list/3

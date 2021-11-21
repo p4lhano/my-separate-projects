@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20211115002557_StartDB")]
-    partial class StartDB
+    [Migration("20211121035817_AlterTableFuncionarioAddCollumAltualizadoEm")]
+    partial class AlterTableFuncionarioAddCollumAltualizadoEm
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,6 +27,9 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("AtualizadoEm")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Cpf")
                         .HasColumnType("nvarchar(max)");
@@ -45,6 +48,29 @@ namespace API.Migrations
                     b.HasIndex("SetorId");
 
                     b.ToTable("Funcionarios");
+                });
+
+            modelBuilder.Entity("API.Models.PontoFuncionario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DataRegistroPonto")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("FuncionarioId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TipoPontoRegistro")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FuncionarioId");
+
+                    b.ToTable("PontosFuncionarios");
                 });
 
             modelBuilder.Entity("API.Models.Setor", b =>
@@ -71,6 +97,22 @@ namespace API.Migrations
                         .IsRequired();
 
                     b.Navigation("Setor");
+                });
+
+            modelBuilder.Entity("API.Models.PontoFuncionario", b =>
+                {
+                    b.HasOne("API.Models.Funcionario", "Funcionario")
+                        .WithMany("Pontos")
+                        .HasForeignKey("FuncionarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Funcionario");
+                });
+
+            modelBuilder.Entity("API.Models.Funcionario", b =>
+                {
+                    b.Navigation("Pontos");
                 });
 
             modelBuilder.Entity("API.Models.Setor", b =>

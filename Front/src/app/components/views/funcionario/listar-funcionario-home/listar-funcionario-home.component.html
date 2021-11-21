@@ -1,0 +1,29 @@
+<mat-grid-list cols="5" rowHeight="4:5" [gutterSize]="'16px'" style="margin-top: 16px;margin-left: 16px;">
+    <mat-grid-tile *ngFor="let funcionario of funcionarios" >
+        <mat-card class="mat-elevation-z3">
+            <mat-card-header>
+                <img mat-card-image src="assets/images/user-defaut.png" alt="Imagem user">
+            </mat-card-header>
+            <mat-card-content>
+                <mat-card-title>{{funcionario.nome}}</mat-card-title>
+                <mat-card-subtitle>CPF: {{funcionario.cpf}}</mat-card-subtitle>
+            </mat-card-content>
+            <mat-card-footer>
+                <mat-card-actions>
+                    <button mat-stroked-button color="primary">
+                        <mat-icon>
+                            touch_app
+                        </mat-icon>
+                        Point
+                    </button>
+                    <button mat-stroked-button color="warn">
+                        <mat-icon>
+                            local_atm
+                        </mat-icon>
+                        Pagamento
+                    </button>
+                </mat-card-actions>
+            </mat-card-footer>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

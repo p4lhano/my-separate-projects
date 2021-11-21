@@ -7,11 +7,12 @@ import { ListarFuncionarioComponent } from './components/views/funcionario/lista
 import { CadastrarSetorComponent } from './components/views/setor/cadastrar-setor/cadastrar-setor.component';
 import { ListarSetorComponent } from './components/views/setor/listar-setor/listar-setor.component';
 import { TesteFormularioComponent } from './components/views/funcionario/teste-formulario/teste-formulario.component';
+import { ListarFuncionarioHomeComponent } from './components/views/funcionario/listar-funcionario-home/listar-funcionario-home.component';
 
 const routes: Routes = [
     {
         path: "",
-        component: ListarFuncionarioComponent
+        component: ListarFuncionarioHomeComponent
     },{
         path: "funcionario/all",
         component: ListarFuncionarioComponent
