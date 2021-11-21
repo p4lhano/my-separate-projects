@@ -22,25 +22,54 @@ namespace API.Controllers
         [HttpGet]
         [Route("now/{id}")]
         public async Task<IActionResult> RegistrarPontoAsync([FromRoute] int id){
+            DateTime hoje = DateTime.Today;
+            int totalPontosFuncionarioHoje = await _context.PontosFuncionarios.
+                Where(pontosPercorre => pontosPercorre.FuncionarioId == id &&
+                    pontosPercorre.DataRegistroPonto > hoje &&
+                    pontosPercorre.DataRegistroPonto < hoje.AddDays(1)).
+                Select(x => x.Id).
+                CountAsync();
             PontoFuncionario pontoFuncionario = new();
+            switch (totalPontosFuncionarioHoje){
+                case 0:
+                    pontoFuncionario.TipoPontoRegistro = PontoFuncionario.TipoPonto.ENTRADA_1;
+                    break;
+                case 1:
+                    pontoFuncionario.TipoPontoRegistro = PontoFuncionario.TipoPonto.SAIDA_1;
+                    break;
+                case 2:
+                    pontoFuncionario.TipoPontoRegistro = PontoFuncionario.TipoPonto.ENTRADA_2;
+                    break;
+                case 3:
+                    pontoFuncionario.TipoPontoRegistro = PontoFuncionario.TipoPonto.SAIDA_2;
+                    break;
+                default:
+                    return BadRequest();
+            }
             pontoFuncionario.Funcionario = await _context.Funcionarios.FindAsync(id).ConfigureAwait(false);
-            Console.WriteLine($"Novo ponto para {pontoFuncionario.Funcionario}");
+            //Console.WriteLine($"Novo ponto para {pontoFuncionario.Funcionario}");
             _context.PontosFuncionarios.Add(pontoFuncionario);
 
             await _context.SaveChangesAsync();
             return Created("",pontoFuncionario);
-        /*
-            PontoFuncionario pontoFuncionario = new();
-            pontoFuncionario.FuncionarioId = id;
-            await _context.PontosFuncionarios.AddAsync(pontoFuncionario).ConfigureAwait(false);
-
-            _context.SaveChanges();
-            return Created("",pontoFuncionario);
-        */
-            // await _context.Funcionarios.AddAsync(funcionario).ConfigureAwait(false);
-            // _context.SaveChanges();
-            // return Created("",funcionario);
         }
+
+        [HttpGet]
+        [Route("teste/{id}")]
+        public async Task<IActionResult> TesteAsync([FromRoute] int id){
+            DateTime hoje = DateTime.Today;
+            int totalPontosFuncionarioHoje = await _context.PontosFuncionarios.
+            Where(pontosPercorre => pontosPercorre.FuncionarioId == id &&
+                pontosPercorre.DataRegistroPonto > hoje &&
+                pontosPercorre.DataRegistroPonto < hoje.AddDays(1)).
+            Select(x => x.Id).
+            CountAsync();
+            // ToListAsync();
+            Console.WriteLine("Total de ponto encontrados "+ totalPontosFuncionarioHoje);
+
+            return Ok(totalPontosFuncionarioHoje);
+        }
+
         //" POST: /funcionario/update"
         // [HttpPut]
         // [Route("update")]

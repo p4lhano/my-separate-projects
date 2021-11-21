@@ -20,6 +20,7 @@ export class ListarFuncionarioComponent implements OnInit {
 
         this.service.listar().subscribe(funcionarios => {
         console.log(funcionarios);
+        console.table(funcionarios);
         this.funcionarios = funcionarios;
         this.funcionarios2 = new MatTableDataSource<Funcionario>(funcionarios);
         });

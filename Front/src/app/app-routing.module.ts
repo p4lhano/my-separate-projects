@@ -8,6 +8,7 @@ import { CadastrarSetorComponent } from './components/views/setor/cadastrar-seto
 import { ListarSetorComponent } from './components/views/setor/listar-setor/listar-setor.component';
 import { TesteFormularioComponent } from './components/views/funcionario/teste-formulario/teste-formulario.component';
 import { ListarFuncionarioHomeComponent } from './components/views/funcionario/listar-funcionario-home/listar-funcionario-home.component';
+import { RegistroNowComponent } from './components/views/ponto/registro-now/registro-now.component';
 
 const routes: Routes = [
     {
@@ -40,6 +41,9 @@ const routes: Routes = [
     },{
         path: "teste",
         component: TesteFormularioComponent
+    },{
+        path: "registrarponto/:id",
+        component: RegistroNowComponent
     }
 ];
 

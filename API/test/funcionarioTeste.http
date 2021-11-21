@@ -33,7 +33,7 @@ DELETE  https://localhost:5001/funcionario/deletename/Vitor
 
 ###############PONTO
 ###Criar
-GET  https://localhost:5001/registro/now/2
+GET  https://localhost:5001/registro/now/6
 
 ### Listar
 GET https://localhost:5001/funcionario/list

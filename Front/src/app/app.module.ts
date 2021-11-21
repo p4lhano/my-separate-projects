@@ -28,7 +28,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatDividerModule } from '@angular/material/divider';
+import { ReactiveFormsModule} from '@angular/forms';
+import { MatNativeDateModule} from '@angular/material/core';
+import { MatListModule} from '@angular/material/list';
+import { RegistroNowComponent } from './components/views/ponto/registro-now/registro-now.component';
+import  {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -43,6 +48,7 @@ import { MatSelectModule } from '@angular/material/select';
     DeleteSetorComponent,
     TesteFormularioComponent,
     ListarFuncionarioHomeComponent,
+    RegistroNowComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +67,12 @@ import { MatSelectModule } from '@angular/material/select';
     MatSidenavModule,
     MatMenuModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDividerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    MatListModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

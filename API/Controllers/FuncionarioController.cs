@@ -44,7 +44,12 @@ namespace API.Controllers
         // GET /funcionario/list
         [HttpGet]
         [Route("list")]
-        public async Task<IActionResult> ListarAsync() => Ok(await _context.Funcionarios.Include(f => f.Pontos).ToListAsync().ConfigureAwait(false));
+        public async Task<IActionResult> ListarAsync() => Ok(await _context
+            .Funcionarios
+            .Include(f => f.Pontos)
+            .Include(s => s.Setor)
+            .ToListAsync()
+            .ConfigureAwait(false));
 
         // GET /funcionario/findbyid/id
         [HttpGet]

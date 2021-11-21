@@ -35,8 +35,23 @@
     <ng-container matColumnDef="runs">
         <th mat-header-cell *matHeaderCellDef> AÇÕES </th>
         <td mat-cell *matCellDef="let f">
-            <a routerLink="/funcionario/update/{{ f.id }}" style="padding-right: 2%;"><button mat-mini-fab color="primary"><mat-icon>edit</mat-icon></button></a>
-            <a routerLink="/funcionario/delete/{{ f.id }}"><button mat-mini-fab color="warn"><mat-icon>delete</mat-icon></button></a>
+            <mat-list class="list-horizontal">
+                <mat-list-item>
+                    <a routerLink="/funcionario/update/{{ f.id }}" style="padding-right: 2%;">
+                        <button mat-mini-fab color="primary">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                    </a>
+                </mat-list-item>
+                <mat-divider [vertical]="true"></mat-divider>
+                <mat-list-item>
+                    <a routerLink="/funcionario/delete/{{ f.id }}"><button mat-mini-fab color="warn"><mat-icon>delete</mat-icon></button></a>
+                </mat-list-item>
+                <mat-divider [vertical]="true"></mat-divider>
+                <mat-list-item>
+                    <a routerLink="/funcionario/pontos/{{ f.id }}"><button mat-mini-fab color="warn"><mat-icon>alarm_on</mat-icon></button></a>
+                </mat-list-item>
+            </mat-list>
         </td>
     </ng-container>
 
