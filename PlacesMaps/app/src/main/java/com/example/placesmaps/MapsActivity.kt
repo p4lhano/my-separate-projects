@@ -100,6 +100,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun calcZoom(totalPlaces: Int):Float{
+        if (totalPlaces < 3 ) return 18f;
         if (totalPlaces < 5 ) return 15f;
         if (totalPlaces < 8 ) return 13f;
         return 10f;
