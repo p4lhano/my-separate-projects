@@ -7,9 +7,12 @@ import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
+import android.util.Log
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
+import com.example.placesmaps.Conections.PlaceAPI
+import com.example.placesmaps.Models.Places
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -70,11 +73,29 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         inputSearch.setOnEditorActionListener { view,id,keyEvent ->
             if(id == EditorInfo.IME_ACTION_SEARCH){
                 val stringSearch = view.text.toString()
+                Log.v("BUSCADOR", "Buscando: $stringSearch")
+                PlaceAPI().searchPlaces(stringSearch, object : PlaceAPI.PlaceAPIListener{
+                    override fun onPlacesResult(places: ArrayList<Places>) {
+                        places?.let {
+                            addMarker(it)
+                        }
+                    }
+                })
+                return@setOnEditorActionListener false
             }
 
-            return@setOnEditorActionListener false
+             true
         }
 
+    }
+
+    private fun addMarker(places: ArrayList<Places>){
+        for (i in 0 until places.size ){
+            val location = places[i]
+            val myPosition = LatLng(location.lat, location.long)
+            mMap.addMarker(MarkerOptions().position(myPosition).title(location.name))
+            //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myPosition,15f))
+        }
     }
 
 
