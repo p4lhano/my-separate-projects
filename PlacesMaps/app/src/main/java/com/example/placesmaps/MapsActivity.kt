@@ -74,6 +74,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             if(id == EditorInfo.IME_ACTION_SEARCH){
                 val stringSearch = view.text.toString()
                 Log.v("BUSCADOR", "Buscando: $stringSearch")
+
                 PlaceAPI().searchPlaces(stringSearch, object : PlaceAPI.PlaceAPIListener{
                     override fun onPlacesResult(places: ArrayList<Places>) {
                         places?.let {
@@ -94,10 +95,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             val location = places[i]
             val myPosition = LatLng(location.lat, location.long)
             mMap.addMarker(MarkerOptions().position(myPosition).title(location.name))
-            //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myPosition,15f))
         }
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(places[0].lat, places[0].long),calcZoom(places.size)))
     }
 
+    private fun calcZoom(totalPlaces: Int):Float{
+        if (totalPlaces < 5 ) return 15f;
+        if (totalPlaces < 8 ) return 13f;
+        return 10f;
+    }
 
     @SuppressLint("MissingPermission")
     private fun realTimeLocation(){
@@ -116,7 +122,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             // Add a marker in myPosition and move the camera
             val myPosition = LatLng(location.latitude, location.longitude)
             mMap.addMarker(MarkerOptions().position(myPosition).title("Minha Posição1"))
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myPosition,15f))
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myPosition,10f))
         }
     }
 
