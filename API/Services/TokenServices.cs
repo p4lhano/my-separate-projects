@@ -10,9 +10,9 @@ namespace API.Services
     public static class TokenServices
     {
         public static string CriadorToken(Usuario usuario){
-            JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
+            JwtSecurityTokenHandler tokenHandler = new();
             byte[] key = Encoding.ASCII.GetBytes(Settings.secrect);
-            SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor{
+            SecurityTokenDescriptor tokenDescriptor = new() {
                 Expires = DateTime.UtcNow.AddHours(3),
                 SigningCredentials = new SigningCredentials(
                     new SymmetricSecurityKey(key),

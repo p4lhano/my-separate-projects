@@ -33,7 +33,6 @@ namespace API
         {
             services.AddDbContext<DataContext>( options => options.UseSqlServer(Configuration.GetConnectionString("Azure")));
 
-
             //CORS
             services.AddCors(
                 options =>

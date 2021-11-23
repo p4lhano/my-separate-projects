@@ -53,22 +53,55 @@ namespace API.Controllers
             await _context.SaveChangesAsync();
             return Created("",pontoFuncionario);
         }
-
+        //" GET: /registro/teste/id"
         [HttpGet]
         [Route("teste/{id}")]
         public async Task<IActionResult> TesteAsync([FromRoute] int id){
             List<PontoFuncionario> listaPontoFuncionario = await _context.PontosFuncionarios.
-            Where(pontosPercorre => pontosPercorre.FuncionarioId == id ).ToListAsync();
-
-            ToPontoTable(listaPontoFuncionario);
-            return Ok();
+                Where(pontosPercorre => pontosPercorre.FuncionarioId == id ).ToListAsync();
+            return Ok(ToPontoTable(listaPontoFuncionario));
         }
-        private List<PontoTable> ToPontoTable(List<PontoFuncionario> lista) {
-            DateTime hoje = DateTime.Today;
-            // ToListAsync();
-            Console.WriteLine("Total de ponto encontrados ");
+        private static List<PontoTable> ToPontoTable(List<PontoFuncionario> listaP) {
+            List<PontoTable> listPontoTable = new();
+            List<DateTime> diasPonto = new();
+            foreach(PontoFuncionario pontoU in listaP){
+                DateTime diaEssePonto = new(pontoU.DataRegistroPonto.Year,
+                    pontoU.DataRegistroPonto.Month,
+                    pontoU.DataRegistroPonto.Day);
+                diasPonto.Exists(x => x == diaEssePonto );
+                if(!diasPonto.Exists(x => x == diaEssePonto )) diasPonto.Add(diaEssePonto);
+            }
+            foreach( DateTime d in diasPonto ){
+                PontoTable registroLinhaFinalTabela = new();
+                registroLinhaFinalTabela.Data = d;
+                foreach(PontoFuncionario p in listaP.FindAll(x => x.DataRegistroPonto >= d && x.DataRegistroPonto < d.AddDays(1))){
+                    switch(p.TipoPontoRegistro){
+                        case PontoFuncionario.TipoPonto.ENTRADA_1:
+                            registroLinhaFinalTabela.ENTRADA_1 = p.DataRegistroPonto;
+                            break;
+                        case PontoFuncionario.TipoPonto.SAIDA_1:
+                            registroLinhaFinalTabela.SAIDA_1 = p.DataRegistroPonto;
+                            break;
+                        case PontoFuncionario.TipoPonto.ENTRADA_2:
+                            registroLinhaFinalTabela.ENTRADA_2 = p.DataRegistroPonto;
+                            break;
+                        case PontoFuncionario.TipoPonto.SAIDA_2:
+                            registroLinhaFinalTabela.SAIDA_2 = p.DataRegistroPonto;
+                            break;
+                    }
+                }
+                //Calcula o total de horas no dia
+                registroLinhaFinalTabela.TotalHorasDia = 0.0;
+                Double periodo1 = registroLinhaFinalTabela.SAIDA_1.Subtract(registroLinhaFinalTabela.ENTRADA_1).TotalSeconds ;
+                Double periodo2 = registroLinhaFinalTabela.SAIDA_2.Subtract(registroLinhaFinalTabela.ENTRADA_2).TotalSeconds ;
+                registroLinhaFinalTabela.TotalHorasDia = ( periodo1 + periodo2 )/3600;
+                listPontoTable.Add(registroLinhaFinalTabela);
+            }
+            /*
+            data // ENTRADA_1 // SAIDA_1 // ENTRADA_2 // SAIDA_2 // totalHorasdia
 
-            return null;
+            */
+            return listPontoTable;
         }
 
         //" POST: /funcionario/update"
