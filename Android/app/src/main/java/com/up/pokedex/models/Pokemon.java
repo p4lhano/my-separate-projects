@@ -21,6 +21,7 @@ public class Pokemon implements Serializable {
                 ", image='" + image + '\'' +
                 ", types=" + types +
                 ", abilities=" + abilities +
+                ", stats=" + stats +
                 ", moves=" + moves +
                 '}';
     }
@@ -90,4 +91,13 @@ public class Pokemon implements Serializable {
     private ArrayList<String> types;
     private ArrayList<String> abilities;
     private ArrayList<String> moves;
+    private ArrayList<String> stats;
+
+    public ArrayList<String> getStats() {
+        return stats;
+    }
+
+    public void setStats(ArrayList<String> stats) {
+        this.stats = stats;
+    }
 }

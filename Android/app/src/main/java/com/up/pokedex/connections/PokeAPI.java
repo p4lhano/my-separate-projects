@@ -69,6 +69,7 @@ public class PokeAPI {
                     ArrayList<String> types = new ArrayList<String>();
                     ArrayList<String> abilities = new ArrayList<String>();
                     ArrayList<String> moves = new ArrayList<String>();
+                    ArrayList<String> stats = new ArrayList<String>();
 
 
                     JSONArray typesJSON = resultObject.getJSONArray("types");
@@ -89,6 +90,16 @@ public class PokeAPI {
                         moves.add( pokeObject.getJSONObject("move").getString("name") );
                     }
 
+                    JSONArray statsJSON = resultObject.getJSONArray("stats");
+                    for (int i = 0; i < statsJSON.length(); i++) {
+                        JSONObject pokeObject = statsJSON.getJSONObject(i);
+                        stats.add(
+                                pokeObject.getJSONObject("stat").getString("name") +
+                                        " : " +
+                                pokeObject.getString("base_stat")
+                        );
+                    }
+
 
                     pokemonReturned = new Pokemon(
                             Integer.parseInt(idPokemon),
@@ -97,6 +108,7 @@ public class PokeAPI {
                             types,
                             abilities,
                             moves);
+                    pokemonReturned.setStats(stats);
 
                     listener.onFisinh( pokemonReturned );
 

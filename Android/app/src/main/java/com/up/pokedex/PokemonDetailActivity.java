@@ -20,6 +20,7 @@ import com.up.pokedex.models.Pokemon;
 public class PokemonDetailActivity extends AppCompatActivity {
     private Pokemon pokemonLocal;
     private RecyclerView listViewPokeTypes;
+    private RecyclerView listViewPokeStats;
     private RecyclerView listViewPokeMoves;
     private TextView textViewTitle;
     private ImageView imageView ;
@@ -39,6 +40,9 @@ public class PokemonDetailActivity extends AppCompatActivity {
 
         listViewPokeMoves = findViewById(R.id.recycle_view_habilty_pokemon);
         listViewPokeMoves.setLayoutManager(new GridLayoutManager(this,3));
+
+        listViewPokeStats = findViewById(R.id.recycle_view_stats_pokemon);
+        listViewPokeStats.setLayoutManager(new GridLayoutManager(this,3));
 
         pokemonLocal = new Pokemon();
         Intent it = getIntent();
@@ -82,6 +86,13 @@ public class PokemonDetailActivity extends AppCompatActivity {
                         }));
 
                         listViewPokeMoves.setAdapter( new PokeDetailsAdapter(pokemonLocal.getAbilities(), new PokeDetailsAdapter.OnPokemonStringClickListener() {
+                            @Override
+                            public void OnPokemonStringClickListener(String seleted) {
+                                Log.v("POKEDEX","Selecionado: " + seleted);
+                            }
+                        }));
+
+                        listViewPokeStats.setAdapter( new PokeDetailsAdapter(pokemonLocal.getStats(), new PokeDetailsAdapter.OnPokemonStringClickListener() {
                             @Override
                             public void OnPokemonStringClickListener(String seleted) {
                                 Log.v("POKEDEX","Selecionado: " + seleted);
