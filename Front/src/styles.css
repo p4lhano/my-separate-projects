@@ -15,13 +15,7 @@ table {
     width: 90%;
 }
 
-.mat-column-id {
-    width: 32px;
-    font-weight: bold;
-    border-right: 1px solid currentColor;
-    padding-right: 24px;
-    text-align: center;
-}
+
 
 .listatoolbar {
     font-size: 85%;

@@ -57,17 +57,18 @@ namespace API.Controllers
         [HttpGet]
         [Route("teste/{id}")]
         public async Task<IActionResult> TesteAsync([FromRoute] int id){
-            DateTime hoje = DateTime.Today;
-            int totalPontosFuncionarioHoje = await _context.PontosFuncionarios.
-            Where(pontosPercorre => pontosPercorre.FuncionarioId == id &&
-                pontosPercorre.DataRegistroPonto > hoje &&
-                pontosPercorre.DataRegistroPonto < hoje.AddDays(1)).
-            Select(x => x.Id).
-            CountAsync();
-            // ToListAsync();
-            Console.WriteLine("Total de ponto encontrados "+ totalPontosFuncionarioHoje);
+            List<PontoFuncionario> listaPontoFuncionario = await _context.PontosFuncionarios.
+            Where(pontosPercorre => pontosPercorre.FuncionarioId == id ).ToListAsync();
 
-            return Ok(totalPontosFuncionarioHoje);
+            ToPontoTable(listaPontoFuncionario);
+            return Ok();
+        }
+        private List<PontoTable> ToPontoTable(List<PontoFuncionario> lista) {
+            DateTime hoje = DateTime.Today;
+            // ToListAsync();
+            Console.WriteLine("Total de ponto encontrados ");
+
+            return null;
         }
 
         //" POST: /funcionario/update"

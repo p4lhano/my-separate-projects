@@ -1,0 +1,32 @@
+###Cadastrar
+POST https://localhost:5001/usuario/create
+Content-Type: application/json
+
+{
+  "login": "carlos",
+  "senha": "carlos",
+  "permissao": "rh"
+}
+### Login
+GET https://localhost:5001/usuario/login
+Content-Type: application/json
+
+{
+  "login": "carlos",
+  "senha": "carlos"
+}
+
+### COM
+GET https://localhost:5001/usuario/com
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InA0bGhhbm8iLCJyb2xlIjoiYWRtIiwibmJmIjoxNjM3NjI5MjI2LCJleHAiOjE2Mzc2NDAwMjYsImlhdCI6MTYzNzYyOTIyNn0.LlNQBFNhfoLzi_V2TX8hlyoqvi7H-s1UIbH801fi7ak
+
+### COM
+GET https://localhost:5001/usuario/com
+
+### COM permissao
+GET https://localhost:5001/usuario/permissao
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InA0bGhhbm8iLCJyb2xlIjoiYWRtIiwibmJmIjoxNjM3NjI5MjI2LCJleHAiOjE2Mzc2NDAwMjYsImlhdCI6MTYzNzYyOTIyNn0.LlNQBFNhfoLzi_V2TX8hlyoqvi7H-s1UIbH801fi7ak
+
+### Sem permissao
+GET https://localhost:5001/usuario/permissao
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImNhcmxvcyIsInJvbGUiOiJyaCIsIm5iZiI6MTYzNzYyOTcxMSwiZXhwIjoxNjM3NjQwNTExLCJpYXQiOjE2Mzc2Mjk3MTF9.9T0KTyJrZW-0aK6X3HcZoZ0slLNIsS0YHU4SyE2Hh4I

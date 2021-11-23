@@ -5,6 +5,7 @@ mat-grid-tile {
   .cima{
     width: 93%;
     text-align: center;
+
   }
 
   mat-grid-tile {
@@ -13,14 +14,17 @@ mat-grid-tile {
 
 }
 
+.mat-grid-tile-principal{
+
+}
+
 .mat-grid-tile-table{
 
 }
 
 .mat-card-table{
-    width: 96%;
+    width: 93%;
 }
 
 table{
-
 }

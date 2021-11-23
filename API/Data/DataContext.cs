@@ -13,6 +13,7 @@ namespace API.Data
         public DbSet<Setor> Setores { get; set; }
         public DbSet<Funcionario> Funcionarios { get; set; }
         public DbSet<PontoFuncionario> PontosFuncionarios { get; set; }
+         public DbSet<Usuario> Usuarios { get; set; }
 
        protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.Entity<Funcionario>()

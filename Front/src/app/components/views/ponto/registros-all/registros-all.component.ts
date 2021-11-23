@@ -15,7 +15,9 @@ export class RegistrosAllComponent implements OnInit {
 
     funcionario!: Funcionario;
     pontos!: MatTableDataSource<PontoFuncionarioTable>;
-    displayedColumns: string[] = ['data','ENTRADA_1', 'SAIDA_1', 'ENTRADA_2', 'SAIDA_2'];
+    registroPontos: number = 1;
+    stringlinha: String = "";
+    displayedColumns: string[] = ['data','ENTRADA_1', 'SAIDA_1', 'ENTRADA_2', 'SAIDA_2','totalHorasDia'];
     constructor(private service: FuncionarioService, private rota: ActivatedRoute, private router: Router) { }
 
     ngOnInit(): void {
@@ -32,6 +34,8 @@ export class RegistrosAllComponent implements OnInit {
 
                     */
                 //console.log(this.funcionario);
+                    this.registroPontos += 1;//vai add a quantidade de pontos do size de array de pontos
+                    this.stringlinha = `[rowspan]="${this.registroPontos}"`
             });
         });
     }
