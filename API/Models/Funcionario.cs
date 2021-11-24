@@ -12,6 +12,7 @@ namespace API.Models
         public DateTime CriadoEm { get; set; }
         public DateTime AtualizadoEm { get; set; }
         public List<PontoFuncionario> Pontos { get; set; }
+        public List<PontoTableFolha> PontosT { get; set; }
 
         [JsonIgnore]
         public Setor Setor { get; set; }

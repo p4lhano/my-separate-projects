@@ -13,6 +13,7 @@ import { PontoFuncionarioService } from 'src/app/services/pontoFuncionario.servi
 export class ListarFuncionarioHomeComponent implements OnInit {
 
     id!:number;
+    message! : String ;
     public funcionarios : Funcionario[] = [];
     constructor(
         private service : FuncionarioService,
@@ -27,8 +28,12 @@ export class ListarFuncionarioHomeComponent implements OnInit {
     }
     registrarPonto(funcionario:Funcionario){
         this.servicePonto.registrarPonto(funcionario.id!).subscribe(ponto =>{
+            let mgsString  = "Erro ao registrar";
+            if ( ponto.dataRegistroPonto != null ) {
+                mgsString = "Ponto em: " + ponto.dataRegistroPonto;
+            }
             this._snack.open(
-                "Ponto Cadastrado: "+ponto.dataRegistroPonto.toLocaleString() ,
+                mgsString ,
                 "OK",{
                     duration:3000,
                     horizontalPosition: "right",

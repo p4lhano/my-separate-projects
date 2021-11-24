@@ -5,6 +5,7 @@ import { Funcionario } from 'src/app/models/funcionario';
 import { PontoFuncionario } from 'src/app/models/ponto-funcionario';
 import { PontoFuncionarioTable } from 'src/app/models/ponto-funcionario-table';
 import { FuncionarioService } from 'src/app/services/funcionario.service';
+import { PontoFuncionarioService } from 'src/app/services/pontoFuncionario.service';
 
 @Component({
   selector: 'app-registros-all',
@@ -16,26 +17,17 @@ export class RegistrosAllComponent implements OnInit {
     funcionario!: Funcionario;
     pontos!: MatTableDataSource<PontoFuncionarioTable>;
     registroPontos: number = 1;
-    stringlinha: String = "";
     displayedColumns: string[] = ['data','ENTRADA_1', 'SAIDA_1', 'ENTRADA_2', 'SAIDA_2','totalHorasDia'];
-    constructor(private service: FuncionarioService, private rota: ActivatedRoute, private router: Router) { }
+    constructor(private service: PontoFuncionarioService, private rota: ActivatedRoute, private router: Router) { }
 
     ngOnInit(): void {
         this.rota.params.subscribe((params) => {
-            this.service.buscarId(params.id).subscribe(funcionario => {
+            this.service.detalhes(params.id).subscribe(funcionario => {
                 this.funcionario = funcionario;
-
-                this.pontos = new MatTableDataSource<PontoFuncionarioTable>(/* add aqui a função para transformar
-                    os pontos em pontosTabela => toPontoTable(funcionario.pontos) */);
-                    /*
-                    Calcular no back e trazer para cá é uma possibilidade, verificar o uso de funções especificas
-                    verificar CSS da tabela de pontos, para que gere no inicio alo após as informações
-                    Falar com professor sobre o campo de atualização de registros
-
-                    */
-                //console.log(this.funcionario);
-                    this.registroPontos += 1;//vai add a quantidade de pontos do size de array de pontos
-                    this.stringlinha = `[rowspan]="${this.registroPontos}"`
+                //console.log(funcionario);
+                this.pontos = new MatTableDataSource<PontoFuncionarioTable>(funcionario.pontosT);
+                funcionario.pontosT;
+                    this.registroPontos += funcionario.pontosT?.length || 0;//vai add a quantidade de pontos do size de array de pontos
             });
         });
     }

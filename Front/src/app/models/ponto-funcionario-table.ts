@@ -1,7 +1,9 @@
 export interface PontoFuncionarioTable {
     data: Date;
-    ENTRADA_1: Date;
-    SAIDA_1: Date;
-    ENTRADA_2: Date;
-    SAIDA_2: Date;
+    entrada_1: Date;
+    saida_1: Date;
+    entrada_2: Date;
+    saida_2: Date;
+    totalHorasDia: Number;
+    minutosRestantes:Number;
 }

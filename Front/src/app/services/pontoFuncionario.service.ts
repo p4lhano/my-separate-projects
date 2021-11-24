@@ -17,17 +17,8 @@ export class PontoFuncionarioService {
         return this.http.get<PontoFuncionario>(`${this.URL_BASE}/registro/now/${ id }`);
     }
 
-    // toPontoTable(pontos: PontoFuncionario[]): PontoFuncionarioTable[] {
-    //     let pontoFuncionarioTable : PontoFuncionarioTableList[] =new Array(2)   ;
-    //     pontoFuncionarioTable.push({data: new Date,
-    //         ENTRADA_1: new Date,
-    //         SAIDA_1: new Date,
-    //         ENTRADA_2: new Date,
-    //         SAIDA_2: new Date});
-    //     return pontoFuncionarioTable;
-    // }
-    toPontoTable(pontos: PontoFuncionario[])  {
-
+    detalhes(id: number): Observable<Funcionario>{
+        return this.http.get<Funcionario>(`${this.URL_BASE}/registro/detalhes/${ id }`);
     }
 
 }

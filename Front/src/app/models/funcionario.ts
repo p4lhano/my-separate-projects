@@ -1,4 +1,5 @@
 import { PontoFuncionario } from "./ponto-funcionario";
+import { PontoFuncionarioTable } from "./ponto-funcionario-table";
 
 export interface Funcionario {
     id?: number;
@@ -7,5 +8,6 @@ export interface Funcionario {
     criadoEm?: Date;
     atualizadoEm?: Date;
     pontos?: PontoFuncionario[];
+    pontosT?: PontoFuncionarioTable[];
     setorId?: number;
 }

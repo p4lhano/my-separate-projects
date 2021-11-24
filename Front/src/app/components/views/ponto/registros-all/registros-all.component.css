@@ -14,17 +14,15 @@ mat-grid-tile {
 
 }
 
-.mat-grid-tile-principal{
-
-}
-
-.mat-grid-tile-table{
-
-}
-
 .mat-card-table{
     width: 93%;
 }
+table {
+    width: 100%;
+    margin-top: 16px;
+    text-align: center;
+}
 
-table{
+.header {
+    text-align: center;
 }

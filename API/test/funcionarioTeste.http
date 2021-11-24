@@ -42,7 +42,7 @@ GET https://localhost:5001/funcionario/list
 GET https://localhost:5001/registro/list
 
 ###busque por funcionario
-GET  https://localhost:5001/registro/list/3
+GET  https://localhost:5001/registro/list/4
 
-###busque por funcionario
-GET  https://localhost:5001/registro/teste/6
+###TESTE
+GET  https://localhost:5001/registro/detalhes/4
