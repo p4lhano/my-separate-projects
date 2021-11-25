@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Funcionario } from 'src/app/models/funcionario';
-import { PontoFuncionario } from 'src/app/models/ponto-funcionario';
 import { PontoFuncionarioTable } from 'src/app/models/ponto-funcionario-table';
-import { FuncionarioService } from 'src/app/services/funcionario.service';
 import { PontoFuncionarioService } from 'src/app/services/pontoFuncionario.service';
 
 @Component({
@@ -17,17 +15,15 @@ export class RegistrosAllComponent implements OnInit {
     funcionario!: Funcionario;
     pontos!: MatTableDataSource<PontoFuncionarioTable>;
     registroPontos: number = 1;
-    displayedColumns: string[] = ['data','ENTRADA_1', 'SAIDA_1', 'ENTRADA_2', 'SAIDA_2','totalHorasDia'];
+    displayedColumns: string[] = ['data','ENTRADA_1', 'SAIDA_1', 'ENTRADA_2', 'SAIDA_2','totalTrabalhado'];
     constructor(private service: PontoFuncionarioService, private rota: ActivatedRoute, private router: Router) { }
 
     ngOnInit(): void {
         this.rota.params.subscribe((params) => {
             this.service.detalhes(params.id).subscribe(funcionario => {
                 this.funcionario = funcionario;
-                //console.log(funcionario);
                 this.pontos = new MatTableDataSource<PontoFuncionarioTable>(funcionario.pontosT);
-                funcionario.pontosT;
-                    this.registroPontos += funcionario.pontosT?.length || 0;//vai add a quantidade de pontos do size de array de pontos
+                this.registroPontos += funcionario.pontosT?.length || 0;//vai add a quantidade de pontos do size de array de pontos
             });
         });
     }

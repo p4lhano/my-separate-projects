@@ -35,6 +35,8 @@ import { MatListModule} from '@angular/material/list';
 import { RegistroNowComponent } from './components/views/ponto/registro-now/registro-now.component';
 import  {MatSnackBarModule} from '@angular/material/snack-bar';
 import { RegistrosAllComponent } from './components/views/ponto/registros-all/registros-all.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+
 
 
 @NgModule({
@@ -74,7 +76,8 @@ import { RegistrosAllComponent } from './components/views/ponto/registros-all/re
     MatNativeDateModule,
     ReactiveFormsModule,
     MatListModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

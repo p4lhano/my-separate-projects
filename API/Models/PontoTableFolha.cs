@@ -10,8 +10,7 @@ namespace API.Models
         public DateTime Entrada_2 { get; set; }
         public DateTime Saida_1 { get; set; }
         public DateTime Saida_2 { get; set; }
-        public Double TotalHorasDia { get; set; }
-        public int MinutosRestantes { get; set; }
+        public TimeSpan TotalTrabalhado { get; set; }
 
         public Funcionario Funcionario { get; set; }
         public int FuncionarioId { get; set; }

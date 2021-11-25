@@ -57,12 +57,10 @@ namespace API.Controllers
         [HttpGet]
         [Route("detalhes/{id}")]
         public async Task<IActionResult> TesteAsync([FromRoute] int id){
-            Console.WriteLine("ID chegou: "+ id);
             Funcionario funcionario = await _context.Funcionarios.FindAsync(id);
             List<PontoFuncionario> listaPontoFuncionario = await _context.PontosFuncionarios.
                 Where(pontosPercorre => pontosPercorre.FuncionarioId == id ).ToListAsync();
             funcionario.PontosT = ToPontoTable(listaPontoFuncionario);
-            Console.WriteLine("Chegou aqui e esta retornando");
             return Ok(funcionario);
         }
         private static List<PontoTableFolha> ToPontoTable(List<PontoFuncionario> listaP) {
@@ -95,23 +93,14 @@ namespace API.Controllers
                     }
                 }
                 //Calcula o total de horas no dia
-                registroLinhaFinalTabela.TotalHorasDia = 0.0;
-                Double periodo1 = registroLinhaFinalTabela.Saida_1.Subtract(registroLinhaFinalTabela.Entrada_1).TotalSeconds ;
-                Double periodo2 = registroLinhaFinalTabela.Saida_2.Subtract(registroLinhaFinalTabela.Entrada_2).TotalSeconds ;
-                registroLinhaFinalTabela.TotalHorasDia = ( periodo1 + periodo2 )/3600;
-                Double n =(double) Math.Truncate(registroLinhaFinalTabela.TotalHorasDia);
-                registroLinhaFinalTabela.MinutosRestantes = (int) (registroLinhaFinalTabela.TotalHorasDia - n) * 60 ;
-                //registroLinhaFinalTabela.MinutosRestantes = 30 ;
+                registroLinhaFinalTabela.TotalTrabalhado = registroLinhaFinalTabela.Saida_1.Subtract(registroLinhaFinalTabela.Entrada_1) ;
 
-                Console.WriteLine("Minutos restantes"+ registroLinhaFinalTabela.MinutosRestantes);
-                Console.WriteLine(registroLinhaFinalTabela.ToString());
                 listPontoTable.Add(registroLinhaFinalTabela);
             }
             /*
             data // ENTRADA_1 // SAIDA_1 // ENTRADA_2 // SAIDA_2 // totalHorasdia
 
             */
-            Console.WriteLine(listPontoTable);
             return listPontoTable;
         }
 
@@ -149,7 +138,6 @@ namespace API.Controllers
         [HttpDelete]
         [Route("deleteid/{id}")]
         public async Task<IActionResult> DeleteByIdAsync([FromRoute] int id){
-            Console.WriteLine(id);
             PontoFuncionario pontoFuncionario = await _context.PontosFuncionarios.FindAsync(id).ConfigureAwait(true);
             if (pontoFuncionario == null) return NotFound();
             _context.PontosFuncionarios.Remove(pontoFuncionario);

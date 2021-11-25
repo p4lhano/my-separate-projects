@@ -15,7 +15,10 @@ mat-grid-tile {
 }
 
 .mat-card-table{
-    width: 93%;
+    width: 95%;
+    display: flex;
+    top: 0px;
+    position: absolute;
 }
 table {
     width: 100%;
@@ -25,4 +28,10 @@ table {
 
 .header {
     text-align: center;
+}
+
+img{
+    height: 100px;
+    width: 100px;
+
 }
