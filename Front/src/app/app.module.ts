@@ -36,6 +36,7 @@ import { RegistroNowComponent } from './components/views/ponto/registro-now/regi
 import  {MatSnackBarModule} from '@angular/material/snack-bar';
 import { RegistrosAllComponent } from './components/views/ponto/registros-all/registros-all.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { HomeLoginComponent } from './components/views/home-login/home-login.component';
 
 
 
@@ -53,6 +54,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     ListarFuncionarioHomeComponent,
     RegistroNowComponent,
     RegistrosAllComponent,
+    HomeLoginComponent,
   ],
   imports: [
     BrowserModule,

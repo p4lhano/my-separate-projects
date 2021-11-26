@@ -16,6 +16,11 @@
         <input matInput name="cpf" [(ngModel)]="cpf">
     </mat-form-field> <br>
     <mat-form-field appearance="fill">
+        <mat-label for="valorHora">Valor da Hora</mat-label>
+        <input matInput type="number" name="valorHora" [(ngModel)]="valorHora">
+        <span matPrefix>R$&nbsp;</span>
+    </mat-form-field> <br>
+    <mat-form-field appearance="fill">
         <mat-label for="setorId">Setor</mat-label>
         <mat-select name="setorId" [(ngModel)]="setorId">
           <mat-option *ngFor="let s of isSetores" [value]="s.setorId">

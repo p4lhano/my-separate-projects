@@ -13,6 +13,7 @@ import { SetorService } from 'src/app/services/setor.service';
 export class CadastrarFuncionarioComponent implements OnInit {
 
     id!: number ;
+    valorHora!: number ;
     nome!: string ;
     cpf!: string ;
     setorId:number | undefined;
@@ -29,7 +30,6 @@ export class CadastrarFuncionarioComponent implements OnInit {
   ngOnInit(): void {
     this.action = "Cadastrar Novo";
     this.serviceSetor.listar().subscribe(setores => {
-    console.log(setores);
     this.isSetores = setores;
     });
 
@@ -40,6 +40,7 @@ export class CadastrarFuncionarioComponent implements OnInit {
             this.nome = funcionario.nome;
             this.cpf = funcionario.cpf;
             this.setorId = funcionario.setorId;
+            this.valorHora = funcionario.valorHora;
         });
     });
 
@@ -50,7 +51,8 @@ export class CadastrarFuncionarioComponent implements OnInit {
       let funcionario: Funcionario = {
         nome : this.nome,
         cpf : this.cpf,
-        setorId : this.setorId
+        setorId : this.setorId,
+        valorHora: this.valorHora
       };
       this.service.cadastrar(funcionario).subscribe(funcionario => {
           console.log(funcionario);
@@ -64,7 +66,8 @@ export class CadastrarFuncionarioComponent implements OnInit {
           id: this.id,
           cpf: this.cpf,
           nome: this.nome,
-          setorId: this.setorId
+          setorId: this.setorId,
+          valorHora: this.valorHora
       };
 
       this.service.update(funcionario).subscribe((funcionario) => {

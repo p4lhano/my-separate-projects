@@ -53,17 +53,18 @@ namespace API.Controllers
             await _context.SaveChangesAsync();
             return Created("",pontoFuncionario);
         }
+
         //" GET: /registro/detalhes/id"
         [HttpGet]
         [Route("detalhes/{id}")]
-        public async Task<IActionResult> TesteAsync([FromRoute] int id){
+        public async Task<IActionResult> DetalhesAsync([FromRoute] int id){
             Funcionario funcionario = await _context.Funcionarios.FindAsync(id);
             List<PontoFuncionario> listaPontoFuncionario = await _context.PontosFuncionarios.
                 Where(pontosPercorre => pontosPercorre.FuncionarioId == id ).ToListAsync();
             funcionario.PontosT = ToPontoTable(listaPontoFuncionario);
             return Ok(funcionario);
         }
-        private static List<PontoTableFolha> ToPontoTable(List<PontoFuncionario> listaP) {
+        public static List<PontoTableFolha> ToPontoTable(List<PontoFuncionario> listaP) {
             List<PontoTableFolha> listPontoTable = new();
             List<DateTime> diasPonto = new();
             foreach(PontoFuncionario pontoU in listaP){

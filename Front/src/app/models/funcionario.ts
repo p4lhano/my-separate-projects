@@ -5,6 +5,7 @@ export interface Funcionario {
     id?: number;
     nome: string;
     cpf: string;
+    valorHora:number;
     criadoEm?: Date;
     atualizadoEm?: Date;
     pontos?: PontoFuncionario[];

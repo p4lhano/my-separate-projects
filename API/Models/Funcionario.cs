@@ -11,6 +11,7 @@ namespace API.Models
         public string Cpf { get; set; }
         public DateTime CriadoEm { get; set; }
         public DateTime AtualizadoEm { get; set; }
+        public double ValorHora { get; set; }
         public List<PontoFuncionario> Pontos { get; set; }
         public List<PontoTableFolha> PontosT { get; set; }
 

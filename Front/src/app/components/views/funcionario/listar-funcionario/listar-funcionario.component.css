@@ -14,3 +14,7 @@ button{
     padding-right: 24px;
     text-align: center;
 }
+
+mat-card{
+    padding-left: 1%;
+}

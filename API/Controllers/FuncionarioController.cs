@@ -32,11 +32,13 @@ namespace API.Controllers
         [HttpPut]
         [Route("update")]
         public async Task<IActionResult> AlterarFuncionario([FromBody] Funcionario funcionario){
-            Funcionario funcionarioOld = await _context.Funcionarios.FindAsync(funcionario.Id).ConfigureAwait(true);
+            var o = await _context.Funcionarios.Where(x => x.Id==funcionario.Id).
+                Select(s => new {
+                    s.CriadoEm
+                    }).
+                FirstOrDefaultAsync();
+            funcionario.CriadoEm = o.CriadoEm;
             funcionario.AtualizadoEm = DateTime.Now;
-            funcionario.CriadoEm = funcionarioOld.CriadoEm;
-            Console.WriteLine("Funcionario antigo "+funcionarioOld);
-            Console.WriteLine("Funcionario new "+funcionario);
             _context.Funcionarios.Update(funcionario);
             await _context.SaveChangesAsync().ConfigureAwait(false);
             return Ok();
@@ -98,6 +100,25 @@ namespace API.Controllers
             _context.Funcionarios.Remove(funcionario);
             await _context.SaveChangesAsync().ConfigureAwait(false);
             return Ok();
+        }
+        //" GET: /funcionario/folha/id/mes/ano"
+        [HttpGet]
+        [Route("folha/{id}/{mes}/{ano}")]
+        public async Task<IActionResult> FolhaAsync([FromRoute] int id,[FromRoute] int mes,[FromRoute] int ano){
+            DateTime diaUmMes = new(ano,mes,1);
+            FolhaPagamento folha = new();
+            Funcionario funcionario = await _context.Funcionarios.FindAsync(id);
+            List<PontoFuncionario> listaPontoFuncionario = await _context.PontosFuncionarios.
+                Where(pontosPercorre =>
+                    pontosPercorre.FuncionarioId == id           &&
+                    pontosPercorre.DataRegistroPonto >= diaUmMes &&
+                    pontosPercorre.DataRegistroPonto < diaUmMes.AddMonths(1)
+                ).ToListAsync();
+            foreach ( PontoTableFolha d in PontoFuncionarioController.ToPontoTable(listaPontoFuncionario) ){
+                folha.TotalHorasMes += d.TotalTrabalhado;
+            }
+            folha.ValorPagar = folha.TotalHorasMes.TotalHours * funcionario.ValorHora;
+            return Ok(folha);
         }
     }
 }
