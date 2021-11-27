@@ -10,6 +10,7 @@ import { TesteFormularioComponent } from './components/views/funcionario/teste-f
 import { ListarFuncionarioHomeComponent } from './components/views/funcionario/listar-funcionario-home/listar-funcionario-home.component';
 import { RegistroNowComponent } from './components/views/ponto/registro-now/registro-now.component';
 import { RegistrosAllComponent } from './components/views/ponto/registros-all/registros-all.component';
+import { FolhaPontoComponent } from './components/views/ponto/folha-ponto/folha-ponto.component';
 
 const routes: Routes = [
     {
@@ -45,6 +46,9 @@ const routes: Routes = [
     },{
         path: "funcionario/pontos/:id",
         component: RegistrosAllComponent
+    },{
+        path: "ponto/folha/:id",
+        component: FolhaPontoComponent
     }
 ];
 

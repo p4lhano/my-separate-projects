@@ -1,9 +1,14 @@
+import { FolhaPagamento } from './../../../../models/folha-pagento';
+import { FolhaPontoComponent } from './../folha-ponto/folha-ponto.component';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Funcionario } from 'src/app/models/funcionario';
 import { PontoFuncionarioTable } from 'src/app/models/ponto-funcionario-table';
 import { PontoFuncionarioService } from 'src/app/services/pontoFuncionario.service';
+
+import {MatDialog} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-registros-all',
@@ -12,12 +17,15 @@ import { PontoFuncionarioService } from 'src/app/services/pontoFuncionario.servi
 })
 export class RegistrosAllComponent implements OnInit {
 
+    mes!: String;
+    ano!: String;
     funcionario!: Funcionario;
+    folhaPagamento!: FolhaPagamento;
     pontos!: MatTableDataSource<PontoFuncionarioTable>;
     registroPontos: number = 1;
     arrayMesAno: Date[] | undefined;
     displayedColumns: string[] = ['data','ENTRADA_1', 'SAIDA_1', 'ENTRADA_2', 'SAIDA_2','totalTrabalhado'];
-    constructor(private service: PontoFuncionarioService, private rota: ActivatedRoute, private router: Router) { }
+    constructor(private service: PontoFuncionarioService, private rota: ActivatedRoute, private router: Router, public dialog: MatDialog) { }
 
     ngOnInit(): void {
         this.rota.params.subscribe((params) => {
@@ -48,6 +56,20 @@ export class RegistrosAllComponent implements OnInit {
                 });
                 console.log(this.arrayMesAno);
             });
+        });
+    }
+    openDialog() {
+        this.mes = (new Date().getMonth() + 1).toString();
+        this.ano = new Date().getFullYear().toString();
+        this.rota.params.subscribe((params) => {
+            this.service.folhaPonto(params.id, this.mes, this.ano).subscribe(folhaPagamento => {
+                this.folhaPagamento = folhaPagamento;
+            });
+        });
+        this.dialog.open(FolhaPontoComponent, {
+            data: {
+                folha: this.folhaPagamento.valorPagar
+            }
         });
     }
 

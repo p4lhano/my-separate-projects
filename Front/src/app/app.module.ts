@@ -37,7 +37,13 @@ import  {MatSnackBarModule} from '@angular/material/snack-bar';
 import { RegistrosAllComponent } from './components/views/ponto/registros-all/registros-all.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { HomeLoginComponent } from './components/views/home-login/home-login.component';
+import { FolhaPontoComponent } from './components/views/ponto/folha-ponto/folha-ponto.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {LOCALE_ID, DEFAULT_CURRENCY_CODE} from '@angular/core';
+import localePt from '@angular/common/locales/pt';
+import {registerLocaleData} from '@angular/common';
 
+registerLocaleData(localePt, 'pt');
 
 
 @NgModule({
@@ -55,6 +61,7 @@ import { HomeLoginComponent } from './components/views/home-login/home-login.com
     RegistroNowComponent,
     RegistrosAllComponent,
     HomeLoginComponent,
+    FolhaPontoComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,9 +86,18 @@ import { HomeLoginComponent } from './components/views/home-login/home-login.com
     ReactiveFormsModule,
     MatListModule,
     MatSnackBarModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    {
+        provide: LOCALE_ID,
+        useValue: 'pt'
+    },{
+    provide:  DEFAULT_CURRENCY_CODE,
+    useValue: 'BRL'
+    },
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -21,21 +21,24 @@ namespace API.Controllers
         //" POST: /funcionario/create"
         [HttpPost]
         [Route("create")]
-        public async Task<IActionResult> CadastrarFuncionarioAsync([FromBody] Funcionario funcionario){
+        public async Task<IActionResult> CadastrarFuncionarioAsync([FromBody] Funcionario funcionario)
+        {
             funcionario.CriadoEm = DateTime.Now;
             funcionario.AtualizadoEm = funcionario.CriadoEm;
             await _context.Funcionarios.AddAsync(funcionario).ConfigureAwait(false);
             _context.SaveChanges();
-            return Created("",funcionario);
+            return Created("", funcionario);
         }
         //" POST: /funcionario/update"
         [HttpPut]
         [Route("update")]
-        public async Task<IActionResult> AlterarFuncionario([FromBody] Funcionario funcionario){
-            var o = await _context.Funcionarios.Where(x => x.Id==funcionario.Id).
-                Select(s => new {
+        public async Task<IActionResult> AlterarFuncionario([FromBody] Funcionario funcionario)
+        {
+            var o = await _context.Funcionarios.Where(x => x.Id == funcionario.Id).
+                Select(s => new
+                {
                     s.CriadoEm
-                    }).
+                }).
                 FirstOrDefaultAsync();
             funcionario.CriadoEm = o.CriadoEm;
             funcionario.AtualizadoEm = DateTime.Now;
@@ -56,9 +59,10 @@ namespace API.Controllers
         // GET /funcionario/findbyid/id
         [HttpGet]
         [Route("findbyid/{id}")]
-        public async Task<IActionResult> FindByIdAsync([FromRoute] int id){
+        public async Task<IActionResult> FindByIdAsync([FromRoute] int id)
+        {
             Funcionario funcionario = await _context.Funcionarios.FindAsync(id).ConfigureAwait(true);
-            if(funcionario != null)
+            if (funcionario != null)
             {
                 funcionario.Pontos = await _context
                     .PontosFuncionarios
@@ -81,7 +85,8 @@ namespace API.Controllers
         // DELETE /funcionario/deleteid/id
         [HttpDelete]
         [Route("deleteid/{id}")]
-        public async Task<IActionResult> DeleteByIdAsync([FromRoute] int id){
+        public async Task<IActionResult> DeleteByIdAsync([FromRoute] int id)
+        {
             Console.WriteLine(id);
             Funcionario funcionario = await _context.Funcionarios.FindAsync(id).ConfigureAwait(true);
             if (funcionario == null) return NotFound();
@@ -93,8 +98,9 @@ namespace API.Controllers
         // DELETE /funcionario/deletename/id
         [HttpDelete]
         [Route("deletename/{name}")]
-        public async Task<IActionResult> DeleteByNameAsync([FromRoute] string name){
-            Funcionario funcionario =  await _context.Funcionarios.FirstOrDefaultAsync(
+        public async Task<IActionResult> DeleteByNameAsync([FromRoute] string name)
+        {
+            Funcionario funcionario = await _context.Funcionarios.FirstOrDefaultAsync(
                 x => x.Nome == name
                 ).ConfigureAwait(false);
             _context.Funcionarios.Remove(funcionario);
@@ -104,17 +110,19 @@ namespace API.Controllers
         //" GET: /funcionario/folha/id/mes/ano"
         [HttpGet]
         [Route("folha/{id}/{mes}/{ano}")]
-        public async Task<IActionResult> FolhaAsync([FromRoute] int id,[FromRoute] int mes,[FromRoute] int ano){
-            DateTime diaUmMes = new(ano,mes,1);
+        public async Task<IActionResult> FolhaAsync([FromRoute] int id, [FromRoute] int mes, [FromRoute] int ano)
+        {
+            DateTime diaUmMes = new(ano, mes, 1);
             FolhaPagamento folha = new();
             Funcionario funcionario = await _context.Funcionarios.FindAsync(id);
             List<PontoFuncionario> listaPontoFuncionario = await _context.PontosFuncionarios.
                 Where(pontosPercorre =>
-                    pontosPercorre.FuncionarioId == id           &&
+                    pontosPercorre.FuncionarioId == id &&
                     pontosPercorre.DataRegistroPonto >= diaUmMes &&
                     pontosPercorre.DataRegistroPonto < diaUmMes.AddMonths(1)
                 ).ToListAsync();
-            foreach ( PontoTableFolha d in PontoFuncionarioController.ToPontoTable(listaPontoFuncionario) ){
+            foreach (PontoTableFolha d in PontoFuncionarioController.ToPontoTable(listaPontoFuncionario))
+            {
                 folha.TotalHorasMes += d.TotalTrabalhado;
             }
             folha.ValorPagar = folha.TotalHorasMes.TotalHours * funcionario.ValorHora;

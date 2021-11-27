@@ -1,3 +1,4 @@
+import { FolhaPagamento } from './../models/folha-pagento';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -19,6 +20,10 @@ export class PontoFuncionarioService {
 
     detalhes(id: number): Observable<Funcionario>{
         return this.http.get<Funcionario>(`${this.URL_BASE}/registro/detalhes/${ id }`);
+    }
+
+    folhaPonto(id: number, mes: String, ano: String): Observable<FolhaPagamento>{
+        return this.http.get<FolhaPagamento>(`${this.URL_BASE}/funcionario/folha/${ id }/${ mes }/${ ano }`);
     }
 
 }
