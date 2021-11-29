@@ -8,7 +8,7 @@ Content-Type: application/json
   "permissao": "rh"
 }
 ### Login
-GET https://localhost:5001/usuario/login
+POST https://localhost:5001/usuario/login
 Content-Type: application/json
 
 {

@@ -40,7 +40,7 @@ export class ListarFuncionarioHomeComponent implements OnInit {
                     verticalPosition: "bottom"
                 });
         });
-        this.router.navigate([""]);
+        this.router.navigate(["funcionario/pontos"]);
     }
 
 

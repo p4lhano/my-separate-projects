@@ -11,7 +11,11 @@
         <mat-card class="cima">
             <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
                 <mat-button-toggle (click)="openDialog()" value="newFolha">Gerar Folha de pagamento do mês atual</mat-button-toggle>
-                <mat-button-toggle value="editFuncionario">Editar Funcionario</mat-button-toggle>
+
+                    <mat-button-toggle value="editFuncionario">
+                        Editar Funcionario
+                    </mat-button-toggle>
+
                 <mat-button-toggle value="alterPhoto">Alterar Foto</mat-button-toggle>
             </mat-button-toggle-group>
         </mat-card>

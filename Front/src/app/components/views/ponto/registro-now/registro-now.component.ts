@@ -16,7 +16,7 @@ export class RegistroNowComponent implements OnInit {
   ngOnInit(): void {
     this.rota.params.subscribe((params) => {
         this.service.registrarPonto(params.id).subscribe();
-        this.router.navigate([""]);
+        this.router.navigate(["funcionario/pontos"]);
     });
 }
 

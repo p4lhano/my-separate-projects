@@ -1,3 +1,4 @@
+import { HomeLoginComponent } from './components/views/home-login/home-login.component';
 import { DeleteSetorComponent } from './components/views/setor/delete-setor/delete-setor.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -15,6 +16,9 @@ import { FolhaPontoComponent } from './components/views/ponto/folha-ponto/folha-
 const routes: Routes = [
     {
         path: "",
+        component: HomeLoginComponent
+    },{
+        path: "funcionario/pontos",
         component: ListarFuncionarioHomeComponent
     },{
         path: "funcionario/all",

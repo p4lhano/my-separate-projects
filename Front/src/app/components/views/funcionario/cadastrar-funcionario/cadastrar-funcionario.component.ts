@@ -56,7 +56,7 @@ export class CadastrarFuncionarioComponent implements OnInit {
       };
       this.service.cadastrar(funcionario).subscribe(funcionario => {
           console.log(funcionario);
-          this.router.navigate([""]);
+          this.router.navigate(["funcionario/pontos"]);
       });
   }
 
@@ -72,7 +72,7 @@ export class CadastrarFuncionarioComponent implements OnInit {
 
       this.service.update(funcionario).subscribe((funcionario) => {
           console.log(funcionario);
-          this.router.navigate([""]);
+          this.router.navigate(["funcionario/pontos"]);
       });
   }
 }
