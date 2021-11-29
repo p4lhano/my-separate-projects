@@ -1,0 +1,13 @@
+###
+POST https://localhost:5001/api/meiopagamento/create
+Content-Type: application/json
+
+{
+  "usuarioId": 1,
+  "nome": "Vitor Rafael Palhano",
+  "numeroCartão": "5165156156",
+  "meioPagamentoEscolhido": 0
+}
+
+###
+GET https://localhost:5001/api/meiopagamento/list
