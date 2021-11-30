@@ -22,6 +22,7 @@ namespace API.Controllers
         [Route("create")]
         public IActionResult Create([FromBody] MetodoPagamento metPagamento)
         {
+            Console.WriteLine(metPagamento);
             metPagamento.User = _context.Usuarios.Find(metPagamento.UsuarioId);
             _context.MetodosPagamentos.Add(metPagamento);
             _context.SaveChanges();

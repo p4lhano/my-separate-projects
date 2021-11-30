@@ -6,6 +6,7 @@ namespace API.Models
     {
         public ItemVenda() => CriadoEm = DateTime.Now;
         public int ItemVendaId { get; set; }
+        public int IdVenda { get; set; }
         public Produto Produto { get; set; }
         public int ProdutoId { get; set; }
         public int Quantidade { get; set; }

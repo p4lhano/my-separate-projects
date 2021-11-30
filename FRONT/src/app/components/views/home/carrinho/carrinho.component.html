@@ -42,6 +42,12 @@
     <mat-card-header>
         <mat-card-title>
             Total: {{ valorTotal | currency: "BRL" }}
-        </mat-card-title>
+        </mat-card-title> <br>
+
+    </mat-card-header>
+    <mat-card-header>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" routerLink="/home/finalizar" >Finalizar Compra</button>
+        </mat-card-actions>
     </mat-card-header>
 </mat-card>

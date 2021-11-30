@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { MatTableDataSource } from "@angular/material/table";
 import { Produto } from "src/app/models/produto";
 import { ProdutoService } from "src/app/services/produto.service";
 
@@ -9,6 +10,7 @@ import { ProdutoService } from "src/app/services/produto.service";
 })
 export class ListarProdutoComponent implements OnInit {
     produtos: Produto[] = [];
+    matT!: MatTableDataSource<Produto>;
     colunasExibidas: String[] = [
         "id",
         "nome",
@@ -22,7 +24,9 @@ export class ListarProdutoComponent implements OnInit {
 
     ngOnInit(): void {
         this.service.list().subscribe((produtos) => {
+            console.log(produtos)
             this.produtos = produtos;
+            this.matT = new MatTableDataSource<Produto>( produtos );
         });
     }
 }

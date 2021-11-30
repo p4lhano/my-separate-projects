@@ -1,0 +1,25 @@
+<mat-card>
+    <p>
+        <mat-form-field appearance="legacy">
+          <mat-label>Nome do Cliente</mat-label>
+          <input matInput placeholder="Nome" [(ngModel)]="nomeCliente" >
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Metodo de Pagamento</mat-label>
+            <mat-select [(ngModel)]="meioPagamentoId">
+              <!-- <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{food.viewValue}}
+              </mat-option> -->
+              <mat-option *ngFor="let m of meiosPagamento"  [value]="m.id">
+                {{m.nome}} | Cartão: {{m.numeroCartao}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </p>
+    <mat-card-actions>
+        <button mat-stroked-button (click)="finalizar()">Finalizar</button>
+    </mat-card-actions>
+</mat-card>

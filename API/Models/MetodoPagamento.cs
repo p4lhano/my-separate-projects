@@ -10,7 +10,7 @@ namespace API.Models
         public Usuario User { get; set; }
         public int UsuarioId { get; set; }
         public string Nome { get; set; }
-        public string NumeroCartão { get; set; }
+        public string NumeroCartao { get; set; }
         public MeioPagamento MeioPagamentoEscolhido { get; set; }
         // public List<Produto> Produtos { get; set; }
 

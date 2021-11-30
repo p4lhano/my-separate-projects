@@ -4,8 +4,8 @@ Content-Type: application/json
 
 {
   "usuarioId": 1,
-  "nome": "Vitor Rafael Palhano",
-  "numeroCartão": "5165156156",
+  "nome": "Cartão da Mãe",
+  "NumeroCartao": "5165156156",
   "meioPagamentoEscolhido": 0
 }
 

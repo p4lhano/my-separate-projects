@@ -3,11 +3,11 @@
     Novo Produto</a
 >
 
-<table mat-table [dataSource]="produtos" class="mat-elevation-z8">
+<table mat-table [dataSource]="matT" class="mat-elevation-z8">
     <!-- Coluna do Id -->
     <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>#</th>
-        <td mat-cell *matCellDef="let produto">{{ produto.id }}</td>
+        <td mat-cell *matCellDef="let produto">{{ produto.produtoId }}</td>
     </ng-container>
     <!-- Coluna do Nome -->
     <ng-container matColumnDef="nome">
