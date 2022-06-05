@@ -9,9 +9,6 @@ router.get("/medico/listar", medico.listar);
 router.get("/medico/buscar/:crm", medico.buscarCrm);
 router.post("/medico/alterar", medico.alterar);
 
-
-
-
-
+//coments..
 
 export {router};
