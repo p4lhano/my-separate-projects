@@ -1,0 +1,19 @@
+<mat-toolbar color="warn">
+    <mat-toolbar-row>
+        <span style="font-size: 90%;">Setor</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<div style="padding: 32px;">
+<mat-form-field appearance="fill">
+    <mat-label>Nome Setor</mat-label>
+    <input matInput name="nomeSetor" [(ngModel)]="nomeSetor">
+</mat-form-field>
+<div id="botaoCadastrar">
+    <button mat-raised-button *ngIf="!setorId" (click)="create()">Salvar</button>
+</div>
+<div id="botaoAlterar">
+    <button mat-stroked-button *ngIf="setorId" (click)="alterar()">Alterar</button>
+</div>
+
+
+</div>

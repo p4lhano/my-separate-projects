@@ -1,0 +1,63 @@
+<mat-grid-list cols="5" rowHeight="90px">
+    <mat-grid-tile [colspan]="3" [rowspan]="2" class="mat-grid-tile-principal" >
+        <mat-card class="cima">
+            <img mat-card-image src="assets/images/user-defaut.png" alt="Imagem user">
+            <section>
+                {{funcionario.nome}}
+            </section>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="2" class="mat-grid-tile-principal" >
+        <mat-card class="cima">
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                <mat-button-toggle (click)="openDialog()" value="newFolha">Gerar Folha de pagamento do mês atual</mat-button-toggle>
+
+                    <mat-button-toggle value="editFuncionario">
+                        Editar Funcionario
+                    </mat-button-toggle>
+
+                <mat-button-toggle value="alterPhoto">Alterar Foto</mat-button-toggle>
+            </mat-button-toggle-group>
+        </mat-card>
+    </mat-grid-tile>
+    <!-- registroPontos -->
+    <mat-grid-tile [colspan]="5" [rowspan]="registroPontos"  class="mat-grid-tile-table" >
+        <mat-card  class="mat-card-table">
+            <table mat-table [dataSource]="pontos" >
+
+                <ng-container matColumnDef="data">
+                    <th mat-header-cell *matHeaderCellDef class="header" > DIA </th>
+                    <td mat-cell *matCellDef="let p" >{{ p.data | date: "dd/MM/yyyy " }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="ENTRADA_1" >
+                    <th mat-header-cell *matHeaderCellDef class="header" >ENTRADA 1</th>
+                    <td mat-cell *matCellDef="let p" >{{ p.entrada_1 | date: "HH:mm:ss" }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="SAIDA_1">
+                    <th mat-header-cell *matHeaderCellDef class="header" > SAIDA_1 </th>
+                    <td mat-cell *matCellDef="let p">{{ p.saida_1 | date: "HH:mm:ss" }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="ENTRADA_2">
+                    <th mat-header-cell *matHeaderCellDef class="header" > ENTRADA_2 </th>
+                    <td mat-cell *matCellDef="let p">  {{ p.entrada_2 | date: "HH:mm:ss" }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="SAIDA_2">
+                    <th mat-header-cell *matHeaderCellDef class="header" > SAIDA_2 </th>
+                    <td mat-cell *matCellDef="let p">{{ p.saida_2 | date: "HH:mm:ss" }}</td>
+                </ng-container>
+                <ng-container matColumnDef="totalTrabalhado">
+                    <th mat-header-cell *matHeaderCellDef class="header" > Total Trabalhando </th>
+                    <td mat-cell *matCellDef="let p">{{ p.totalTrabalhado.hours | number :'2.0-0'  }}:{{ p.totalTrabalhado.minutes | number :'2.0-0' }}:{{ p.totalTrabalhado.seconds | number :'2.0-0' }}  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            </table>
+        </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>

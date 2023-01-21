@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-button routerLink="/funcionario/pontos" id="button-home">
+            <mat-icon>
+                emoji_people
+            </mat-icon>
+            Solução RH
+        </button>
+        <span class="example-spacer"></span>
+        <button mat-button [matMenuTriggerFor]="menuF">Funcionario</button>
+            <mat-menu #menuF="matMenu">
+                <button mat-menu-item routerLink="/funcionario/new">
+                    <mat-icon>person_add_alt_1</mat-icon>
+                    Cadastrar
+                </button>
+                <button mat-menu-item routerLink="/funcionario/all">
+                    <mat-icon>format_list_bulleted</mat-icon>
+                    Listar
+                </button>
+            </mat-menu>
+        <button mat-button [matMenuTriggerFor]="menuS">Setor</button>
+            <mat-menu #menuS="matMenu">
+                <button mat-menu-item routerLink="/setor/new">
+                    <mat-icon>groups</mat-icon>
+                    Cadastrar
+                </button>
+                <button mat-menu-item routerLink="/setor/all">
+                    <mat-icon>format_list_bulleted</mat-icon>
+                    Listar
+                </button>
+            </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>

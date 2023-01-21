@@ -1,0 +1,28 @@
+###
+POST https://localhost:5001/setor/create
+Content-Type: application/json
+
+{
+  "nomesetor": "Contabil"
+}
+### Listar
+GET https://localhost:5001/setor/list
+
+### Alterar
+PUT https://localhost:5001/setor/update
+Content-Type: application/json
+
+{
+    "setorId": 1,
+    "nomeSetor": "Contabil"
+}
+
+
+### Buscar funcionario ID
+GET https://localhost:5001/setor/findbyid/1
+
+### Delete funcionario ID
+DELETE  https://localhost:5001/funcionario/deleteid/1
+
+### Delete funcionario ID
+DELETE  https://localhost:5001/funcionario/deletename/Vitor

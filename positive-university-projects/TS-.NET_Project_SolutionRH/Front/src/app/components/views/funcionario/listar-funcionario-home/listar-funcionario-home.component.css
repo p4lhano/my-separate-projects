@@ -1,0 +1,34 @@
+
+
+
+.example-header-image {
+
+    background-size: cover;
+}
+
+
+.container-image img{
+    text-align: center;
+    max-width:110px;
+    width: auto;
+    height: auto;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+mat-card-header{
+    display: contents;
+}
+
+
+mat-card{
+    width: 100%;
+    text-align: center;
+    background-color: #3ACFC8;
+    border-radius: 15px;
+}
