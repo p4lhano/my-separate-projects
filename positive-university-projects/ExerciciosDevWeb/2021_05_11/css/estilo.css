@@ -1,0 +1,425 @@
+/* TAGs HTML */
+
+body{
+	font-family: "Helvetica neue", Helvetica, Arial, sans-serif;
+	height: 100%;
+	font-size: 62.5%; /* Alterar posteriormente */
+	line-height: 1.5;
+	color: #444;
+}
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+} 
+/* serve para arrumar o tamanho dos boxes -
+problemas de soma com margin e padding
+Outro truque bacana de CSS para design responsivo é
+o box-sizing border box acompanhado do seletor *.
+Basicamente esta regra diz que todos os elementos agora
+levarão em conta apenas a largura e altura determinada,
+sem somar a este valor a borda e o padding. */
+
+header{
+	width: 100%;
+	height: 48px;
+	margin-bottom: 3.6em; /* Quando não se trata de texto não precisa fazer o cálculo, apenas pular uma casa decimal e colocar em EM */
+	margin-top: 3.6em; /* 36px */
+}
+
+a{
+	color: #00ccff;
+	font-size: 1.6em;
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+img{
+	max-width: 100%;
+}
+
+nav{
+	float: right;
+	width: 70.92%; /* 800px */
+}
+
+nav ul{
+	float: right;
+}
+
+nav li{
+	font-size: 1.2em; /* 12px */
+	display: inline-block;
+	margin-left: 2em; /* 20px */
+	margin-top: 1em; /* 10px */
+}
+
+nav li a{
+	color: #999;
+}
+
+h1{ /* h1 da caixa de destaque */
+	font-size: 4em; /* 40px */
+	color: #FFF;
+	font-weight: 200;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+h2{ /* h2 dos serviços */
+	font-size: 2.4em; /* 24px */
+}
+
+footer{
+	width: 100%;
+	margin-top: 2.13%;
+	margin-bottom: 2.13%; /* 24px */
+}
+
+footer p{
+	font-size: 1em; /* 10px */
+	margin-bottom: 0;
+}
+
+/* Classes CSS */
+
+.container{
+	padding: 0;
+	margin: 0 auto;
+	max-width: 1128px;
+}
+
+.div_banner{
+	background: url('../img/banner.jpg');
+	height: 450px;
+	margin-bottom: 4.25%; /* 48px */
+	position: relative;
+}
+
+.caixa{
+	position: absolute;
+	top: 48px;
+	background: rgba(0,0,0,0.6); /* rgba - a= alfa 0-1 nível de transparência*/
+	width: 42.55%; /* 480px */
+	padding: 24px 0.35% 24px 3.55%; /* top (4px right) bottom (40px left) */
+	display: center;
+}
+
+.destaque{
+	font-size: 1.8em; /* 18px */
+	color: #FFF;
+	font-weight: 200;
+}
+
+.logo{
+	float: left;
+	width: 21.54%; /* (243px/1128px)*100 */
+}
+
+.coluna{
+	width: 23.4%; /* (264px/1128px)*100 */
+	float: left;
+	margin-right: 2.12%; /* (24px/1128px)*100 */
+}
+
+.coluna:last-child{
+	margin-right: 0;
+}
+
+.texto_serv{
+	text-align: justify;
+	font-size: 1.6em; /*16px*/
+}
+
+/* _______________MEDIA QUERIES________________*/
+
+@media screen and (max-width: 1128px){
+	.container{
+		padding: 0 2.4em 0 2.4em;
+	}
+
+	.destaque{
+		width: 65%;
+	}
+
+	.coluna{
+		width: 48%;
+		margin-bottom: 2.4em;
+		margin-right: 2%;
+	}
+
+	.coluna:nth-child(even){
+		margin-right: 0;
+	}
+
+	.logo{
+		width: 22%;
+		margin-top: 1.2em;
+	}
+
+	h1{
+		font-size: 2.5em;
+	}
+
+	nav{
+		width: 70%;
+	}
+
+	.div_banner{
+		margin-top: 450px;
+	}
+}
+
+@media screen and (max-width: 768px){
+
+}
+
+@media screen and (max-width: 718px){
+	.caixa{
+		position: relative;
+		display: block;
+		background: #000;
+		width: 100%;
+		float: left;
+	}
+}
+
+@media screen and (max-width: 640px){
+	nav{
+		width: 100%;
+	}
+
+	nav ul{
+		float: left;
+		font-size: 0.8em
+	}
+
+	nav li:first-child{
+		margin-left: 0;
+	}
+}
+
+
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.5em;
+    color: #444;
+    font-size: 62.5%;
+}
+
+a {
+    color: #00ccff;
+    font-size: 1.6em;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1128px;
+    margin: 0 auto;
+}
+
+img,
+figure,
+video,
+embed {
+    max-width: 100%;
+}
+
+header {
+    width: 100%;
+    height: 48px;
+    margin-top: 3.6em;
+    margin-bottom: 3.6em;
+}
+
+.menu {
+    float: left;
+    width: 20.74%;
+}
+
+nav {
+    float: right;
+    width: 74.47%;
+}
+
+nav ul {
+    float: right;
+}
+
+nav li {
+    font-size: 1.2em;
+    display: inline-block;
+    margin-left: 2.0em;
+    margin-top: 1.0em;
+}
+
+nav li a {
+    color: #999;
+}
+
+.banner {
+    background: url('../img/banner.jpg');
+    height: 450px;
+    margin-bottom: 4.8em;
+    position: relative;
+}
+
+.caixa {
+    position: absolute;
+    top: 48px;
+    background: rgba(0, 0, 0, 0.6);
+    width: 42.55%;
+    padding: 2.4em 1.0em 2.4em 4.0em;
+    display: center;
+}
+
+h1 {
+    font-size: 4.0em;
+    color: white;
+    font-weight: 200;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.destaque {
+    font-size: 1.8em;
+    color: white;
+    font-weight: 200;
+}
+
+.coluna {
+    width: 23.40%;
+    float: left;
+    margin-right: 2.13%;
+}
+
+.coluna:last-child {
+    margin-right: 0;
+}
+
+.coluna p {
+    text-align: justify;
+    font-size: 1.6em;
+}
+
+h2 {
+    font-size: 2.4em;
+}
+
+footer {
+    width: 100%;
+    margin-top: 2.4em;
+    margin-bottom: 2.4em;
+}
+
+.footer {
+    font-size: 1.0em;
+    margin-bottom: 0;
+}
+
+
+/*Media queries*/
+
+@media screen and (max-width:1128px) {
+    .container {
+        padding: 0 2.4em 0 2.4em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .caixa {
+        width: 65%;
+    }
+    .coluna {
+        width: 48%;
+        margin-bottom: 2.4em;
+        margin-right: 2%;
+    }
+    .coluna:nth-child(even) {
+        margin-right: 0;
+    }
+    .Logo {
+        width: 22%;
+        margin-top: 1.2em;
+    }
+}
+
+@media screen and (max-width:718px) {
+    .banner {
+        position: relative;
+        float: left;
+        margin: 0;
+        height: 150px;
+    }
+    .caixa {
+        position: relative;
+        display: block;
+        background: black;
+        width: 100%;
+        float: left;
+        margin-top: 100px;
+    }
+    h1 {
+        font-size: 2.5em;
+    }
+    nav {
+        width: 70%;
+    }
+    section {
+        margin-top: 450px;
+    }
+}
+
+@media screen and (max-width:640px) {
+    nav {
+        width: 100%;
+    }
+    nav ul {
+        float: left;
+        font-size: 0.8em;
+    }
+    nav li:first-child {
+        margin: left 0;
+    }
+}
+
+@media screen and (max-width:520px) {
+    .coluna {
+        width: 100%;
+        margin-right: 0;
+    }
+    .banner {
+        height: 120px;
+    }
+    .caixa {
+        position: relative;
+        display: block;
+        background: black;
+        width: 100%;
+        float: right;
+        margin-top: 80px;
+    }
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
