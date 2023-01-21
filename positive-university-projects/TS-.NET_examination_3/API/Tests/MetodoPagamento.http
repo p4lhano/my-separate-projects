@@ -1,0 +1,13 @@
+###
+POST https://localhost:5001/api/meiopagamento/create
+Content-Type: application/json
+
+{
+  "usuarioId": 1,
+  "nome": "Cartão da Mãe",
+  "NumeroCartao": "5165156156",
+  "meioPagamentoEscolhido": 0
+}
+
+###
+GET https://localhost:5001/api/meiopagamento/list
