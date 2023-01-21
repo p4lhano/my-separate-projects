@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PokemonDetailActivity">
+
+    <ImageView
+        android:id="@+id/image_pokemon"
+        android:layout_width="251dp"
+        android:layout_height="122dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.597"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/text_view_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="text_view_name"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_pokemon" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_view_typesy_pokemon"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:background="#65FF5722"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_name">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_view_habilty_pokemon"
+        android:layout_width="377dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycle_view_typesy_pokemon" />
+
+    <ListView
+        android:id="@+id/list_view_moves_pokemon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="-64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycle_view_stats_pokemon" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="34dp"
+        android:layout_height="18dp"
+        android:autoSizeTextType="uniform"
+        android:rotation="-90"
+        android:text="Types"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/recycle_view_typesy_pokemon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recycle_view_typesy_pokemon" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="62dp"
+        android:layout_height="15dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="-16dp"
+        android:autoSizeTextType="uniform"
+        android:gravity="center"
+        android:rotation="-90"
+        android:text="Habilitys"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/recycle_view_habilty_pokemon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recycle_view_habilty_pokemon" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="62dp"
+        android:layout_height="15dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="-16dp"
+        android:autoSizeTextType="uniform"
+        android:gravity="center"
+        android:rotation="-90"
+        android:text="Stats"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/recycle_view_stats_pokemon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recycle_view_stats_pokemon"
+        app:layout_constraintVertical_bias="0.56" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_view_stats_pokemon"
+        android:layout_width="374dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:background="#F3FAB1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycle_view_habilty_pokemon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

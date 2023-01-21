@@ -1,0 +1,5 @@
+$ stat /dev/kvm 
+$ sudo chmod 777 /dev/kvm
+
+
+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
