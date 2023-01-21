@@ -1,0 +1,14 @@
+###
+POST https://localhost:5001/filme/create
+Content-Type: application/json
+
+{
+  "nome": "Nome Filme 2",
+  "descricao": "Descrição oficial do filme",
+  "nota": 10,
+  "diretor": "Amado Batista"
+}
+
+### Listar
+GET https://localhost:5001/filme/list
+

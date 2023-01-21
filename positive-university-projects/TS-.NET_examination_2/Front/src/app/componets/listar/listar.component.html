@@ -1,0 +1,18 @@
+<h1>Filmes</h1>
+
+<p>
+<span routerLink="/filme/all">Listar         </span><span routerLink="/filme/new">       Cadastrar</span>
+</p>
+
+<h3>Listagem</h3>
+
+
+<ul>
+    <li *ngFor="let f of filmes">
+       ID: {{ f.id }}
+       Nome: {{ f.nome }}
+       Descrição: {{ f.descricao }}
+       Diretor: {{ f.diretor }}
+       Nota: {{ f.nota }}
+    </li>
+</ul>
