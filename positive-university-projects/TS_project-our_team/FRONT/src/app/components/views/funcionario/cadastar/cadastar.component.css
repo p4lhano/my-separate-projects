@@ -1,0 +1,32 @@
+mat-card-content {
+  padding: 16px;
+}
+
+.data {
+  width: 50%;
+  display: block;
+}
+.card {
+  width: 100%;
+}
+
+mat-grid-tile {
+  width: 100%;
+}
+
+.funcionario {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+
+.funcionario {
+  flex: 1;
+  margin-right: 8px;
+}
+
+.conteudo-funcionario {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}

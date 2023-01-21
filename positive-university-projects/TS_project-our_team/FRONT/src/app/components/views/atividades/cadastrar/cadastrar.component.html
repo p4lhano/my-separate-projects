@@ -1,0 +1,88 @@
+<mat-card>
+    <mat-card-title> Novo Ciclo de pagamento </mat-card-title>
+    <mat-card-content>
+  
+      <div class="atividade">
+        <div class="infos">
+          <mat-card>
+            <mat-card-title> Infos gerais </mat-card-title>
+            <mat-card-content>
+              <div class="conteudo-infos">
+                <mat-form-field class="data">
+                <mat-label for="data">Titulo</mat-label>
+                  <input matInput placeholder="Atividade" type="text" name="data" [(ngModel)]="titulo" />
+                </mat-form-field>
+                <mat-form-field class="data">
+                    <mat-label for="data">Data inicio</mat-label>
+                    <input matInput placeholder="Digite a data de inicio da Atividade" type="date" name="data" [(ngModel)]="iniciadaEm" />
+                </mat-form-field>
+                <mat-form-field class="data">
+                    <mat-label for="data">Data final</mat-label>
+                    <input matInput placeholder="Digite a data final da Atividade" type="date" name="data" [(ngModel)]="dataFinal" />
+                </mat-form-field>
+                <mat-form-field class="data">
+                <mat-label for="data">Nome Criador</mat-label>
+                  <input matInput placeholder="Atividade" type="text" name="data" [(ngModel)]="criador" />
+                </mat-form-field>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="funcionarios">
+          <mat-card>
+            <mat-card-title> Adicionar Funcionarios </mat-card-title>
+            <mat-card-content>
+              <div class="conteudo-funcionarios">
+                <table mat-table [dataSource]="funcionarios" class="mat-elevation-z8">
+    
+                  <ng-container matColumnDef="nome">
+                    <th mat-header-cell *matHeaderCellDef> Nome </th>
+                    <td mat-cell *matCellDef="let funcionario"> {{ funcionario.nome }} </td>
+                  </ng-container>
+                  
+                  <ng-container matColumnDef="cpf">
+                    <th mat-header-cell *matHeaderCellDef> CPF </th>
+                    <td mat-cell *matCellDef="let funcionario"> {{ funcionario.cpf }} </td>
+                  </ng-container>
+              
+                  <ng-container matColumnDef="status">
+                      <th mat-header-cell *matHeaderCellDef> Status </th>
+                      <td mat-cell *matCellDef="let funcionario"> {{ funcionario.status }} </td>
+                  </ng-container>
+
+                  
+<!--                  <ng-container matColumnDef="adicionar">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let funcionario"><button mat-raised-button color="warn" (click)="adicionar(funcionario.id, funcionario.nome, funcionario.cpf, funcionario.status)">Adicionar</button></td>
+                  </ng-container> -->
+
+                  <tr mat-header-row *matHeaderRowDef="colunasFuncionario"></tr>
+                  <tr mat-row *matRowDef="let row; columns: colunasFuncionario;"></tr>
+              </table>
+              </div>
+              <table mat-table [dataSource]="funcionariosAdicionados" class="mat-elevation-z8">
+                <ng-container matColumnDef="nome">
+                    <th mat-header-cell *matHeaderCellDef>Nome</th>
+                    <td mat-cell *matCellDef="let funcionario">{{ funcionario.nome }}</td>
+                  </ng-container>
+                  <ng-container matColumnDef="cpf">
+                    <th mat-header-cell *matHeaderCellDef>CPF</th>
+                    <td mat-cell *matCellDef="let funcionario">{{ funcionario.cpf }}</td>
+                  </ng-container>
+                  <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef>Status</th>
+                    <td mat-cell *matCellDef="let funcionario">{{ funcionario.status }}</td>
+                  </ng-container>
+                <tr mat-header-row *matHeaderRowDef="colunasFuncionario"></tr>
+                <tr mat-row *matRowDef="let row; columns: colunasFuncionario"></tr>
+              </table>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+  
+      <mat-card-actions>
+        <button mat-raised-button color="warn" (click)="cadastrar()">Cadastrar</button>
+        <a mat-stroked-button routerLink=""> Listar Atividades </a>
+      </mat-card-actions>
+    </mat-card-content>

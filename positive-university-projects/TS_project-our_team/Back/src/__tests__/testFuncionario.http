@@ -1,0 +1,43 @@
+
+GET http://localhost:3000/funcionario/listar
+
+
+
+###Cadastrar
+POST http://localhost:3000/cadastrar/funcionario
+Content-Type: application/json
+
+{
+    "status": "ativo",
+    "nome": "Cesar",
+    "cpf": "1235",
+    "cargo": "ASSISTENTE",
+    "salario": 3000,
+    "setor": "Caixa",
+    "cnh": "51651",
+    "dataNascimento": "2000-05-28"
+}
+
+###Remover pelo Id
+DELETE http://localhost:3000/funcionario/remover/60aad41a09e98415d03f9962
+
+
+###Buscar pelo Id
+GET http://localhost:3000/buscar/funcionario/id/608dd9845e1aef3468f47db9
+
+
+###Buscar nome
+GET http://localhost:3000/buscar/funcionario/Ana
+
+###Update
+PUT http://localhost:3000/funcionario/alterar
+Content-Type: application/json
+
+{
+	"id": "60aad4e26ef7043098cc113d",
+	"alterar": {
+		"cargo": "PRESIDENTE",
+        "salario": 60000
+	}
+}
+

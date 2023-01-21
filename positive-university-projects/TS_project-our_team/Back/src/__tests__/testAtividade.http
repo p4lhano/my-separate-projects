@@ -1,0 +1,39 @@
+POST  http://localhost:3000/ativiade/cadastrar
+Content-Type: application/json
+
+{
+    "titulo": "Propaganda2",
+    "tempoProducao": 12,
+    "criador": "Carlos"
+}
+
+###
+
+GET http://localhost:3000/atividade/procurarPorTitulo/Propaganda2
+###
+
+GET http://localhost:3000/atividade/procurarPorCriador/Carlos
+###
+
+PUT http://localhost:3000/atividade/alterar
+Content-Type: application/json
+
+{
+    "titulo": "Arte final",
+    "tempoProducao": 30,
+    "criador": "Ana"
+}
+
+###
+
+DELETE http://localhost:3000/atividade/deletar/Arte_final
+###
+
+PUT http://localhost:3000/atividade/cadastrarFuncionario
+Content-Type: application/json
+
+{
+    "titulo": "Propaganda2",
+    "cpf": "999999.9"
+}
+###

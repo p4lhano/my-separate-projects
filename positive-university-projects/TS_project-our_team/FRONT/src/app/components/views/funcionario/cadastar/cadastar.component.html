@@ -1,0 +1,66 @@
+<mat-card>
+    <mat-card-title> Novo Ciclo de pagamento </mat-card-title>
+    <mat-card-content>
+  
+      <div class="funcionario">
+        <div class="funcionario">
+          <mat-card>
+            <mat-card-title> Infos gerais </mat-card-title>
+            <mat-card-content>
+              <div class="conteudo-funcionario">
+
+                <mat-form-field class="data">
+                <mat-label for="data">Nome</mat-label>
+                  <input matInput placeholder="Nome" type="text" name="data" [(ngModel)]="nome" />
+                </mat-form-field>
+
+                <mat-form-field class="mes">
+                    <mat-label for="data">Data de nascimento</mat-label>
+                    <input matInput placeholder="Digite sua data de nascimento" type="date" name="data" [(ngModel)]="dataNascimento" />
+                </mat-form-field>
+
+                <mat-form-field class="data">
+                <mat-label for="data">CPF</mat-label>
+                  <input matInput placeholder="11111111111" type="text" name="data" [(ngModel)]="cpf" />
+                </mat-form-field>
+
+                <mat-form-field class="data">
+                    <mat-label for="data">Salario</mat-label>
+                    <input matInput placeholder="Salario minomo de 500 reais" type="number" name="data" [(ngModel)]="salario" />
+                </mat-form-field>
+
+                <mat-form-field class="data">
+                    <mat-label for="data">Setor</mat-label>
+                    <input matInput placeholder="Nome do setor" type="text" name="data" [(ngModel)]="setor" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Cargo</mat-label>
+                    <select matNativeControl [(ngModel)]="cargo">
+                      <option value="ASSISTENTE">ASSISTENTE</option>
+                      <option value="ANALISTA">ANALISTA</option>
+                      <option value="SUPERVISOR">SUPERVISOR</option>
+                      <option value="GERENTE">GERENTE</option>
+                      <option value="DIRETOR">DIRETOR</option>
+                      <option value="PRESIDENTE">PRESIDENTE</option>
+                    </select>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Status</mat-label>
+                    <select matNativeControl [(ngModel)]="status">
+                      <option value="ativo">ativo</option>
+                      <option value="inativo">inativo</option>
+                    </select>
+                </mat-form-field>
+
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+  
+      <mat-card-actions>
+        <button mat-raised-button color="warn" (click)="cadastrar()">Cadastrar</button>
+      </mat-card-actions>
+    </mat-card-content>

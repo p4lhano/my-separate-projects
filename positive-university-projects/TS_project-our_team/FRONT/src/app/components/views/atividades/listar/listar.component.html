@@ -1,0 +1,20 @@
+<table mat-table [dataSource]="atividades" class="mat-elevation-z8">
+    
+    <ng-container matColumnDef="titulo">
+      <th mat-header-cell *matHeaderCellDef> Titulo </th>
+      <td mat-cell *matCellDef="let atividade"> {{atividade.titulo}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="iniciadaEm">
+      <th mat-header-cell *matHeaderCellDef> Data de inicio </th>
+      <td mat-cell *matCellDef="let atividade"> {{ atividade.iniciadaEm | date: "dd/MM/yyyy" }} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="dataFinal">
+      <th mat-header-cell *matHeaderCellDef> Data do termino </th>
+      <td mat-cell *matCellDef="let atividade"> {{ atividade.dataFinal | date: "dd/MM/yyyy" }} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="atividadeColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: atividadeColumns;"></tr>
+</table>
