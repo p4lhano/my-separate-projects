@@ -1,0 +1,41 @@
+<mat-card>
+    <mat-card-title> Novo Computador </mat-card-title>
+    <mat-card-content>
+  
+      <div class="computador">
+        <div class="computador">
+          <mat-card>
+            <mat-card-content>
+              <div class="conteudo-computador">
+
+                <mat-form-field class="data">
+                <mat-label for="dono">dono </mat-label>
+                  <input matInput placeholder="dono" type="text" name="dono" [(ngModel)]="dono" />
+                </mat-form-field>
+
+                <mat-form-field class="placamae">
+                    <mat-label for="placamae">placamae</mat-label>
+                    <input matInput type="text" name="placamae" [(ngModel)]="placamae" />
+                </mat-form-field>
+                <mat-form-field class="processador">
+                    <mat-label for="processador">processador</mat-label>
+                    <input matInput type="text" name="processador" [(ngModel)]="processador" />
+                </mat-form-field>
+                <mat-form-field class="armazenamento">
+                    <mat-label for="armazenamento">armazenamento</mat-label>
+                    <input matInput type="text" name="armazenamento" [(ngModel)]="armazenamento" />
+                </mat-form-field>
+                <mat-form-field class="memoria">
+                    <mat-label for="memoria">memoria</mat-label>
+                    <input matInput type="number" name="memoria" [(ngModel)]="memoria" />
+                </mat-form-field>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+  
+      <mat-card-actions>
+        <button mat-raised-button color="warn" (click)="cadastrar()">Cadastrar</button>
+      </mat-card-actions>
+    </mat-card-content>
