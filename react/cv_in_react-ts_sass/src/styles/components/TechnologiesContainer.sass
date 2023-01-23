@@ -1,0 +1,28 @@
+@use '../variables'
+@use '../minxis'
+
+#technologies-container
+    margin-bottom: 1rem
+
+    p
+        margin-bottom: 0
+
+    #technologies-grid
+        display: flex
+        flex-wrap: wrap
+        gap: 1.5rem
+
+        .technologies-card
+            @include minxis.center-flex
+            gap: 1.5rem
+            padding: 0.3rem 1rem
+            border: 1px solid #333
+            width: 45%
+            border-radius: variables.$card-border-radius
+
+            h3
+                color: variables.$text-color
+                text-transform: uppercase
+            svg
+                font-size: 6rem
+                line-height: 1rem
