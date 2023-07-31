@@ -2,19 +2,13 @@ package dev.palhano.spring_batch;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
-import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
-import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
-import org.springframework.batch.core.scope.context.ChunkContext;
-import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.function.FunctionItemProcessor;
 import org.springframework.batch.item.support.IteratorItemReader;
-import org.springframework.batch.repeat.RepeatStatus;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -32,31 +26,6 @@ public class BatchConfig {
         this.jobBuilderFactory = jobBuilderFactory;
         this.stepBuilderFactory = stepBuilderFactory;
     }
-
-    @Bean
-    public Job printHelloWord () {
-        return jobBuilderFactory
-                .get("printHelloWord")
-                .start(printHelloWordStep())
-                .incrementer(new RunIdIncrementer())
-                .build();
-    }
-
-    private Step printHelloWordStep() {
-        return stepBuilderFactory
-                .get("printHelloWordStep")// tasklet = tarefas simples 1 comando limpeza // chunck processamento complexo em pedeco  reader -> processor -> writer
-                .tasklet(printHellowWordTasklet(null)).build();
-    }
-    @StepScope @Bean
-    public Tasklet printHellowWordTasklet(@Value("#{jobParameters['nome']}") String param) {
-        return new Tasklet() {
-            @Override
-            public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
-                System.out.printf("Ola mundo, %s%n",param);
-                return RepeatStatus.FINISHED;
-            }
-        };
-    }
     @Bean
     public Job printParImparJob () {
         return jobBuilderFactory
@@ -72,9 +41,9 @@ public class BatchConfig {
                 .<Integer, String>chunk(15)// nao entendi esse chanck size
                 // quant de transaçoes que serao podem ficar aber, 1 nessa caso significa que para cada registro sera abertos 1 transacao
                 // quando mais o valor, menos transacoes serao abertas, mas o custo sera maior em memoria do processador
-                .reader(countOfThenReader())
-                .processor(countOfThenProcessor())
-                .writer(countOfThenWriter())
+                .reader(countOfThenReader())// obrigatorio informar em chunk
+                .processor(countOfThenProcessor())// opcional informar em chunk
+                .writer(countOfThenWriter())// obrigatorio informar em chunk
                 .build();
     }
     // Processo de chunk 1 - Reader vai atras dos itens que devem ser processados
