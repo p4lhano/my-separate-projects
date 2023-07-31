@@ -10,13 +10,10 @@ import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
-import org.springframework.batch.item.ItemProcessor;
-import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.function.FunctionItemProcessor;
 import org.springframework.batch.item.support.IteratorItemReader;
 import org.springframework.batch.repeat.RepeatStatus;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,10 +25,14 @@ import java.util.function.Function;
 @EnableBatchProcessing
 @Configuration
 public class BatchConfig {
-    @Autowired
-    private JobBuilderFactory jobBuilderFactory;
-    @Autowired
-    private StepBuilderFactory stepBuilderFactory;
+    private final JobBuilderFactory jobBuilderFactory;
+    private final StepBuilderFactory stepBuilderFactory;
+
+    public BatchConfig(JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
+        this.jobBuilderFactory = jobBuilderFactory;
+        this.stepBuilderFactory = stepBuilderFactory;
+    }
+
     @Bean
     public Job printHelloWord () {
         return jobBuilderFactory
@@ -51,7 +52,7 @@ public class BatchConfig {
         return new Tasklet() {
             @Override
             public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
-                System.out.println(String.format("Ola mundo, %s",param));
+                System.out.printf("Ola mundo, %s%n",param);
                 return RepeatStatus.FINISHED;
             }
         };
@@ -68,12 +69,15 @@ public class BatchConfig {
     private Step printParImparJobStep() {
         return stepBuilderFactory
                 .get("printParImparJobStep")
-                .<Integer, String>chunk(1)
+                .<Integer, String>chunk(15)// nao entendi esse chanck size
+                // quant de transaçoes que serao podem ficar aber, 1 nessa caso significa que para cada registro sera abertos 1 transacao
+                // quando mais o valor, menos transacoes serao abertas, mas o custo sera maior em memoria do processador
                 .reader(countOfThenReader())
                 .processor(countOfThenProcessor())
                 .writer(countOfThenWriter())
                 .build();
     }
+    // Processo de chunk 1 - Reader vai atras dos itens que devem ser processados
     // Por padrão nesssário retornar uma implentação da interface ItemReader<T>, nesse caso pode ser retornado a
     // implementação própria do spring IteratorItemReader<T>. Lembrando que o <T> é o mesmo tipo do chuck reader,
     // declarado anteriormente
@@ -81,6 +85,7 @@ public class BatchConfig {
         List<Integer> numbers = Arrays.asList(0,1,2,3,4,5,6,7,8,9);
         return new IteratorItemReader<>(numbers.iterator());
     }
+    // Processo de chunk 2 - Processor recebe cada item separador do Reader, via Iterator, e faz o processamento individual
     // Interface padrão que um processor deve retornar ItemProcessor<? super T_reader, T_write>
     private FunctionItemProcessor<Integer, String> countOfThenProcessor() {
         return new FunctionItemProcessor<>(new Function<Integer, String>() {
@@ -90,9 +95,14 @@ public class BatchConfig {
             }
         });
     }
-
-    private ItemWriter<? super String> countOfThenWriter() {
-        return null;
+    // Processo de chunk 3 - Writer recebe a colecao ja processada que foi realizada no processor
+    private ItemWriter<String> countOfThenWriter() {
+        return new ItemWriter<String>() {
+            @Override
+            public void write(List<? extends String> list) throws Exception {
+                list.forEach(System.out::println);
+            }
+        };
     }
 
 }
