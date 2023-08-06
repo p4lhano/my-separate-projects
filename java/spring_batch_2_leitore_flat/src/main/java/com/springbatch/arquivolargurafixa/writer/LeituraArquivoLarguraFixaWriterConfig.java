@@ -9,7 +9,7 @@ import com.springbatch.arquivolargurafixa.dominio.Cliente;
 @Configuration
 public class LeituraArquivoLarguraFixaWriterConfig {
 	@Bean
-	public ItemWriter<Cliente> leituraArquivoLarguraFixaWriter() {
+	public ItemWriter leituraArquivoLarguraFixaWriter() {
 		return items -> items.forEach(System.out::println);
 	}
 }
