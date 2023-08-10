@@ -1,0 +1,9 @@
+0,Vitor,Palhano,21,vitor@test.com
+1,t1c1,Cadeado,50.80
+1,t2c1,TV,1500
+0,Roberta,Silva,30,maria@test.com
+1,t1c2,Geladeira duplex,2000
+1,t2c2,Mesa,4500
+1,t3c2,Sofá,1099,99      
+0,Lorival,Silva,20,jose@test.com
+1,t1c3,Comida no Ifood,500.45

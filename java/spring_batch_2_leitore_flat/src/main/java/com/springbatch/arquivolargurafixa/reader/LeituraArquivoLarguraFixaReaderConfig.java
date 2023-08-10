@@ -4,8 +4,9 @@ import com.springbatch.arquivolargurafixa.dominio.Cliente;
 import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.LineMapper;
+import org.springframework.batch.item.file.MultiResourceItemReader;
 import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder;
-import org.springframework.batch.item.file.transform.Range;
+import org.springframework.batch.item.file.builder.MultiResourceItemReaderBuilder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -40,7 +41,7 @@ public class LeituraArquivoLarguraFixaReaderConfig {
 //				.build();
 //	}
 	@Bean @StepScope
-	public FlatFileItemReader leituraArquivoMultiplosFormatosReader(
+	public FlatFileItemReader leitorArquivosMultiplosFormatosReader(
 			@Value("#{jobParameters['arquivoClientes']}") Resource arquivoClientes,
 			LineMapper lineMapper) {
 		// leitor de arquivo de com delimitador ','.
@@ -48,6 +49,17 @@ public class LeituraArquivoLarguraFixaReaderConfig {
 				.name("leituraArquivoMultiplosFormatosReader")
 				.resource(arquivoClientes)
 				.lineMapper(lineMapper)
+				.build();
+	}
+	@Bean @StepScope
+	public MultiResourceItemReader leiturasArquivosMultiplosFormatosReader(
+			@Value("#{jobParameters['arquivoClientes']}") Resource arquivoClientes,
+			FlatFileItemReader leitorArquivosMultiplosFormatosReader) {
+		// leitor de arquivo de com delimitador ','.
+		return new MultiResourceItemReaderBuilder<>()
+				.name("leiturasArquivosMultiplosFormatosReader")
+				.resources(arquivoClientes)
+				.delegate(new ArquivoClienteTransacaoReader(leitorArquivosMultiplosFormatosReader))
 				.build();
 	}
 }
