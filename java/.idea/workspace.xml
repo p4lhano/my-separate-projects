@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="59a0cad9-425d-4329-bc9c-2e6ad001f102" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/spring_batch/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring_batch/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring_batch/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring_batch/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring_batch/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring_batch/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring_batch/src/main/java/dev/palhano/spring_batch/BatchConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring_batch/src/main/java/dev/palhano/spring_batch/SpringBatchApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring_batch/src/main/java/dev/palhano/spring_batch/config/DataSourceConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring_batch/src/main/java/dev/palhano/spring_batch/config/PropsConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring_batch/src/main/java/dev/palhano/spring_batch/printHelloWordJob/PrintHelloWordConfigJob.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring_batch/src/main/java/dev/palhano/spring_batch/printHelloWordJob/step/PrintHelloWordConfigStep.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring_batch/src/main/java/dev/palhano/spring_batch/printHelloWordJob/taskets/PrintHelloWordConfigTasklet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring_batch/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring_batch/src/test/java/dev/palhano/spring_batch/SpringBatchApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2TaJ5LLB9HGSukvyLQH1l7D77mV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/vitor/Dev/my-separate-projects/java/spring_batch_2_leitore_flat",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="59a0cad9-425d-4329-bc9c-2e6ad001f102" name="Changes" comment="" />
+      <created>1691275075392</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1691275075392</updated>
+      <workItem from="1691275076115" duration="30000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
